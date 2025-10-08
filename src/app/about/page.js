@@ -1,4 +1,5 @@
-import About from "./about";
+import About from "./About";
+
 
 // Generate metadata for SEO
 export async function generateMetadata() {
