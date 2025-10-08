@@ -1,5 +1,6 @@
 import axios from "axios";
-import Partners from "../Partners/Partners";
+import Partners from "./Partners";
+
 
 export const revalidate = 60;
 
