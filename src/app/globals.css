@@ -1,26 +1,50 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --background: #ffffff;
+  --foreground: #171717; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    @apply bg-blue-100/30
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  sans-serif ; 
+}
+
+/* Ensure no unexpected gap below the footer */
+html, body { height: 100%; margin: 0; }
+
+/* Visually hidden Next.js route announcer should not take layout space */
+#next-route-announcer,
+#__nextRouteAnnouncer__ {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.active{
+  @apply font-semibold transition-all duration-500 text-blue-500 
+}
+
+.linkStyle:hover{
+  @apply font-semibold transition-all duration-500 text-blue-500  
+}
+.row{
+  @apply py-6 px-4  flex flex-wrap items-center
 }
