@@ -63,7 +63,7 @@ export default function Manager() {
 
             <div className="z-20 flex justify-center items-center gap-5 p-10" >
               <span  className="animate-pulse	 z-20 text-green-800 text-xl 4k:text-3xl font-semibold text-shadow-xl">يمكنك الاطلاع على فريقنا من هنا<span className="mx-2"><i className="fa-solid fa-arrow-left"></i></span></span>
-              <Link className="z-20" href={'team'} >
+              <Link className="z-20" href={'/ourTeam'} >
               <button  className=" my-2 px-7 z-20 py-2 4k:px-12 4k:mx-4 text-shadow-xl hover:text-shadow-md overflow-hidden border-2 border-blue-900 transition-all duration-700 hover:border-green-700 text-xl 4k:text-3xl font-semibold text-blue-800 hover:text-green-500 bg-slate-100 hover:bg-opacity-70 bg-opacity-10 rounded-2xl">
                   فريقنا
                 </button>
@@ -121,7 +121,7 @@ export default function Manager() {
 
             <div className="z-20 flex justify-center items-center gap-5 p-10" >
               <span  className="animate-pulse	 z-20 text-green-800 text-xl 4k:text-3xl font-semibold text-shadow-xl">View our team here<span className="mx-2"><i className="fa-solid fa-arrow-right"></i></span></span>
-              <Link className="z-20" href={'team'} >
+              <Link className="z-20" href={'/ourTeam'} >
               <button  className=" my-2 px-7 z-20 py-2 4k:px-12 4k:mx-4 text-shadow-xl hover:text-shadow-md overflow-hidden border-2 border-blue-900 transition-all duration-700 hover:border-green-700 text-xl 4k:text-3xl font-semibold text-blue-800 hover:text-green-500 bg-slate-100 hover:bg-opacity-70 bg-opacity-10 rounded-2xl">
                   Our Team
                 </button>
