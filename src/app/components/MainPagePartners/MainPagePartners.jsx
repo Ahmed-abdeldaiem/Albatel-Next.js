@@ -16,12 +16,33 @@ export default function MainPagePartners() {
   const [partners, setPartners] = useState([]);
   const [Loading, setLoading] = useState(false);
   const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
+  
+  // حساب عدد الصور حسب عرض الشاشة
+  const [slidesToShow, setSlidesToShow] = useState(6);
   useEffect(() => {
     AOS.init({
       duration: 900,
       once: false,
       easing: 'ease-in-out'
     });
+  }, []);
+
+  // تحديث عدد الصور حسب عرض الشاشة
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      const width = window.innerWidth;
+      
+      if (width < 480) setSlidesToShow(2);
+      else if (width < 640) setSlidesToShow(2);
+      else if (width < 768) setSlidesToShow(2);
+      else if (width < 1024) setSlidesToShow(4);
+      else if (width < 1440) setSlidesToShow(5);
+      else setSlidesToShow(6);
+    };
+
+    updateSlidesToShow();
+    window.addEventListener('resize', updateSlidesToShow);
+    return () => window.removeEventListener('resize', updateSlidesToShow);
   }, []);
   async function getPartnersData() {
     setLoading(true);
@@ -48,55 +69,18 @@ export default function MainPagePartners() {
  
    // Settings for first slider (right to left)
    const settingsFirstRow = {
-    dots: false,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 6, 
-    slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    pauseOnHover: false,
-    rtl: false, 
-    responsive: [
-      {
-        breakpoint: 2560,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+     dots: false,
+     infinite: true,
+     speed: 2000,
+     slidesToShow: slidesToShow, // استخدام القيمة المحسوبة
+     slidesToScroll: 1,
+     initialSlide: 0,
+     autoplay: true,
+     autoplaySpeed: 2000,
+     cssEase: "linear",
+     pauseOnHover: false,
+     rtl: false,
+   };
 
   // Settings for second slider (left to right)
   const settingsSecondRow = {
