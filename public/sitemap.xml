@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://albatelcpa.com/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/" />
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://albatelcpa.com/about</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/about" />
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://albatelcpa.com/services</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/services" />
+  </url>
+  
+  <!-- Our Team Page -->
+  <url>
+    <loc>https://albatelcpa.com/ourTeam</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/ourTeam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/ourTeam" />
+  </url>
+  
+  <!-- Partners Page -->
+  <url>
+    <loc>https://albatelcpa.com/partners</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/partners" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/partners" />
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://albatelcpa.com/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/contact" />
+  </url>
+  
+  <!-- RFP Page -->
+  <url>
+    <loc>https://albatelcpa.com/rfp</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/rfp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/rfp" />
+  </url>
+  
+  <!-- Careers Page -->
+  <url>
+    <loc>https://albatelcpa.com/careers</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/careers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/careers" />
+  </url>
+  
+  <!-- Profile Video Page -->
+  <url>
+    <loc>https://albatelcpa.com/profileVedio</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://albatelcpa.com/profileVedio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://albatelcpa.com/profileVedio" />
+  </url>
+  
+</urlset>

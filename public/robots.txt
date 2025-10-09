@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Block query parameters that might cause duplicate content
+Disallow: /*?a=
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important files
+Allow: /favicon.ico
+Allow: /favicon/
+Allow: /BatelLogo1.png
+Allow: /BatelWhiteLogo.png
+
+# Sitemap location
+Sitemap: https://albatelcpa.com/sitemap.xml
