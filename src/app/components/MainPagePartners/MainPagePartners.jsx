@@ -61,35 +61,21 @@ export default function MainPagePartners() {
     
     responsive: [
       {
-        breakpoint: 2560,
+        breakpoint: 1024, // Large screens (lg and above)
         settings: {
           slidesToShow: 6,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1024,
+        breakpoint: 768, // Medium screens (md)
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
+        breakpoint: 640, // Mobile screens (sm and below)
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,

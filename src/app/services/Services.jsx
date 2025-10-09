@@ -255,7 +255,7 @@ export default function Services({ services = [] }) {
                   تواصل معنا اليوم واحصل على استشارة متميزة من خبرائنا
                 </h3>
 
-                <div className="flex flex-col md:flex-row mb-10">
+                <div className="flex flex-col justify-center items-center md:flex-row mb-10">
                   <Link href="/contact">
                     <h3 className=" inline-block rounded-xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-1 my-3 border-white border text-center  text-gray-950 text-sm md:text-lg font-semibold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-40">
                       اطلب استشارتك الآن
@@ -529,7 +529,7 @@ export default function Services({ services = [] }) {
               Contact us today and get a distinguished consultation from our experts
               </h3>
 
-              <div className="flex flex-col md:flex-row mb-10">
+              <div className="flex flex-col justify-center items-center md:flex-row mb-10">
                 <Link href="/contact">
                   <h3 className=" inline-block rounded-xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-1 my-3 border-white border text-center  text-gray-950 text-sm md:text-lg font-semibold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-40">
                   Request your consultation now
