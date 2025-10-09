@@ -75,7 +75,14 @@ export default function MainPagePartners() {
         },
       },
       {
-        breakpoint: 640, // Mobile screens (sm and below)
+        breakpoint: 600, // Small screens
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // Mobile screens (sm and below)
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
