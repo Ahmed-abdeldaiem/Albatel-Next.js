@@ -358,7 +358,7 @@ export default function About() {
                       alt="international branches"
                       className="group-hover:scale-105 duration-700 transition-all"
                     />
-                    <p className="text-2xl text-green-800 text-shadow-green hover:text-shadow-blue group-hover:text-blue-700 transition-all duration-700 font-semibold">
+                    <p className="text-2xl text-green-800 text-center text-shadow-green hover:text-shadow-blue group-hover:text-blue-700 transition-all duration-700 font-semibold">
                       {branch.name.ar}
                     </p>
                   </div>
