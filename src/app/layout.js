@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import PDFModal from "./components/PDFModal/PDFModal";
 import VedioModal from "./components/VedioModal/VedioModal";
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -131,6 +131,7 @@ export default function RootLayout({ children }) {
          <NavBar />
          <main className="flex-1">
          {children}
+         <SpeedInsights />
          </main>
          <Footer />
          </TeamContextProvider>
