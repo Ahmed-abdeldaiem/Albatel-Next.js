@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import PDFModal from "./components/PDFModal/PDFModal";
 import VedioModal from "./components/VedioModal/VedioModal";
+import ImageProtection from "./components/ImageProtection/ImageProtection";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -124,6 +125,7 @@ export default function RootLayout({ children }) {
       >
       
          <LanguageContextProvider>
+         <ImageProtection />
          <PDFModal />
          <VedioModal />
          <PartnersContextProvider>
