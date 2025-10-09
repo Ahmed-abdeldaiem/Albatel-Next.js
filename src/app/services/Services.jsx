@@ -19,11 +19,20 @@ export default function Services({ services = [] }) {
   }, []);
   useEffect(() => {
     setMounted(true);
+    // Scroll to top when component mounts (when navigating from other pages)
+    window.scrollTo(0, 0);
   }, []);
   const handleScroll = () => {
     const section = document.getElementById("desc1");
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      // Scroll to the section with offset to account for navbar
+      const elementPosition = section.offsetTop;
+      const offsetPosition = elementPosition - 100; // 100px offset for navbar
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
@@ -106,7 +115,7 @@ export default function Services({ services = [] }) {
                 </div>
               </div>
             </div>
-            <div id="desc1"></div>
+            <div id="desc1" className="scroll-mt-20"></div>
             <div data-aos="fade-up" className="pt-16 md:px-28">
               <h2 className="text-xl lg:text-4xl text-shadow-blue 4k:text-5xl text-blue-900 text-center font-semibold py-4">
                 نقدم مجموعة شاملة من الخدمات المالية والمحاسبية
@@ -386,7 +395,7 @@ export default function Services({ services = [] }) {
               </div>
             </div>
           </div>
-          <div id="desc1"></div>
+          <div id="desc1" className="scroll-mt-20"></div>
           <div data-aos="fade-up" className="pt-16 md:px-28">
             <h2 className="text-xl lg:text-4xl text-shadow-blue 4k:text-5xl text-blue-900 text-center font-semibold py-4">
             We provide a comprehensive range of financial and accounting services
