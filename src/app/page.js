@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                   <Link
                     className={`${currentIndex === 2 ? "animate-moveIn2" : ""}`}
-                    href={"team"}
+                    href={"/ourTeam"}
                   >
                   <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
                       تعرف على فريقنا
@@ -503,7 +503,7 @@ export default function Home() {
                   </div>
                   <Link
                     className={`${currentIndex === 2 ? "animate-moveIn2" : ""}`}
-                    href={"team"}
+                    href={"/ourTeam"}
                   >
                  <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
                       Our Team

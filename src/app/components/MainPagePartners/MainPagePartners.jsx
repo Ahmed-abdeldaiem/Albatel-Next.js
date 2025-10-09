@@ -45,8 +45,9 @@ export default function MainPagePartners() {
     return partners.filter((_, index) => index % 2 === 1);
   }, [partners]);
 
-  // Settings for first slider (right to left)
-  const settingsFirstRow = {
+ 
+   // Settings for first slider (right to left)
+   const settingsFirstRow = {
     dots: false,
     infinite: true,
     speed: 2000,
@@ -57,32 +58,38 @@ export default function MainPagePartners() {
     autoplaySpeed: 2000,
     cssEase: "linear",
     pauseOnHover: false,
-    rtl: false, // Right to left movement
-    
+    rtl: false, 
     responsive: [
       {
-        breakpoint: 1024, // Large screens (lg and above)
+        breakpoint: 2560,
         settings: {
           slidesToShow: 6,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 768, // Medium screens (md)
+        breakpoint: 1700,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600, // Small screens
+        breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480, // Mobile screens (sm and below)
+        breakpoint: 480,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -103,7 +110,7 @@ export default function MainPagePartners() {
  
 
   const renderPartnerSlide = (partner, index) => (
-    <div key={index} className="px-3 w-full">
+    <div key={index} className="px-2">
       <div className="flex flex-col-reverse z-50 rounded-3xl overflow-hidden my-5 cursor-pointer group duration-700 transition-all w-full">
         <div className="flex h-[100px] items-center relative overflow-hidden justify-center text-center">
           <img

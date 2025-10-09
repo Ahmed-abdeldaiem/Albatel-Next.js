@@ -1,8 +1,16 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ImageProtection() {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     // Simple Image Protection - Lightweight approach
     const initImageProtection = () => {
       // Disable right-click context menu on images only
@@ -32,7 +40,9 @@ export default function ImageProtection() {
 
     // Initialize protection
     initImageProtection();
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   return null; // This component doesn't render anything
 }
