@@ -10,10 +10,28 @@ export default function NavBar() {
   const [openDropdownLanguage, setOpenDropdownLanguage] = useState(null); // Track which dropdown is open
   const [openDropdown2, setOpenDropdown2] = useState(false); // Track which dropdown is open
   const [currentLanguage, setCurrentLanguage] = useState("ar");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollPercentage = (scrollPosition / windowHeight) * 100;
+      
+      if (scrollPercentage >= 80) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const pathname = usePathname();
   const getLinkClass = (href) => {
@@ -92,7 +110,7 @@ export default function NavBar() {
       {dir == "rtl" ? (
         <>
    
-          <header className=" bg-gray-100 lg:bg-white lg:bg-opacity-70 bg-opacity-80  backdrop-blur-lg shadow-lg shadow-gray-500 fixed top-0 z-50 w-full">
+          <header className={`bg-gray-100 lg:bg-white lg:bg-opacity-70 bg-opacity-80 backdrop-blur-lg shadow-lg shadow-gray-500 fixed ${isScrolled ? 'top-0' : 'top-10'} z-40 w-full transition-all duration-500`}>
             <div className="mx-auto flex justify-center md:justify-evenly h-16 w-full items-center gap-4 lg:gap-8 px-4 sm:px-6 lg:px-8">
               <div className="flex w-full items-center justify-start gap-2 lg:gap-16 mx-8 lg:text-xl">
               <Link
@@ -433,7 +451,7 @@ export default function NavBar() {
           </header>
         </>
       ) : (
-        <header className=" lg:bg-white  lg:bg-opacity-70 bg-opacity-80 backdrop-blur-lg shadow-lg shadow-gray-500 fixed top-0 z-50 w-full">
+        <header className={`lg:bg-white lg:bg-opacity-70 bg-opacity-80 backdrop-blur-lg shadow-lg shadow-gray-500 fixed ${isScrolled ? 'top-0' : 'top-10'} z-40 w-full transition-all duration-500`}>
           <div className="mx-auto flex justify-center md:justify-evenly h-16 w-full items-center gap-4 lg:gap-8 px-4 sm:px-6 lg:px-8">
             <div className="flex w-full items-center justify-start gap-2 lg:gap-16 mx-8 lg:text-xl">
             <Link

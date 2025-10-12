@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link"; 
 import { useFormik } from 'formik';
 import { LanguageContext } from "../contexts/langContext";
-import { JobContext } from "../contexts/JobContex";
 
 
 import AOS from 'aos';

@@ -91,39 +91,66 @@ export default function Footer() {
                     >
                       تابعنا على
                     </h3>
-                    <div className="flex gap-4 ">
+                    <div   data-aos="fade-up" className="flex gap-1 ">
                       {/* linked in */}
                       <a
-                        href="https://www.linkedin.com/company/albatel-cpa/"
-                        data-aos="fade-up"
-                        className="z-20 my-3   "
+                        href="https://www.linkedin.com/company/albatel-cpa/posts/?feedView=all"
+                      
+                        className="z-20 my-3  group "
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-blue-500 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fa-brands  fa-linkedin-in cursor-pointer px-1 text-lg text-green-50 hover:text-blue-500 transition-all duration-500 text-shadow-xl"></i>
-                        </span>
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%209.png" alt="linkedin" />
                       </a>
                       {/* inestgram */}
                       <a
-                        href="https://www.instagram.com/albatelksa/"
-                        className="z-20 my-3"
-                        data-aos="fade-up"
+                        href="https://www.instagram.com/albatel_cpa/"
+                        className="z-20 my-3 group "
+                      
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-red-300 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fab fa-instagram cursor-pointer px-1 text-lg text-green-50 hover:text-red-300 transition-all duration-500 text-shadow-xl"></i>
-                        </span>
+                       
+                       <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%205.png" alt="instagram" />
                       </a>
                       {/* Twitter */}
                       <a
                         href="https://x.com/albatel_cpa"
-                        data-aos="fade-up"
-                        className="z-20 my-3"
+                        
+                        className="z-20 my-3 group "
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-gray-500 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fab fa-twitter cursor-pointer px-1 text-lg text-gray-50 hover:text-gray-500 transition-all duration-500 text-shadow-xl"></i>
-                        </span>
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%202.png" alt="twitter" />
+                      </a>
+                      {/* facebook */}
+                      <a
+                        href="https://www.facebook.com/profile.php?id=61582443590665"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%204.png" alt="facebook" />
+                      </a>
+                      {/* youtube */}
+                      <a
+                        href="https://www.youtube.com/@Albatel_CPA"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%207.png" alt="youtube" />
+                      </a>
+                      {/* tiktok */}
+                      <a
+                        href="https://www.tiktok.com/@albatel_cpa?_t=ZS-90UGIjq7hMf&_r=1"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%203.png" alt="tiktok" />
                       </a>
                     </div>
                   </div>
@@ -131,36 +158,37 @@ export default function Footer() {
 
                 {/* contact */}
                 <div className="w-full md:w-1/3">
-                  <div className="flex flex-col justify-center items-center p-3">
+                  <div  data-aos="fade-up" className="flex flex-col justify-center items-center p-3">
                     <h3
-                      data-aos="fade-up"
+                     
                       className="text-green-50 text-lg pb-3 hover:text-green-300 duration-500 transition-all cursor-pointer lg:text-xl text-shadow-xl hover:text-shadow-green"
                     >
                       تواصل معنا
                     </h3>
 
                     {/* email */}
-                    <a
-                      data-aos="fade-up"
+                    <a 
+              
                       href="mailto:albatelcpa@albatelcpa.com?subject=I Contact From Your Website&body=Hello%20team,"
-                      className="text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
+                      className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
-                      <i className="fa-solid fa-envelope px-1 hover:text-blue-300 duration-500 transition-all"></i>
+                    <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
                       <span className="text-blue-100 hover:text-blue-300 duration-500 transition-all">
                         albatelcpa@albatelcpa.com
                       </span>
                     </a>
 
                     {/* الهاتف */}
-                    <span
-                      data-aos="fade-up"
-                      className="text-green-600 text-lg z-20 my-3 cursor-pointer  hover:text-blue-300 duration-500 transition-all text-shadow-xl"
-                    >
-                      <i className="fa-solid fa-square-phone px-1  hover:text-blue-300 duration-500 transition-all "></i>
+                
+                <div className="flex items-center justify-center group gap-2">
+                <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatap" />
                       <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
                         966550554262+{" "}
                       </span>
-                    </span>
+                </div>
+                    
+                   
+                   
                   </div>
                 </div>
               </div>
@@ -172,11 +200,12 @@ export default function Footer() {
                 </span>
 
                 <span className="block text-xs z-40 cursor-pointer text-gray-400 sm:text-center text-shadow-xl ">
-                  <Link href="/TeamMember/42" className="px-1" target="_blank">
+                <Link href="/TeamMember/42" className="px-1" target="_blank">
                     <img
                       src="/BatelLogo1.png"
                       className="w-5 inline-block hover:rotate-[180deg] transition-all duration-700"
                       alt="Albatel Logo"
+                      style={{ pointerEvents: 'auto' }}
                     />
                   </Link>
                   <a
@@ -274,39 +303,66 @@ export default function Footer() {
                     >
                       Follow Us
                     </h3>
-                    <div className="flex gap-4">
+                    <div   data-aos="fade-up" className="flex gap-2 ">
                       {/* linked in */}
                       <a
-                        data-aos="fade-up"
-                        href="https://www.linkedin.com/company/albatel-cpa/"
-                        className="z-20 my-3 "
+                        href="https://www.linkedin.com/company/albatel-cpa/posts/?feedView=all"
+                      
+                        className="z-20 my-3  group "
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-blue-500 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fa-brands  fa-linkedin-in cursor-pointer px-1 text-lg text-green-50 hover:text-blue-500 transition-all duration-500 text-shadow-green"></i>
-                        </span>
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%209.png" alt="linkedin" />
                       </a>
                       {/* inestgram */}
                       <a
-                        data-aos="fade-up"
-                        href="https://www.instagram.com/albatelksa/"
-                        className="z-20 my-3"
+                        href="https://www.instagram.com/albatel_cpa/"
+                        className="z-20 my-3 group "
+                      
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-red-300 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fab fa-instagram cursor-pointer px-1 text-lg text-green-50 hover:text-red-300 transition-all duration-500 text-shadow-green"></i>
-                        </span>
+                       
+                       <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%205.png" alt="instagram" />
                       </a>
                       {/* Twitter */}
                       <a
-                        data-aos="fade-up"
                         href="https://x.com/albatel_cpa"
-                        className="z-20 my-3"
+                        
+                        className="z-20 my-3 group "
                         target={"_blank"}
                       >
-                        <span className=" border-green-600 border hover:border-gray-500 transition-all duration-500 rounded-full p-2 ">
-                          <i className="fab fa-twitter cursor-pointer px-1 text-lg text-gray-50 hover:text-gray-500 transition-all duration-500 text-shadow-green"></i>
-                        </span>
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%202.png" alt="twitter" />
+                      </a>
+                      {/* facebook */}
+                      <a
+                        href="https://www.facebook.com/profile.php?id=61582443590665"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%204.png" alt="facebook" />
+                      </a>
+                      {/* youtube */}
+                      <a
+                        href="https://www.youtube.com/@Albatel_CPA"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%207.png" alt="youtube" />
+                      </a>
+                      {/* tiktok */}
+                      <a
+                        href="https://www.tiktok.com/@albatel_cpa?_t=ZS-90UGIjq7hMf&_r=1"
+                        
+                        className="z-20 my-3 group "
+                        target={"_blank"}
+                      >
+                      
+                      <img className="w-[60%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%203.png" alt="tiktok" />
                       </a>
                     </div>
                   </div>
@@ -314,35 +370,36 @@ export default function Footer() {
 
                 {/* contact */}
                 <div className="w-full md:w-1/3">
-                  <div className="flex flex-col justify-center items-center p-3">
+                  <div data-aos="fade-up" className="flex flex-col justify-center items-center p-3">
                     <h3
-                      data-aos="fade-up"
+                      
                       className="text-green-50 text-lg pb-3 hover:text-green-300 duration-500 transition-all cursor-pointer lg:text-xl text-shadow-xl hover:text-shadow-green"
                     >
                       Contact On
                     </h3>
 
+                 
                     {/* email */}
-                    <a
-                      data-aos="fade-up"
-                      href="mailto:albatelcpa@albatelcpa.com?subject=I Contact From Your Website &body=Hello%20team,"
-                      className="text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-blue"
+                    <a 
+              
+                      href="mailto:albatelcpa@albatelcpa.com?subject=I Contact From Your Website&body=Hello%20team,"
+                      className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
-                      <i className="fa-solid fa-envelope px-1 hover:text-blue-300 duration-500 transition-all"></i>
+                    <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
                       <span className="text-blue-100 hover:text-blue-300 duration-500 transition-all">
                         albatelcpa@albatelcpa.com
                       </span>
                     </a>
+
                     {/* الهاتف */}
-                    <span
-                      data-aos="fade-up"
-                      className="text-green-600 text-lg z-20 my-3 cursor-pointer  hover:text-blue-300 duration-500 transition-all text-shadow-blue"
-                    >
-                      <i className="fa-solid fa-square-phone px-1  hover:text-blue-300 duration-500 transition-all "></i>
+                
+                <div className="flex items-center justify-center group gap-2">
+                <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatap" />
                       <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
                         966550554262+{" "}
                       </span>
-                    </span>
+                </div>
+                    
                   </div>
                 </div>
               </div>
@@ -373,6 +430,7 @@ export default function Footer() {
                       src="/BatelLogo1.png"
                       className="w-5 inline-block hover:rotate-[180deg] transition-all duration-700"
                       alt="Albatel Logo"
+                      style={{ pointerEvents: 'auto' }}
                     />
                   </Link>
                 </span>

@@ -14,10 +14,12 @@ export default function TeamMember() {
   const { getPersonById } = useContext(TeamContext);
   const [Loading, setLoading] = useState(false);
   const [employee, setEmployee] = useState({});
+  const [imageLoading, setImageLoading] = useState(true);
   let { id } = useParams();
 
   async function getEmployeeData(id) {
     setLoading(true);
+    setImageLoading(true); // Reset image loading state
     const data = await getPersonById(id);
     setEmployee(data || null);
     setLoading(false);
@@ -61,11 +63,27 @@ export default function TeamMember() {
           
             <div className="md:w-5/12 flex items-center justify-center ">
                 
-              <img
-                className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px]  rounded-3xl border-2 ms-2 shadow-md"
-                src=  {employee?.image}
-                alt="employee image"
-              />
+              <div className="relative">
+                {/* Placeholder image while loading */}
+                {imageLoading && (
+                  <img
+                    className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover bg-gray-100"
+                    src="/BatelLogo1.png"
+                    alt="Loading..."
+                  />
+                )}
+                
+                {/* Main employee image */}
+                <img
+                  className={`w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover transition-opacity duration-300 ${
+                    imageLoading ? 'opacity-0 absolute top-0 left-0' : 'opacity-100'
+                  }`}
+                  src={employee?.image}
+                  alt={employee?.name?.ar || "employee image"}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
+                />
+              </div>
             </div>
             {/* employee name and job */}
             <div data-aos="fade-up" className="md:w-7/12">
@@ -133,11 +151,27 @@ export default function TeamMember() {
           
             <div className="md:w-5/12 flex items-center justify-center ">
                 
-              <img
-                className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px]  rounded-3xl border-2 ms-2 shadow-md"
-                src=  {employee?.image}
-                alt="employee image"
-              />
+              <div className="relative">
+                {/* Placeholder image while loading */}
+                {imageLoading && (
+                  <img
+                    className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover bg-gray-100"
+                    src="/BatelLogo1.png"
+                    alt="Loading..."
+                  />
+                )}
+                
+                {/* Main employee image */}
+                <img
+                  className={`w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover transition-opacity duration-300 ${
+                    imageLoading ? 'opacity-0 absolute top-0 left-0' : 'opacity-100'
+                  }`}
+                  src={employee?.image}
+                  alt={employee?.name?.ar || "employee image"}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
+                />
+              </div>
             </div>
             {/* employee name and job */}
             <div data-aos="fade-up" className="md:w-7/12">
