@@ -1,18 +1,43 @@
 User-agent: *
 Allow: /
 
-# Block query parameters that might cause duplicate content
-Disallow: /*?a=
+# Block all query parameters to prevent spam pages
 Disallow: /*?*
+Disallow: /*?a=*
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Block suspicious paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /phpmyadmin/
+Disallow: /cpanel/
+Disallow: /.htaccess
+Disallow: /.env
+Disallow: /config/
+Disallow: /backup/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Block common spam patterns
+Disallow: /*.php$
+Disallow: /*.asp$
+Disallow: /*.jsp$
+Disallow: /*.cgi$
+Disallow: /*.pl$
 
 # Allow important files
 Allow: /favicon.ico
 Allow: /favicon/
 Allow: /BatelLogo1.png
 Allow: /BatelWhiteLogo.png
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Sitemap location
 Sitemap: https://albatelcpa.com/sitemap.xml
