@@ -2,9 +2,9 @@
 const nextConfig = {
   async redirects() {
     return [
-      // Redirect all URLs with query parameters to homepage
+      // Redirect all URLs with query parameters to homepage (except sitemap and robots)
       {
-        source: '/(.*)',
+        source: '/((?!sitemap\\.xml|robots\\.txt).*)',
         has: [
           {
             type: 'query',
@@ -48,10 +48,6 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
-          },
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow',
           },
         ],
       },
