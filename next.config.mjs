@@ -14,17 +14,6 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Redirect any URL with query parameters to homepage
-      {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'query',
-          },
-        ],
-        destination: '/',
-        permanent: true,
-      },
       // Block suspicious file extensions
       {
         source: '/(.*)\\.(php|asp|jsp|cgi|pl)$',
