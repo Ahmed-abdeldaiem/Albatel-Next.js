@@ -5,20 +5,7 @@
       "has": [
         {
           "type": "query",
-          "key": "a",
-          "value": "(.*)"
-        }
-      ],
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "query",
-          "key": ".*",
-          "value": "(.*)"
+          "key": "a"
         }
       ],
       "destination": "/",
