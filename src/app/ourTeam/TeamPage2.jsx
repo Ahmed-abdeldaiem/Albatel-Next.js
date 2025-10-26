@@ -1,5 +1,6 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 
 import { LanguageContext } from "../contexts/langContext";
 // Inline SVG hexagon to avoid external dependency issues
@@ -19,8 +20,7 @@ import Link from "next/link";
 
 
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function TeamPage2({ employees: initialEmployees = [] }) {
   const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
@@ -28,13 +28,33 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
 
   // If needed, we can refresh on client later; for now rely on server data
 
+  // Simple scroll animation function
   useEffect(() => {
-    AOS.init({
-      duration: 900,
-      once: false,
-      easing: "ease-in-out",
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with data-aos attributes
+    const animatedElements = document.querySelectorAll('[data-aos]');
+    animatedElements.forEach((el) => {
+      el.classList.add('aos-init');
+      observer.observe(el);
     });
+
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
+
 
   const handleScroll = () => {
     const section = document.getElementById("team");
@@ -72,7 +92,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             </div>
             {/* hexagon */}
             <div
-              data-aos="fade-down"
               className="hidden lg:flex flex-wrap lg:gap-4 z-30  justify-center"
             >
               {words.map((word, index) => {
@@ -158,8 +177,8 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
                 {employees?.map((teamMember, index) => {
                   return (
                     <div
-                      data-aos="fade-up"
                       key={index}
+                      data-aos="fade-up"
                       className="relative group w-9/12 lg:w-1/5 md:w-1/3  3xl:w-1/6 p-2 xl:p-3 overflow-hidden"
                     >
                       <Link
@@ -216,7 +235,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
          <div className="relative w-full flex flex-col justify-center items-center  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/join.png')] bg-cover bg-center">
               <div className="absolute inset-0 bg-gradient-to-l to-blue-900/80  from-blue-900/90 opacity-70 z-10"></div>
 
-              <div data-aos="fade-up" className="z-20 flex flex-col justify-center items-center">
+              <div  className="z-20 flex flex-col justify-center items-center">
                 <h2 className="text-xl  md:text-3xl lg:text-5xl text-shadow-sm 4k:text-5xl text-white text-center font-semibold pt-12">
                   انضم إلى فريق عملنا
                 </h2>
@@ -238,7 +257,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
                   </Link>
                 </div>
               </div>
-              <div data-aos="fade-up" className="flex flex-col md:flex-row w-full justify-between py-8  px-2 md:px-8 z-20 ">
+              <div  className="flex flex-col md:flex-row w-full justify-between py-8  px-2 md:px-8 z-20 ">
                 <div className="w-full md:w-1/3 flex flex-col items-center justify-center ">
                 <span className="bg-blue-50 rounded-full cursor-pointer w-12 h-12 flex items-center justify-center bg-opacity-80">
                  
@@ -310,7 +329,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             </div>
             {/* hexagon */}
             <div
-              data-aos="fade-down"
               className="hidden lg:flex flex-wrap lg:gap-4 z-30  justify-center"
             >
               {words.map((word, index) => {
@@ -344,15 +362,12 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             </div>
 
             <h2
-              data-aos="fade-up"
               className="text-white text-shadow-xl text-xl md:text-3xl lg:text-5xl text-center shadow-xl my-1 md:my-4 lg:my-8 z-30 font-bold"
             >
 Al-Batel Company Team
             </h2>
 
             <h3
-              data-aos="zoom-in"
-              data-aos-delay="300"
               className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center w-10/12 md:w-2/3 lg:w-1/2 mt-1 md:mt-2 lg:mt-6 z-30 font-semibold"
             >
               One Team
@@ -360,8 +375,6 @@ Al-Batel Company Team
               Boundless Success
             </h3>
             <h3
-              data-aos="zoom-in"
-              data-aos-delay="600"
               className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center  w-10/12 md:w-2/3 lg:w-1/2 mb-1 lg:mb-8  lg:mt-3 z-30 font-semibold"
             >
               <span>From Vision to Victory</span>
@@ -370,8 +383,6 @@ Al-Batel Company Team
             </h3>
 
             <button
-              data-aos="fade-up"
-              data-aos-delay="900"
               className="my-2 md:my-8 lg:my-12 z-30"
               onClick={handleScroll}
             >
@@ -395,8 +406,8 @@ Al-Batel Company Team
                 {employees?.map((teamMember, index) => {
                   return (
                     <div
-                      data-aos="fade-up"
                       key={index}
+                      data-aos="fade-up"
                       className="relative group w-9/12 lg:w-1/5 md:w-1/3  3xl:w-1/6 p-2 xl:p-3 overflow-hidden"
                     >
                       <Link
@@ -455,7 +466,7 @@ Al-Batel Company Team
           <div className="relative w-full flex flex-col justify-center items-center  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/join.png')] bg-cover bg-center">
               <div className="absolute inset-0 bg-gradient-to-l to-blue-900/80  from-blue-900/90 opacity-70 z-10"></div>
 
-              <div data-aos="fade-up" className="z-20 flex flex-col justify-center items-center">
+              <div  className="z-20 flex flex-col justify-center items-center">
                 <h2 className="text-xl  md:text-3xl lg:text-5xl text-shadow-sm 4k:text-5xl text-white text-center font-semibold pt-12">
                 oin our Team
                 </h2>
@@ -476,7 +487,7 @@ Al-Batel Company Team
                   </Link>
                 </div>
               </div>
-              <div data-aos="fade-up" className="flex flex-col md:flex-row w-full justify-between py-8  px-2 md:px-8 z-20 ">
+              <div  className="flex flex-col md:flex-row w-full justify-between py-8  px-2 md:px-8 z-20 ">
                 <div className="w-full md:w-1/3 flex flex-col items-center justify-center ">
                 <span className="bg-blue-50 rounded-full cursor-pointer w-12 h-12 flex items-center justify-center bg-opacity-80">
                  
