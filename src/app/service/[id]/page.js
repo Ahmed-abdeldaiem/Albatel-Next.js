@@ -30,6 +30,67 @@ async function getServiceDetail( ) {
 }
 
 
+export async function generateMetadata({ params }) {
+  const services = await getServiceDetail();
+  const service = services.find((item) => item.id === params.id);
+
+  if (!service) {
+    return {
+      title: "الخدمة غير موجودة | الباتل محاسبون ومراجعون قانونيون",
+      description: "الخدمة التي تبحث عنها غير متاحة حالياً.",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  const seo = service.seo || {};
+  const titleAr =
+    seo.title?.ar || service.title?.ar || "خدماتنا | الباتل محاسبون ومراجعون قانونيون";
+  const titleEn = seo.title?.en || service.title?.en || titleAr;
+  const descriptionAr =
+    seo.description?.ar || service.subtitle?.ar || service.overview?.intro?.ar || "";
+  const descriptionEn =
+    seo.description?.en || service.subtitle?.en || service.overview?.intro?.en || descriptionAr;
+  const keywords = seo.keywords || [];
+  const heroImage = service.heroImage || "https://albatelcpa.com/BatelLogo1.png";
+
+  return {
+    title: titleAr,
+    description: descriptionAr,
+    keywords,
+    alternates: {
+      canonical: `/service/${service.id}`,
+      languages: {
+        "ar-SA": `/service/${service.id}`,
+        "en-US": `/service/${service.id}?lang=en`,
+      },
+    },
+    openGraph: {
+      title: titleEn,
+      description: descriptionEn,
+      url: `https://albatelcpa.com/service/${service.id}`,
+      type: "article",
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: service.title?.en || service.title?.ar || "Service image",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: titleEn,
+      description: descriptionEn,
+      images: [heroImage],
+    },
+  };
+}
+
+
 export default async function ServiceDetailPage({ params }) {
   const { id } = params; 
   const allServices = await getServiceDetail();
@@ -47,11 +108,10 @@ export default async function ServiceDetailPage({ params }) {
 }
 
 
-//  (Static Site Generation - SSG).
 export async function generateStaticParams() {
-  const branches = await getServiceDetail();
+  const services = await getServiceDetail();
 
-  return branches.map((service) => ({
+  return services.map((service) => ({
     id: service.id.toString(),
   }));
 }
