@@ -18,6 +18,10 @@ export default function ServiceDetail({ service }) {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [service?.id]);
+
   const handleScroll = () => {
     const section = document.getElementById("service-detail");
     if (section) {
