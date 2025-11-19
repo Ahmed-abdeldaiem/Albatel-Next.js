@@ -19,35 +19,35 @@ export default function Branches() {
   }, []);
 
   const branches = [
-    { id: 1,
+    {id: "Riyadh_Branch",
       name: {
         ar: "الرياض",
         en: "Riyadh",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b1.jpg'
     },
-    {id: 2,
+    {id: "Jeddah_Main_Branch",
       name: {
         ar: "جدة الرئيسي",
         en: "Jeddah",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b2.webp'
     },
-    {id: 9,
+    {id:  "Jeddah_Second_Branch",
       name: {
         ar: "جدة الثاني",
         en: "Jeddah2",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b2.webp'
     },
-    {id: 3,
+    {id: "Madinah_branch",
       name: {
         ar: "المدينة المنورة",
         en: "Madinah",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b3.jpg'
     },
-    {id: 4,
+    {id: "Khobar_Branch",
       name: {
         ar: "الخبر",
         en: "Khobar",
@@ -55,28 +55,28 @@ export default function Branches() {
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b4.jpg'
     },
     ,
-    {id: 5,
+    {id: "Hafar_Al-Batin_Branch",
       name: {
         ar: "حفر الباطن",
         en: "Hafar Al-Batin",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b5.jpg'
     },
-    {id: 6,
+    {id: "Khamis_Mushait_Branch",
       name: {
         ar: "خميس مشيط",
         en: "Khamis Mushait",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b6.jpg'
     },
-    {id: 7,
+    {id: "Jizan_Branch",
       name: {
         ar: "جازان",
         en: "jazan",
       },
       img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/branches/b7.jpg'
     },
-    {id: 8,
+    {id: "Al-Qassim_Branch",
       name: {
         ar: "القصيم",
         en: "Al-Qassim",

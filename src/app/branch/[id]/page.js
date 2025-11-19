@@ -8,7 +8,21 @@ const BASE_URL = 'https://al-batel-team-data-default-rtdb.firebaseio.com/';
 async function getBranches( ) {
   try {
     const response = await axios.get(`${BASE_URL}/branches.json`);
-    return response.data || [];
+    const data = response.data;
+
+    if (!data) {
+      return [];
+    }
+
+    if (Array.isArray(data)) {
+      return data;
+    }
+
+    if (Array.isArray(data.branches)) {
+      return data.branches;
+    }
+
+    return [];
   } catch (error) {
     console.error("Failed to fetch branches:", error);
     return []; 

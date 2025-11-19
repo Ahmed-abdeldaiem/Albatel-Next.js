@@ -159,7 +159,7 @@ export default function NavBar() {
                           href="/ourTeam"
                         >
                           {" "}
-                          فريقنا
+                          فريق العمل
                         </Link>
                       </li>
 
@@ -177,7 +177,7 @@ export default function NavBar() {
                         <button
                           onClick={() => toggleDropdown("company")}
                           id="dropdownNavbarLink"
-                          className="flex linkStyle text-nowrap items-center justify-between w-full py-2 px-3 text-gray-700 rounded text-nowrap"
+                          className="flex linkStyle items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
                         >
                           تواصل معنا
                           <svg
@@ -364,7 +364,7 @@ export default function NavBar() {
                   onClick={() => setIsOpen(false)}
                   href="/ourTeam"
                 >
-                  فريقنا
+                  فريق العمل
                 </Link>
                 <Link
                   className={getLinkClass("/partners")}
@@ -518,7 +518,7 @@ export default function NavBar() {
                       <button
                         onClick={() => toggleDropdown("company")}
                         id="dropdownNavbarLink"
-                        className="flex linkStyle text-nowrap items-center justify-between w-full py-2 px-3 text-gray-700 rounded text-nowrap"
+                          className="flex linkStyle items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
                       >
                         Contact Us
                         <svg
@@ -558,7 +558,7 @@ export default function NavBar() {
                           <li>
                             <Link
                               href="/rfp"
-                              className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-nowrap`}
+                              className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
                             >
                               rfp
                             </Link>
@@ -566,7 +566,7 @@ export default function NavBar() {
                           <li>
                             <Link
                                 href="/careers"
-                              className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-nowrap`}
+                              className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
                             >
                               Available Jobs
                             </Link>

@@ -45,7 +45,7 @@ export default function Partners({ partners: initialPartners = [] }) {
               alt="about us image "
             />
             {/* Gradient blue overlay */}
-            {/* <div className="absolute inset-0 bg-gradient-to-l from-blue-700/80 to-slate-400/90 opacity-80 z-10"></div> */}
+      
             <div className="absolute inset-0 bg-gradient-to-l from-blue-800/70 to-green-200/50 opacity-90 z-10"></div>         
          
             <div

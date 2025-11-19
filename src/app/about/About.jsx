@@ -19,35 +19,35 @@ export default function About() {
   }, []);
   const branches = [
     {
-      id: 1,
+     id: "Riyadh_Branch",
       name: {
         ar: "الرياض",
         en: "Riyadh",
       },
     },
     {
-      id: 2,
+    id: "Jeddah_Main_Branch",
       name: {
         ar: "جدةالأول",
         en: "Jeddah 1",
       },
     },
     {
-      id: 9,
+     id:  "Jeddah_Second_Branch",
       name: {
         ar: "جدة الثاني",
         en: "Jeddah 2",
       },
     },
     {
-      id: 3,
+    id: "Madinah_branch",
       name: {
         ar: "المدينة",
         en: "Madinah",
       },
     },
     {
-      id: 4,
+     id: "Khobar_Branch",
       name: {
         ar: "الخبر",
         en: "Khobar",
@@ -55,28 +55,28 @@ export default function About() {
     },
     ,
     {
-      id: 5,
+     id: "Hafar_Al-Batin_Branch",
       name: {
         ar: "حفر الباطن",
         en: "Hafar Al-Batin",
       },
     },
     {
-      id: 6,
+  id: "Khamis_Mushait_Branch",
       name: {
         ar: "خميس مشيط",
         en: "Khamis Mushait",
       },
     },
     {
-      id: 7,
+     id: "Jizan_Branch",
       name: {
         ar: "جازان",
         en: "Jazan",
       },
     },
     {
-      id: 8,
+   id: "Al-Qassim_Branch",
       name: {
         ar: "القصيم",
         en: "Al-Qassim",

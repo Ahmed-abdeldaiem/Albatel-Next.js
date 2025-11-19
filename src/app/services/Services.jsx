@@ -6,6 +6,14 @@ import { LanguageContext } from "../contexts/langContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const truncateDescription = (text, words = 10) => {
+  if (!text) return "";
+  const normalized = text.replace(/\s+/g, " ").trim();
+  const parts = normalized.split(" ");
+  if (parts.length <= words) return normalized;
+  return `${parts.slice(0, words).join(" ")}...`;
+};
+
 export default function Services({ services = [] }) {
   const [counter, setCounter] = useState(0);
   const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
@@ -141,8 +149,14 @@ export default function Services({ services = [] }) {
                             {service?.title?.ar}
                           </h5>
                           <p className="mb-3 font-normal  text-center text-lg my-2 pt-2 text-gray-900 ">
-                            {service?.description?.ar}
+                            {truncateDescription(service?.description?.ar)}
                           </p>
+                          <Link
+                            href={`/service/${encodeURIComponent(service?.id)}`}
+                            className="text-blue-700 font-semibold hover:text-blue-900 transition-colors text-base"
+                          >
+                            عرض المزيد عن الخدمة
+                          </Link>
                         </div>
                         <div className=" flex h-[210px] items-center relative overflow-hidden justify-center text-center">
                           <img
@@ -419,8 +433,14 @@ export default function Services({ services = [] }) {
                           {service?.title?.en}
                         </h5>
                         <p className="mb-3 font-normal  text-center text-lg my-2 pt-2 text-gray-900 ">
-                          {service?.description?.en}
+                          {truncateDescription(service?.description?.en)}
                         </p>
+                        <Link
+                          href={`/service/${encodeURIComponent(service?.id)}`}
+                          className="text-blue-700 font-semibold hover:text-blue-900 transition-colors text-base"
+                        >
+                          More about this service
+                        </Link>
                       </div>
                       <div className=" flex h-[210px] items-center relative overflow-hidden justify-center text-center">
                         <img
