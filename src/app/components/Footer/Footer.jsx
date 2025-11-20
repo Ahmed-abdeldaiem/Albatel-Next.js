@@ -169,7 +169,6 @@ export default function Footer() {
                     {/* email */}
                     <a 
                     
-                      rel="noopener noreferrer"
                       className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
                       <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
@@ -386,8 +385,7 @@ export default function Footer() {
                  
                     {/* email */}
                     <a 
-                  
-                      rel="noopener noreferrer"
+                 
                       className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
                       <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
