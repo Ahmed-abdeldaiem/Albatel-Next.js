@@ -168,11 +168,11 @@ export default function Footer() {
 
                     {/* email */}
                     <a 
-              
-                      href="mailto:albatelcpa@albatelcpa.com?subject=I Contact From Your Website&body=Hello%20team,"
+                    
+                      rel="noopener noreferrer"
                       className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
-                    <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
+                      <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
                       <span className="text-blue-100 hover:text-blue-300 duration-500 transition-all">
                         albatelcpa@albatelcpa.com
                       </span>
@@ -180,12 +180,17 @@ export default function Footer() {
 
                     {/* الهاتف */}
                 
-                <div className="flex items-center justify-center group gap-2">
-                <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatap" />
-                      <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
-                        966550554262+{" "}
-                      </span>
-                </div>
+                <a
+                  href="https://wa.me/966550554262"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center group gap-2"
+                >
+                  <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatsapp" />
+                  <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
+                    966550554262+{" "}
+                  </span>
+                </a>
                     
                    
                    
@@ -381,11 +386,11 @@ export default function Footer() {
                  
                     {/* email */}
                     <a 
-              
-                      href="mailto:albatelcpa@albatelcpa.com?subject=I Contact From Your Website&body=Hello%20team,"
+                  
+                      rel="noopener noreferrer"
                       className="flex items-center justify-center group gap-2 text-green-600 text-lg z-20 my-3 cursor-pointer hover:text-blue-300 duration-500 transition-all text-shadow-xl"
                     >
-                    <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
+                      <img className="w-[8%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/email.png" alt="email" />
                       <span className="text-blue-100 hover:text-blue-300 duration-500 transition-all">
                         albatelcpa@albatelcpa.com
                       </span>
@@ -393,12 +398,17 @@ export default function Footer() {
 
                     {/* الهاتف */}
                 
-                <div className="flex items-center justify-center group gap-2">
-                <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatap" />
-                      <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
-                        966550554262+{" "}
-                      </span>
-                </div>
+                <a
+                  href="https://wa.me/966550554262"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center group gap-2"
+                >
+                  <img className="w-[18%] group-hover:scale-110 transition-all duration-500 " src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="whatsapp" />
+                  <span className="text-blue-100  hover:text-blue-300 duration-500 transition-all ">
+                    966550554262+{" "}
+                  </span>
+                </a>
                     
                   </div>
                 </div>
