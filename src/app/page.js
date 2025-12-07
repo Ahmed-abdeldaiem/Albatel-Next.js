@@ -14,6 +14,7 @@ import Message from "./components/Message/Message";
 
 import ServiceDesc from "./components/ServiceDesc/ServiceDesc";
 import Vision from "./components/Vision/Vision";
+import FasadDay from "./components/FasadDay/FasadDay";
 
 
 export default function Home() {
@@ -599,6 +600,8 @@ export default function Home() {
           </div>
         </>
       )}
+{/* اليوم الدولي لمكافحة الفساد */}
+<FasadDay />
 
       {/* 4th section : company goal */}
       <Goal />
