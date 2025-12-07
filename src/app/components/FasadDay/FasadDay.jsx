@@ -139,7 +139,7 @@ export default function FasadDay() {
     
          </h2>
 
-         <h2  className="text-xl lg:text-2xl font-semibold 4k:text-4xl mt-4 text-black text-center  pt-5" data-aos="fade-up">
+         <h2  className="text-xl lg:text-2xl font-semibold 4k:text-4xl mt-4 mb-1 text-black text-center  pt-5" data-aos="fade-up">
       {dir=='rtl'?<>     نجدد العهد في اليوم الدولي لمكافحة الفساد بأن نكون شركاء فاعلين في بناء وطن تسوده النزاهة والشفافية
         </>:<>We renew our commitment on the International Anti-Corruption Day to be active partners in building a country that is governed by transparency and integrity</>}
     
