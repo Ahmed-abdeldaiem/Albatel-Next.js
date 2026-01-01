@@ -601,7 +601,7 @@ export default function Home() {
         </>
       )}
 {/* اليوم الدولي لمكافحة الفساد */}
-<FasadDay />
+{/* <FasadDay /> */}
 
       {/* 4th section : company goal */}
       <Goal />
