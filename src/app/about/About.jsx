@@ -175,7 +175,7 @@ export default function About() {
                     </button>
                     <Link
                       target={"_blank"}
-                      href="https://drive.google.com/file/d/16r0v2HODzY7ZLRVR-Ks4njjOFUzsMMta/view?usp=drive_link"
+                      href="https://drive.google.com/file/d/1oT6_pwrTYYxhrPbPxFBre2B6JuKt2qBx/view?usp=drive_link"
                     >
                       <h3 className=" inline-block rounded-2xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-2 border-white border text-center z-20 text-blue-950 text-sm md:text-lg font-bold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-50">
                         الملف التعريفي
@@ -602,7 +602,7 @@ export default function About() {
                     </button>
                     <Link
                       target={"_blank"}
-                      href="https://drive.google.com/file/d/16r0v2HODzY7ZLRVR-Ks4njjOFUzsMMta/view?usp=drive_link"
+                      href="https://drive.google.com/file/d/1oT6_pwrTYYxhrPbPxFBre2B6JuKt2qBx/view?usp=drive_link"
                     >
                       <h3 className=" inline-block rounded-2xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-2 border-white border text-center z-20 text-blue-950 text-sm md:text-lg font-bold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-50">
                       Company profile
