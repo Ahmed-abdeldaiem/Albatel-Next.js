@@ -85,12 +85,12 @@ export default function Home() {
            
                 {/* Content for Slide 1 */}
                 <div className="relative z-20  flex flex-col items-center justify-center h-full">
-                  <div className="flex items-center justify-center flex-col md:flex-row-reverse">
+                  <div className="flex items-center justify-center flex-col ">
                     <img
                       src="/BatelWhiteLogo.png"
                       alt="logo image in slide 1"
                       loading="lazy"
-                      className={`w-1/3 4k:w-3/12 md:w-2/12 mt-2 transition-all  ${
+                      className={`w-1/3 4k:w-3/12 md:w-3/12 mt-2 transition-all  ${
                         currentIndex === 0 ? "animate-moveIn" : ""
                       }`}
                     />
@@ -98,13 +98,13 @@ export default function Home() {
                     <div className={`flex flex-col text-center  `}>
                       <h1
                        
-                        className="text-white text-xl lg:text-3xl 4k:text-5xl font-semibold text-shadow-xl"
+                        className="text-white text-xl lg:text-4xl 4k:text-5xl font-semibold text-shadow-xl"
                       >
                         شركة باتل عبدالله الباتل وشركاؤه للاستشارات المهنية
                       </h1>
                       <h1
                        
-                        className="text-white text-xl lg:text-2xl 4k:text-4xl py-2 font-semibold text-shadow-xl"
+                        className="text-white text-xl lg:text-3xl 4k:text-4xl py-2 font-semibold text-shadow-xl"
                       >
                         Batel Abdullah Al-Batel & Partners for Professional
                         Consultations
@@ -116,7 +116,7 @@ export default function Home() {
                   </div>
              
                   <div
-                    className={`flex justify-center lg:justify-start  w-3/4 pt-9 ${
+                    className={`flex justify-center   w-3/4 pt-9 ${
                       currentIndex === 0 ? "animate-moveIn2" : ""
                     }`}
                   >
@@ -354,12 +354,12 @@ export default function Home() {
 
                 {/* Content for Slide 1 */}
                 <div className="relative z-20  flex flex-col items-center justify-center h-full">
-                  <div className="flex items-center justify-center flex-col md:flex-row-reverse">
+                  <div className="flex items-center justify-center flex-col">
                     <img
                       src="/BatelWhiteLogo.png"
                       alt="logo image in slide 1"
                       loading="lazy"
-                      className={`w-1/3 4k:w-3/12 md:w-2/12 mt-2 transition-all  ${
+                      className={`w-1/3 4k:w-3/12 md:w-3/12 mt-2 transition-all  ${
                         currentIndex === 0 ? "animate-moveIn" : ""
                       }`}
                     />
@@ -367,13 +367,13 @@ export default function Home() {
                     <div className={`flex flex-col text-center  `}>
                       <h1
                        
-                        className="text-white text-xl lg:text-3xl 4k:text-5xl font-semibold"
+                        className="text-white text-xl lg:text-4xl 4k:text-5xl font-semibold"
                       >
                         شركة باتل عبدالله الباتل وشركاؤه للاستشارات المهنية
                       </h1>
                       <h1
                        
-                        className="text-white text-xl lg:text-2xl 4k:text-4xl font-semibold"
+                        className="text-white text-xl lg:text-3xl 4k:text-4xl pt-6 font-semibold"
                       >
                         Batel Abdullah Al-Batel & Partners for Professional
                         Consultations
@@ -382,7 +382,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    className={`flex justify-center lg:justify-start  w-3/4 pt-9 ${
+                    className={`flex justify-center   w-3/4 pt-9 ${
                       currentIndex === 0 ? "animate-moveIn2" : ""
                     }`}
                   >

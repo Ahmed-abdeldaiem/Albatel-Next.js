@@ -93,10 +93,18 @@ export default function About() {
     },
     {
       name: {
+        ar: "جمهورية مصر العربية",
+        en: "Egypt",
+      },
+      img: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/New%20folder/egypt.png",
+    }
+    ,
+    {
+      name: {
         ar: "دولة قطر",
         en: "Qatar",
       },
-      img: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/New%20folder/qatar3.png",
+      img: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/New%20folder/q1.png",
     },
     {
       name: {
@@ -356,7 +364,7 @@ export default function About() {
                     <img
                       src={branch.img}
                       alt="international branches"
-                      className="group-hover:scale-105 duration-700 transition-all"
+                      className="group-hover:scale-105 w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] duration-700 transition-all"
                     />
                     <p className="text-2xl text-green-800 text-center text-shadow-green hover:text-shadow-blue group-hover:text-blue-700 transition-all duration-700 font-semibold">
                       {branch.name.ar}
@@ -775,7 +783,7 @@ Our branches outside the Kingdom of Saudi Arabia
                     <img
                       src={branch.img}
                       alt="international branches"
-                      className="group-hover:scale-105 duration-700 transition-all"
+                      className="group-hover:scale-105 w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] duration-700 transition-all"
                     />
                     <p className="text-2xl text-green-800 text-shadow-green hover:text-shadow-blue group-hover:text-blue-700 transition-all duration-700 font-semibold">
                       {branch.name.en}

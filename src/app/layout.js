@@ -1,5 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { primaryFont } from "./lib/fonts";
 import LanguageContextProvider from "../app/contexts/langContext.jsx";
 import PartnersContextProvider from "./contexts/PartnersContext.jsx";
 import TeamContextProvider from "./contexts/TeamContext.jsx";
@@ -11,15 +11,6 @@ import ImageProtection from "./components/ImageProtection/ImageProtection";
 import SocialBar from "./components/SocialBar/SocialBar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   // Primary Meta Tags
@@ -360,7 +351,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased min-h-screen flex flex-col`}
+        className={`${primaryFont.variable} ${primaryFont.className} antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning={true}
       >
       

@@ -36,7 +36,7 @@ export default function NavBar() {
   const pathname = usePathname();
   const getLinkClass = (href) => {
     const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
-    return `p-2 linkStyle ${isActive ? "text-blue-700 " : "text-gray-700"}`;
+    return `p-2 linkStyle text-sm md:text-base  ${isActive ? "text-blue-700 " : "text-gray-700"}`;
   };
 
   const toggleDropdown = (dropdownName) => {
@@ -177,7 +177,7 @@ export default function NavBar() {
                         <button
                           onClick={() => toggleDropdown("company")}
                           id="dropdownNavbarLink"
-                          className="flex linkStyle items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
+                          className="flex linkStyle text-sm md:text-base  text-nowrap items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
                         >
                           تواصل معنا
                           <svg
@@ -204,11 +204,11 @@ export default function NavBar() {
                               : "opacity-0 max-h-0"
                           } font-semibold bg-blue-100 bg-opacity-90 backdrop-blur-lg overflow-hidden rounded-lg w-44`}
                         >
-                          <ul className="py-2 text-sm text-gray-700">
+                          <ul className="py-2 text-sm md:text-base  text-gray-700">
                             <li>
                               <Link
                                 href="/contact"
-                                className={`${getLinkClass("/contact").replace("p-2 ", "")} block linkStyle px-4 py-2 text-nowrap`}
+                                className={`${getLinkClass("/contact").replace("p-2 ", "")} block linkStyle text-sm md:text-base px-4 py-2 text-nowrap`}
                               >
                                 تواصل
                               </Link>
@@ -217,7 +217,7 @@ export default function NavBar() {
                             <li>
                               <Link
                                 href="/rfp"
-                                className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
+                                className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-sm md:text-base`}
                               >
                                 طلب عرض سعر
                               </Link>
@@ -225,7 +225,7 @@ export default function NavBar() {
                             <li>
                               <Link
                                 href="/careers"
-                                className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
+                                className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-sm md:text-base`}
                               >
                                 وظائف متاحة
                               </Link>
@@ -377,7 +377,7 @@ export default function NavBar() {
                 <button
                   onClick={() => setOpenDropdown2(!openDropdown2)}
                   id="dropdownNavbarLinkMobile"
-                  className="flex relative p-2 linkStyle items-center justify-center w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
+                  className="flex relative p-2 linkStyle text-sm md:text-base  items-center justify-center w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
                 >
                   تواصل معنا
                   <svg
@@ -406,7 +406,7 @@ export default function NavBar() {
                       : "opacity-0 max-h-0 "
                   } font-semibold transition-all duration-500  shadow-gray-500 bg-gray-100 lg:bg-gray-300 lg:bg-opacity-60 bg-opacity-80 backdrop-blur-lg  shadow-sm  rounded-lg  w-44`}
                 >
-                  <ul className="py-2 text-sm text-gray-700">
+                  <ul className="py-2 text-sm md:text-base  text-gray-700">
                     <li>
                       <Link
                         href="/contact"
@@ -518,7 +518,7 @@ export default function NavBar() {
                       <button
                         onClick={() => toggleDropdown("company")}
                         id="dropdownNavbarLink"
-                          className="flex linkStyle items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
+                          className="flex linkStyle text-sm md:text-base  items-center justify-between w-full py-2 px-3 text-gray-700 rounded"
                       >
                         Contact Us
                         <svg
@@ -545,11 +545,11 @@ export default function NavBar() {
                             : "opacity-0 max-h-0"
                         } font-semibold bg-blue-100 bg-opacity-90 backdrop-blur-lg overflow-hidden rounded-lg w-44`}
                       >
-                        <ul className="py-2 text-sm text-gray-700">
+                        <ul className="py-2 text-sm md:text-base  text-gray-700">
                           <li>
                             <Link
                               href="/contact"
-                              className={`${getLinkClass("/contact").replace("p-2 ", "")} block linkStyle px-4 py-2 text-nowrap`}
+                              className={`${getLinkClass("/contact").replace("p-2 ", "")} block linkStyle text-sm md:text-base px-4 py-2 text-nowrap`}
                             >
                               Contact
                             </Link>
@@ -558,7 +558,7 @@ export default function NavBar() {
                           <li>
                             <Link
                               href="/rfp"
-                              className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
+                              className={`${getLinkClass("/rfp").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-sm md:text-base`}
                             >
                               rfp
                             </Link>
@@ -566,7 +566,7 @@ export default function NavBar() {
                           <li>
                             <Link
                                 href="/careers"
-                              className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle`}
+                              className={`${getLinkClass("/careers").replace("p-2 ", "")} block text-nowrap px-4 py-2 linkStyle text-sm md:text-base`}
                             >
                               Available Jobs
                             </Link>
@@ -718,7 +718,7 @@ export default function NavBar() {
               <button
                 onClick={() => setOpenDropdown2(!openDropdown2)}
                 id="dropdownNavbarLinkMobile"
-                className="flex relative p-2 linkStyle items-center justify-center w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
+                className="flex relative p-2 linkStyle text-sm md:text-base  items-center justify-center w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
               >
                 Contact Us
                 <svg
@@ -745,7 +745,7 @@ export default function NavBar() {
                   openDropdown2 ? "opacity-100 max-h-40 " : "opacity-0 max-h-0 "
                 } font-semibold transition-all duration-500  shadow-gray-500 bg-gray-100 lg:bg-gray-300 lg:bg-opacity-60 bg-opacity-80 backdrop-blur-lg  shadow-sm  rounded-lg  w-44`}
               >
-                <ul className="py-2 text-sm text-gray-700">
+                <ul className="py-2 text-sm md:text-base  text-gray-700">
                   <li>
                 <Link
                   href="/contact"
