@@ -37,8 +37,23 @@ const descEn = "We provide integrated solutions in financial consulting, auditin
     openGraph: {
       title: titleEn,
       description: descEn,
-      url: "/services",
+      url: "https://www.albatelcpa.com/services",
       type: "website",
+      images: [
+        {
+          url: "https://www.albatelcpa.com/BatelLogo1.png",
+          width: 800,
+          height: 600,
+          alt: "الباتل محاسبون ومراجعون قانونيون logo",
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: titleEn,
+      description: descEn,
+      images: ["https://www.albatelcpa.com/BatelLogo1.png"],
     },
   };
 }

@@ -31,8 +31,9 @@ async function getServiceDetail( ) {
 
 
 export async function generateMetadata({ params }) {
+  const { id } = await params;
   const services = await getServiceDetail();
-  const service = services.find((item) => item.id === params.id);
+  const service = services.find((item) => item.id === id);
 
   if (!service) {
     return {
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }) {
   const descriptionEn =
     seo.description?.en || service.subtitle?.en || service.overview?.intro?.en || descriptionAr;
   const keywords = seo.keywords || [];
-  const heroImage = service.heroImage || "https://albatelcpa.com/BatelLogo1.png";
+  const logoUrl = "https://www.albatelcpa.com/BatelLogo1.png";
 
   return {
     title: titleAr,
@@ -70,14 +71,15 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: titleEn,
       description: descriptionEn,
-      url: `https://albatelcpa.com/service/${service.id}`,
+      url: `https://www.albatelcpa.com/service/${service.id}`,
       type: "article",
       images: [
         {
-          url: heroImage,
-          width: 1200,
-          height: 630,
-          alt: service.title?.en || service.title?.ar || "Service image",
+          url: logoUrl,
+          width: 800,
+          height: 600,
+          alt: "الباتل محاسبون ومراجعون قانونيون logo",
+          type: "image/png",
         },
       ],
     },
@@ -85,7 +87,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: titleEn,
       description: descriptionEn,
-      images: [heroImage],
+      images: [logoUrl],
     },
   };
 }

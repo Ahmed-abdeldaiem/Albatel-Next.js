@@ -21,12 +21,23 @@ export async function generateMetadata() {
       openGraph: {
         title: titleEn,
         description: descEn,
-        // ... other openGraph properties
+        url: "https://www.albatelcpa.com/careers",
+        type: "website",
+        images: [
+          {
+            url: "https://www.albatelcpa.com/BatelLogo1.png",
+            width: 800,
+            height: 600,
+            alt: "الباتل محاسبون ومراجعون قانونيون logo",
+            type: "image/png",
+          },
+        ],
       },
       twitter: {
+        card: "summary_large_image",
         title: titleEn,
         description: descEn,
-        // ... other twitter properties
+        images: ["https://www.albatelcpa.com/BatelLogo1.png"],
       },
     };
   }

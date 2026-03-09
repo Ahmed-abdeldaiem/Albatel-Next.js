@@ -25,14 +25,15 @@ const descEn = "Learn about Al-Batel & Co. and our integrated consulting service
     openGraph: {
       title: titleEn,
       description: descEn,
-      url: "/profileVedio",
+      url: "https://www.albatelcpa.com/profileVedio",
       type: "website",
       images: [
         {
-          url: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/logo.jpg",
-          width: 1200,
-          height: 630,
-          alt: "ALBatel & Co Professional Services",
+          url: "https://www.albatelcpa.com/BatelLogo1.png",
+          width: 800,
+          height: 600,
+          alt: "الباتل محاسبون ومراجعون قانونيون logo",
+          type: "image/png",
         },
       ],
     },
@@ -40,7 +41,7 @@ const descEn = "Learn about Al-Batel & Co. and our integrated consulting service
       card: "summary_large_image",
       title: titleEn,
       description: descEn,
-      images: ["https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/logo.jpg"],
+      images: ["https://www.albatelcpa.com/BatelLogo1.png"],
     },
   };
 }

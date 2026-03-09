@@ -23,14 +23,15 @@ const descEn = "Have a question? Get in touch with the expert team at Al-Batel &
     openGraph: {
       title: titleEn,
       description: descEn,
-      url: "/contact",
+      url: "https://www.albatelcpa.com/contact",
       type: "website",
       images: [
         {
-          url: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/logo.jpg",
-          width: 1200,
-          height: 630,
-          alt: "ALBatel & Co Professional Services",
+          url: "https://www.albatelcpa.com/BatelLogo1.png",
+          width: 800,
+          height: 600,
+          alt: "الباتل محاسبون ومراجعون قانونيون logo",
+          type: "image/png",
         },
       ],
     },
@@ -38,7 +39,7 @@ const descEn = "Have a question? Get in touch with the expert team at Al-Batel &
       card: "summary_large_image",
       title: titleEn,
       description: descEn,
-      images: ["https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/logo.jpg"],
+      images: ["https://www.albatelcpa.com/BatelLogo1.png"],
     },
   };
 }

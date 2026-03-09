@@ -23,14 +23,15 @@ const descEn = "Since 2006, we have been providing SOCPA-certified consulting ex
     openGraph: {
       title: titleEn,
       description: descEn,
-      url: "/about",
+      url: "https://www.albatelcpa.com/about",
       type: "website",
       images: [
         {
-          url: "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D9%86%20%D9%86%D8%AD%D9%864.jpeg",
-          width: 1200,
-          height: 630,
-          alt: "ALBatel & Co Professional Services",
+          url: "https://www.albatelcpa.com/BatelLogo1.png",
+          width: 800,
+          height: 600,
+          alt: "الباتل محاسبون ومراجعون قانونيون logo",
+          type: "image/png",
         },
       ],
     },
@@ -38,7 +39,7 @@ const descEn = "Since 2006, we have been providing SOCPA-certified consulting ex
       card: "summary_large_image",
       title: titleEn,
       description: descEn,
-      images: ["https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D9%86%20%D9%86%D8%AD%D9%864.jpeg"],
+      images: ["https://www.albatelcpa.com/BatelLogo1.png"],
     },
   };
 }

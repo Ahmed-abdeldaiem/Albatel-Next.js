@@ -200,7 +200,7 @@ export default function Footer() {
               <hr className="my-4 border-green-500 sm:mx-auto  lg:my-3" />
               <div className="text-center">
                 <span className="block text-sm text-gray-400 text-shadow-xl sm:text-center z-20 ">
-                  © 2025 All Rights Reserved @ Al-Batel
+                  © 2026 All Rights Reserved @ Al-Batel
                 </span>
 
                 <span className="block text-xs z-40 cursor-pointer text-gray-400 sm:text-center text-shadow-xl ">
@@ -414,7 +414,7 @@ export default function Footer() {
               <div className="text-center">
                 <hr className="my-4 border-green-500 sm:mx-auto  lg:my-3" />
                 <span className="block text-sm text-gray-400 sm:text-center z-20 ">
-                  © 2025 All Rights Reserved @ Al-Batel
+                  © 2026 All Rights Reserved @ Al-Batel
                 </span>
 
                 <span className="block text-sm z-40 cursor-pointer text-gray-400 sm:text-center ">
