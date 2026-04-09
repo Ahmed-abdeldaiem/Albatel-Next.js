@@ -54,7 +54,7 @@ export default function TeamMember() {
 
       
       <div className="bg-center bg-no-repeat bg-cover bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/bg6.png')]">
-      <div className="w-full flex flex-col lg:flex-row pt-20 ">
+      <div className="w-full flex flex-col lg:flex-row pt-36 ">
         {/* first section image , name , job , experience years , cirtifications */}
         <div className="w-full py-5">
           <div className="w-full  flex flex-col md:flex-row items-center  px-4">
@@ -67,7 +67,7 @@ export default function TeamMember() {
                 {/* Placeholder image while loading */}
                 {imageLoading && (
                   <img
-                    className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover bg-gray-100"
+                    className="w-[200px] h-[200px] lg:w-[260px] lg:h-[260px] rounded-3xl border-2 ms-2 shadow-md object-cover object-top bg-gray-100"
                     src="/BatelLogo1.png"
                     alt="Loading..."
                   />
@@ -75,7 +75,7 @@ export default function TeamMember() {
                 
                 {/* Main employee image */}
                 <img
-                  className={`w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover transition-opacity duration-300 ${
+                  className={`w-[200px] h-[200px] lg:w-[260px] lg:h-[260px] rounded-3xl border-2 ms-2 shadow-md object-cover object-top bg-white transition-opacity duration-300 ${
                     imageLoading ? 'opacity-0 absolute top-0 left-0' : 'opacity-100'
                   }`}
                   src={employee?.image}
@@ -142,7 +142,7 @@ export default function TeamMember() {
     
         </> : <>
         <div className="bg-center bg-no-repeat bg-cover bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/bg6.png')]">
-      <div className="w-full flex flex-col lg:flex-row pt-20 ">
+      <div className="w-full flex flex-col lg:flex-row pt-36 ">
         {/* first section image , name , job , experience years , cirtifications */}
         <div className="w-full py-5">
           <div className="w-full  flex flex-col md:flex-row items-center  px-4">
@@ -155,7 +155,7 @@ export default function TeamMember() {
                 {/* Placeholder image while loading */}
                 {imageLoading && (
                   <img
-                    className="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover bg-gray-100"
+                    className="w-[200px] h-[200px] lg:w-[260px] lg:h-[260px] rounded-3xl border-2 ms-2 shadow-md object-cover object-top bg-gray-100"
                     src="/BatelLogo1.png"
                     alt="Loading..."
                   />
@@ -163,7 +163,7 @@ export default function TeamMember() {
                 
                 {/* Main employee image */}
                 <img
-                  className={`w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] rounded-3xl border-2 ms-2 shadow-md object-cover transition-opacity duration-300 ${
+                  className={`w-[200px] h-[200px] lg:w-[260px] lg:h-[260px] rounded-3xl border-2 ms-2 shadow-md object-cover object-top bg-white transition-opacity duration-300 ${
                     imageLoading ? 'opacity-0 absolute top-0 left-0' : 'opacity-100'
                   }`}
                   src={employee?.image}

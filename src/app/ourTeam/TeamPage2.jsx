@@ -80,7 +80,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
       {dir == "rtl" ? (
         <>
           {/* header section */}
-          <div className="relative flex flex-col lg:h-[620px] 3xl:h-[790px] h-[300px] md:h-[370px] justify-center items-center mt-16 py-10  bg-center bg-no-repeat  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png')]">
+          <div className="relative flex flex-col h-[97vh] justify-center items-center  py-10  bg-center bg-no-repeat  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png')]">
             <div className="absolute inset-0 bg-gradient-to-l from-blue-700/70 to-blue-200/50 opacity-80 z-10"></div>
             {/* certified */}
             <div className="absolute bottom-2 end-2 w-2/12 ">
@@ -126,7 +126,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
 
             <h2
               data-aos="fade-up"
-              className="text-white text-shadow-xl text-xl md:text-3xl lg:text-5xl text-center shadow-xl my-1 md:my-4 lg:my-8 z-30 font-bold"
+              className="text-white text-shadow-xl text-xl md:text-3xl lg:text-5xl text-center shadow-xl my-1 md:my-4  z-30 font-bold"
             >
               فريق عمل شركة الباتل
             </h2>
@@ -134,7 +134,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             <h3
               data-aos="zoom-in"
               data-aos-delay="300"
-              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center w-10/12 md:w-2/3 lg:w-1/2 mt-1 md:mt-2 lg:mt-6 z-30 font-semibold"
+              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center w-10/12 md:w-2/3 lg:w-1/2 mt-1 md:mt-2  z-30 font-semibold"
             >
               فريق واحد
               <span className="text-2xl md:text-7xl font-normal">..</span>رؤية
@@ -144,7 +144,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             <h3
               data-aos="zoom-in"
               data-aos-delay="600"
-              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center  w-10/12 md:w-2/3 lg:w-1/2 mb-1 lg:mb-8  lg:mt-3 z-30 font-semibold"
+              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center  w-10/12 md:w-2/3 lg:w-1/2 mb-1 lg:mb-8   z-30 font-semibold"
             >
               <span>من الفكرة إلى النجاح</span>
               <span className="text-2xl md:text-7xl font-normal">..</span>
@@ -179,48 +179,49 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
                     <div
                       key={index}
                       data-aos="fade-up"
-                      className="relative group w-9/12 lg:w-1/5 md:w-1/3  3xl:w-1/6 p-2 xl:p-3 overflow-hidden"
+                      className="relative group w-9/12 md:w-1/3 lg:w-1/5 3xl:w-1/6 p-2 xl:p-3"
                     >
                       <Link
-                  
                         href={`/TeamMember/${teamMember?.id}`}
-                        className="flex relative flex-col border rounded-3xl shadow-lg overflow-hidden  hover:shadow-xl hover:shadow-blue-200 hover:bg-green-300/10 my-10  cursor-pointer group duration-700 transition-all bg-white border-gray-300 w-full"
+                        className="relative my-8 block overflow-hidden rounded-3xl border border-white/65 bg-white/90 shadow-lg shadow-blue-900/10 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/20"
                       >
                         <img
-                          className="absolute w-[25px] h-[25px] md:w-[35px] md:h-[35px]"
+                          className="absolute end-3 top-3 z-20 h-7 w-7 md:h-9 md:w-9 drop-shadow-md"
                           src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/Logos%20and%20Certified3/certified.png"
                           alt="certfied image"
                         />
-                        <div className=" flex h-[210px] items-center overflow-hidden mb-1 border-b  justify-center text-center ">
+                        <div className="relative flex h-[220px] items-center justify-center overflow-hidden border-b border-slate-200">
                           <img
                             src={`${teamMember?.image}`}
-                            className="w-full md:w-full h-full   transition-all duration-1000 "
+                            className="h-full w-full object-cover object-[center_28%] transition-transform duration-700 group-hover:scale-105"
                             alt="Team Member image"
                           />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-950/15 via-transparent to-transparent" />
                         </div>
-                        <div className=" flex  p-1 flex-col overflow-hidden items-center justify-center text-center">
-                          <h5 className="text-shadow-blue  text-xl text-nowrap border-b-4 border-b-transparent  group-hover:border-blue-600 duration-700 transition-all pb-3 text-blue-900 font-bold text-center tracking-tight">
+                        <div className="flex flex-col items-center justify-center px-4 pt-4 text-center">
+                          <h5 className="border-b-2 border-transparent pb-2 text-lg font-extrabold tracking-tight text-blue-900 transition-all duration-500 group-hover:border-blue-500 md:text-xl">
                             {teamMember?.name?.ar}
                           </h5>
                         </div>
-                      
-                          <div className="flex flex-wrap justify-center items-center text-xs gap-1">
+
+                        <div className="flex flex-wrap items-center justify-center gap-1.5 px-3 pb-3 pt-2 text-xs">
                             {teamMember?.cert
                               ?.split(/\s+/)
                               .filter((cert) => cert.trim() !== "")
                               .map((cert, index) => (
                                 <span
                                   key={index}
-                                  className="bg-slate-100 rounded-3xl px-2 py-1"
+                                  className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 font-medium text-slate-700 transition-colors duration-300 group-hover:border-blue-100 group-hover:bg-blue-50/70"
                                 >
                                   {cert}
                                 </span>
                               ))}
-                       
                         </div>
-                        <div className="flex justify-end pb-3 px-4">
-                          <p className="text-gray-600 border-b  text-sm group-hover:text-green-700 group-hover:border-b-black transition-all duration-700 ">
+
+                        <div className="flex justify-end px-4 pb-4">
+                          <p className="inline-flex items-center gap-1 border-b border-slate-300 pb-0.5 text-sm font-medium text-slate-600 transition-all duration-500 group-hover:border-blue-600 group-hover:text-blue-800">
                             عرض التفاصيل
+                            <i className="fa-solid fa-arrow-left text-xs transition-transform duration-500 group-hover:-translate-x-1" />
                           </p>
                         </div>
                       </Link>
@@ -317,7 +318,7 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
       ) : (
         <>
            {/* header section */}
-           <div className="relative flex flex-col lg:h-[620px] 3xl:h-[790px] h-[300px] md:h-[370px] justify-center items-center mt-16 py-10  bg-center bg-no-repeat  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png')]">
+           <div className="relative flex flex-col h-[97vh] justify-center items-center  py-10  bg-center bg-no-repeat  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png')]">
             <div className="absolute inset-0 bg-gradient-to-l from-blue-700/70 to-blue-200/50 opacity-80 z-10"></div>
             {/* certified */}
             <div className="absolute bottom-2 end-2 w-2/12 ">
@@ -362,20 +363,20 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
             </div>
 
             <h2
-              className="text-white text-shadow-xl text-xl md:text-3xl lg:text-5xl text-center shadow-xl my-1 md:my-4 lg:my-8 z-30 font-bold"
+              className="text-white text-shadow-xl text-xl md:text-3xl lg:text-5xl text-center shadow-xl my-1 md:my-4  z-30 font-bold"
             >
 Al-Batel Company Team
             </h2>
 
             <h3
-              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center w-10/12 md:w-2/3 lg:w-1/2 mt-1 md:mt-2 lg:mt-6 z-30 font-semibold"
+              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center w-10/12 md:w-2/3 lg:w-1/2 mt-1 md:mt-2  z-30 font-semibold"
             >
               One Team
               <span className="text-2xl md:text-7xl font-normal">..</span>One Vision<span className="text-2xl md:text-7xl font-normal">..</span>
               Boundless Success
             </h3>
             <h3
-              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center  w-10/12 md:w-2/3 lg:w-1/2 mb-1 lg:mb-8  lg:mt-3 z-30 font-semibold"
+              className="text-white text-shadow-xl text-xl md:text-2xl lg:text-3xl text-center  w-10/12 md:w-2/3 lg:w-1/2 mb-1 lg:mb-8   z-30 font-semibold"
             >
               <span>From Vision to Victory</span>
               <span className="text-2xl md:text-7xl font-normal">..</span>
@@ -408,48 +409,49 @@ Al-Batel Company Team
                     <div
                       key={index}
                       data-aos="fade-up"
-                      className="relative group w-9/12 lg:w-1/5 md:w-1/3  3xl:w-1/6 p-2 xl:p-3 overflow-hidden"
+                      className="relative group w-9/12 md:w-1/3 lg:w-1/5 3xl:w-1/6 p-2 xl:p-3"
                     >
                       <Link
-                     
                         href={`/TeamMember/${teamMember?.id}`}
-                        className="flex relative flex-col border rounded-3xl shadow-lg overflow-hidden  hover:shadow-xl hover:shadow-blue-200 hover:bg-green-300/10 my-10  cursor-pointer group duration-700 transition-all bg-white border-gray-300 w-full"
+                        className="relative my-8 block overflow-hidden rounded-3xl border border-white/65 bg-white/90 shadow-lg shadow-blue-900/10 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/20"
                       >
                         <img
-                          className="absolute w-[25px] h-[25px] md:w-[35px] md:h-[35px]"
+                          className="absolute right-3 top-3 z-20 h-7 w-7 md:h-9 md:w-9 drop-shadow-md"
                           src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/Logos%20and%20Certified3/certified.png"
                           alt="certfied image"
                         />
-                        <div className=" flex h-[210px] items-center overflow-hidden mb-1 border-b  justify-center text-center ">
+                        <div className="relative flex h-[220px] items-center justify-center overflow-hidden border-b border-slate-200">
                           <img
                             src={`${teamMember?.image}`}
-                            className="w-full md:w-full h-full   transition-all duration-1000 "
+                            className="h-full w-full object-cover object-[center_28%] transition-transform duration-700 group-hover:scale-105"
                             alt="Team Member image"
                           />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-950/15 via-transparent to-transparent" />
                         </div>
-                        <div className=" flex  p-1 flex-col overflow-hidden items-center justify-center text-center">
-                          <h5 className="text-shadow-blue  text-xl text-nowrap border-b-4 border-b-transparent  group-hover:border-blue-600 duration-700 transition-all pb-3 text-blue-900 font-bold text-center tracking-tight">
+                        <div className="flex flex-col items-center justify-center px-4 pt-4 text-center">
+                          <h5 className="border-b-2 border-transparent pb-2 text-lg font-extrabold tracking-tight text-blue-900 transition-all duration-500 group-hover:border-blue-500 md:text-xl">
                             {teamMember?.name?.en}
                           </h5>
                         </div>
-                      
-                          <div className="flex flex-wrap justify-center items-center text-xs gap-1">
+
+                        <div className="flex flex-wrap items-center justify-center gap-1.5 px-3 pb-3 pt-2 text-xs">
                             {teamMember?.cert
                               ?.split(/\s+/)
                               .filter((cert) => cert.trim() !== "")
                               .map((cert, index) => (
                                 <span
                                   key={index}
-                                  className="bg-slate-100 rounded-3xl px-2 py-1"
+                                  className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 font-medium text-slate-700 transition-colors duration-300 group-hover:border-blue-100 group-hover:bg-blue-50/70"
                                 >
                                   {cert}
                                 </span>
                               ))}
-                       
                         </div>
-                        <div className="flex justify-end pb-3 px-4">
-                          <p className="text-gray-600 border-b  text-sm group-hover:text-green-700 group-hover:border-b-black transition-all duration-700 ">
+
+                        <div className="flex justify-end px-4 pb-4">
+                          <p className="inline-flex items-center gap-1 border-b border-slate-300 pb-0.5 text-sm font-medium text-slate-600 transition-all duration-500 group-hover:border-blue-600 group-hover:text-blue-800">
                             Show Details
+                            <i className="fa-solid fa-arrow-right text-xs transition-transform duration-500 group-hover:translate-x-1" />
                           </p>
                         </div>
                       </Link>

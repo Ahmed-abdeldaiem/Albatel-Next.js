@@ -37,7 +37,7 @@ export default function Partners({ partners: initialPartners = [] }) {
 {dir == "rtl" ? <>
 <div
       
-            className={`relative overflow-hidden  w-full lg:h-[450px] 3xl:h-[500px] h-[270px] md:h-[330px]  mt-16 flex justify-center items-center`}
+            className={`relative overflow-hidden  w-full  lg:h-[90vh] h-[50vh] flex justify-center items-center`}
           >
             <img
               src="/homeSlide3.jpg"

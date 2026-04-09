@@ -57,7 +57,7 @@ export default function Services({ services = [] }) {
           <div className="bg-white">
             {/* service Header */}
             <div
-              className={`relative overflow-hidden  w-full  lg:h-[620px] 3xl:h-[750px] h-[300px] md:h-[350px]   mt-16 flex justify-center items-center`}
+              className={`relative overflow-hidden  w-full   h-[95vh]  flex justify-center items-center`}
             >
               <video
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -345,7 +345,7 @@ export default function Services({ services = [] }) {
         <div className="bg-white">
           {/* service Header */}
           <div
-            className={`relative overflow-hidden  w-full  lg:h-[620px] 3xl:h-[750px] h-[300px] md:h-[350px]   mt-16 flex justify-center items-center`}
+            className={`relative overflow-hidden  w-full   h-[95vh]  flex justify-center items-center`}
           >
             <video
               className="absolute top-0 left-0 w-full h-full object-cover z-0"

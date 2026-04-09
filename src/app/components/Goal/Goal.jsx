@@ -51,14 +51,14 @@ export default function Goal() {
                 </span>
                 إمداد العميل باحتياجاته كافة
                </h3>
-<h3 className="text-gray-800 text-lg 4k:text-3xl my-4 text-center  text-shadow-sm" >
-                <span className="text-green-600 mx-3">
+<h3 className="text-gray-800 text-lg 4k:text-3xl my-4 text-center lg:text-start text-shadow-sm" >
+                <span className="text-green-600 mx-3 text-center lg:text-start">
                   <i className="fa-solid fa-circle-dot"></i>
                 </span>
 تحري الدقة والاحترافية
                </h3>
-<h3 className="text-gray-800 text-lg 4k:text-3xl  my-4 text-center  text-shadow-sm" >
-                <span className="text-green-600 mx-3">
+<h3 className="text-gray-800 text-lg 4k:text-3xl  my-4 text-center lg:text-start text-shadow-sm" >
+                <span className="text-green-600 mx-3 text-center lg:text-start">
                   <i className="fa-solid fa-circle-dot"></i>
                 </span>
 الامتثال الكامل لكل مستجدات ومتطلبات المنهة

@@ -6,7 +6,6 @@ import TeamContextProvider from "./contexts/TeamContext.jsx";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import PDFModal from "./components/PDFModal/PDFModal";
-import VedioModal from "./components/VedioModal/VedioModal";
 import ImageProtection from "./components/ImageProtection/ImageProtection";
 import SocialBar from "./components/SocialBar/SocialBar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -355,16 +354,15 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
       >
       
-         <SocialBar />
          <LanguageContextProvider>
+         <SocialBar />
          <ImageProtection />
          <PDFModal />
-         <VedioModal />
          <PartnersContextProvider>
          <TeamContextProvider>
         
          <NavBar />
-         <main className="flex-1 pt-10">
+         <main className="flex-1 ">
          {children}
          <SpeedInsights />
          </main>

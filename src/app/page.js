@@ -64,7 +64,7 @@ export default function Home() {
             id="default-carousel"
             // bg-slate-100
             // className="relative w-full h-[85vh] mt-16 overflow-hidden  bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/bg1.png')] bg-cover"
-            className="relative w-full h-[95vh]  overflow-hidden bg-slate-100"
+            className="relative w-full h-[100vh]  overflow-hidden bg-slate-100"
             data-carousel="slide"
           >
        
@@ -81,7 +81,9 @@ export default function Home() {
               >
                 {/* Gradient blue overlay */}
              
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-800/80 to-blue-600/50 opacity-90 z-10"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
            
                 {/* Content for Slide 1 */}
                 <div className="relative z-20  flex flex-col items-center justify-center h-full">
@@ -90,7 +92,7 @@ export default function Home() {
                       src="/BatelWhiteLogo.png"
                       alt="logo image in slide 1"
                       loading="lazy"
-                      className={`w-1/3 4k:w-3/12 md:w-3/12 mt-2 transition-all  ${
+                      className={`w-1/2 4k:w-3/12 lg:w-3/12 mt-2 transition-all  ${
                         currentIndex === 0 ? "animate-moveIn" : ""
                       }`}
                     />
@@ -98,16 +100,16 @@ export default function Home() {
                     <div className={`flex flex-col text-center  `}>
                       <h1
                        
-                        className="text-white text-xl lg:text-4xl 4k:text-5xl font-semibold text-shadow-xl"
+                        className="text-white text-sm md:text-xl lg:text-4xl 4k:text-5xl font-semibold text-shadow-xl"
                       >
                         شركة باتل عبدالله الباتل وشركاؤه للاستشارات المهنية
                       </h1>
                       <h1
                        
-                        className="text-white text-xl lg:text-3xl 4k:text-4xl py-2 font-semibold text-shadow-xl"
+                        className="text-white text-sm md:text-xl lg:text-3xl 4k:text-4xl py-2 font-semibold text-shadow-xl"
                       >
-                        Batel Abdullah Al-Batel & Partners for Professional
-                        Consultations
+                        Batel Abdullah Al-Batel & Co. Professional Services
+                    
                       </h1>
                
                       
@@ -116,15 +118,41 @@ export default function Home() {
                   </div>
              
                   <div
-                    className={`flex justify-center   w-3/4 pt-9 ${
+                    className={`flex flex-col  lg:flex-row items-center lg:items-stretch justify-center gap-3 sm:gap-4 w-full max-w-xl sm:w-3/4 pt-9 ${
                       currentIndex === 0 ? "animate-moveIn2" : ""
                     }`}
                   >
-                    <Link className="flex justify-center items-center" href={"about"}>
-                    <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
-                        تعرف علينا
-                      </button>
+     <Link
+                      href="/contact"
+                      className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border border-teal-200/50 bg-gradient-to-br from-teal-500 via-sky-500 to-blue-700 px-6 py-2.5 text-sm font-bold tracking-wide text-white shadow-[0_4px_20px_-2px_rgba(15,118,110,0.45),0_6px_24px_-4px_rgba(0,0,0,0.35)] ring-1 ring-inset ring-white/25 transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-teal-100 hover:shadow-[0_8px_32px_-4px_rgba(45,212,191,0.55),0_12px_40px_-8px_rgba(14,165,233,0.35),inset_0_1px_0_0_rgba(255,255,255,0.35)] hover:ring-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-100 active:translate-y-0 active:scale-[0.98] sm:px-9 4k:px-11 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100"
+                    >
+                      <span className="relative z-10 text-center leading-snug drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                        اطلب استشارتك
+                      </span>
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-black/15 via-transparent to-white/10 opacity-80"
+                        aria-hidden
+                      />
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-cyan-200/0 via-white/20 to-emerald-200/0 opacity-0 mix-blend-overlay transition-opacity duration-300 group-hover:opacity-100"
+                        aria-hidden
+                      />
                     </Link>
+
+                    <Link
+                      href="/about"
+                      className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                    >
+                      <span className="relative z-10 text-center leading-snug">
+                        تعرف علينا
+                      </span>
+                      <span
+                        className="pointer-events-none absolute inset-y-0 -start-1/4 w-[42%] -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 transition duration-500 ease-out group-hover:translate-x-[300%] group-hover:opacity-100 motion-reduce:group-hover:translate-x-0"
+                        aria-hidden
+                      />
+                    </Link>
+
+               
                   </div>
                 </div>
               </div>
@@ -137,7 +165,11 @@ export default function Home() {
                 data-carousel-item
               >
                 {/* Gradient blue overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-900  to-blue-600/50 opacity-80 z-10"></div>
+               
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
+           
                 {/* Content for Slide 2 */}
 
                 <div className="relative z-20 w-full md:w-8/12  flex  flex-col items-center justify-center text-center md:items-start md:ps-32 md:ms-24 md:text-start   h-full">
@@ -148,32 +180,32 @@ export default function Home() {
                   >
                     خدماتنا
                   </h2>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-3 4k:text-3xl text-shadow-xl  font-semibold"> مراجعة القوائم المالية</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-3 4k:text-3xl text-shadow-xl  font-semibold">خدمات مالية ومحاسبية وضريبية</p>
                   </div>
 
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-3 4k:text-3xl text-shadow-xl  font-semibold">خدمات استشارية متخصصة</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-3 4k:text-3xl text-shadow-xl  font-semibold">حلول شاملة لاحتياجات الشركات</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow.png" alt="" />
                     </span>
@@ -184,7 +216,7 @@ export default function Home() {
                     className={`${currentIndex === 1 ? "animate-moveIn2" : ""}`}
                     href={"services"}
                   >
-                 <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+                 <button className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                       تعرف على خدماتنا
                     </button>
                   </Link>
@@ -199,7 +231,11 @@ export default function Home() {
                 data-carousel-item
               >
                 {/* Gradient blue overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-900  to-blue-600/50 opacity-80 z-10"></div>
+               
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
+           
                 {/* Content for Slide 3 */}
                 <div className="relative z-20 w-full md:w-8/12  flex  flex-col items-center justify-center text-center md:items-start md:ps-32 md:ms-24 md:text-start   h-full">
                   <h2
@@ -238,7 +274,7 @@ export default function Home() {
                     className={`${currentIndex === 2 ? "animate-moveIn2" : ""}`}
                     href={"/ourTeam"}
                   >
-                  <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+                  <button className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                       تعرف على فريقنا
                     </button>
                   </Link>
@@ -335,7 +371,7 @@ export default function Home() {
         <>
           <div
             id="default-carousel"
-            className="relative w-full h-[95vh]  overflow-hidden bg-slate-100"
+            className="relative w-full h-[100vh]  overflow-hidden bg-slate-100"
             data-carousel="slide"
           >
          
@@ -350,7 +386,11 @@ export default function Home() {
                 data-carousel-item
               >
                 {/* Gradient blue overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-900  to-blue-600/50 opacity-80 z-10"></div>
+             
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
+           
 
                 {/* Content for Slide 1 */}
                 <div className="relative z-20  flex flex-col items-center justify-center h-full">
@@ -359,7 +399,7 @@ export default function Home() {
                       src="/BatelWhiteLogo.png"
                       alt="logo image in slide 1"
                       loading="lazy"
-                      className={`w-1/3 4k:w-3/12 md:w-3/12 mt-2 transition-all  ${
+                     className={`w-1/2 4k:w-3/12 lg:w-3/12 mt-2 transition-all  ${
                         currentIndex === 0 ? "animate-moveIn" : ""
                       }`}
                     />
@@ -367,28 +407,32 @@ export default function Home() {
                     <div className={`flex flex-col text-center  `}>
                       <h1
                        
-                        className="text-white text-xl lg:text-4xl 4k:text-5xl font-semibold"
+                        className="text-white text-sm md:text-xl lg:text-4xl 4k:text-5xl font-semibold"
                       >
                         شركة باتل عبدالله الباتل وشركاؤه للاستشارات المهنية
                       </h1>
                       <h1
                        
-                        className="text-white text-xl lg:text-3xl 4k:text-4xl pt-6 font-semibold"
+                        className="text-white text-sm md:text-xl lg:text-3xl 4k:text-4xl pt-6 font-semibold"
                       >
-                        Batel Abdullah Al-Batel & Partners for Professional
-                        Consultations
+                       Batel Abdullah Al-Batel & Co. Professional Services
                       </h1>
                     </div>
                   </div>
 
                   <div
-                    className={`flex justify-center   w-3/4 pt-9 ${
+                    className={`flex justify-center gap-4   w-3/4 pt-9 ${
                       currentIndex === 0 ? "animate-moveIn2" : ""
                     }`}
                   >
                     <Link href={"about"}>
-                    <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+                    <button className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                         About US
+                      </button>
+                    </Link>
+                    <Link href={"contact"}>
+                    <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-sm 4k:text-3xl text-nowrap font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+                        Contact Us
                       </button>
                     </Link>
                   </div>
@@ -403,7 +447,11 @@ export default function Home() {
                 data-carousel-item
               >
                 {/* Gradient blue overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-900  to-blue-600/50 opacity-80 z-10"></div>
+            
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
+           
                 {/* Content for Slide 2 */}
 
                 <div className="relative z-20 w-full md:w-8/12  flex  flex-col items-center justify-center text-center md:items-start md:ps-32 md:ms-24 md:text-start   h-full">
@@ -414,32 +462,32 @@ export default function Home() {
                   >
                     Our Services
                   </h2>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow2.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-2 4k:text-3xl text-shadow-xl  font-semibold">Financial Audit</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow2.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-2 4k:text-3xl text-shadow-xl  font-semibold">Financial, Accounting and Tax Advisory</p>
                   </div>
 
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow2.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-2 4k:text-3xl text-shadow-xl  font-semibold">Specialized consulting services</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow2.png" alt="" />
                     </span>
                    <p className="text-white text-lg lg:text-2xl pb-2 4k:text-3xl text-shadow-xl  font-semibold">Comprehensive solutions for corporate needs</p>
                   </div>
-                  <div className="my-4 flex items-center justify-center">
+                  <div className="my-2 lg:my-4 flex items-center justify-center">
                     <span className="mx-1">
                      <img className="w-7" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/Special%20Icons/arrow2.png" alt="" />
                     </span>
@@ -449,7 +497,7 @@ export default function Home() {
                     className={`${currentIndex === 1 ? "animate-moveIn2" : ""}`}
                     href={"services"}
                   >
-               <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+               <button className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                       Our Services
                     </button>
                   </Link>
@@ -464,7 +512,11 @@ export default function Home() {
                 data-carousel-item
               >
                 {/* Gradient blue overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-blue-900  to-blue-600/50 opacity-80 z-10"></div>
+              
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(30,58,138,0.66)_0%,rgba(37,99,235,0.54)_48%,rgba(56,189,248,0.48)_100%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(72%_56%_at_74%_16%,rgba(219,234,254,0.40)_0%,rgba(147,197,253,0.20)_30%,transparent_64%)]"></div>
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgba(30,64,175,0.38)_0%,rgba(59,130,246,0.20)_46%,transparent_100%)]"></div>
+           
                 {/* Content for Slide 3 */}
                 <div className="relative z-20 w-full md:w-8/12  flex  flex-col items-center justify-center text-center md:items-start md:ps-32 md:ms-24 md:text-start   h-full">
                   <h2
@@ -506,7 +558,7 @@ export default function Home() {
                     className={`${currentIndex === 2 ? "animate-moveIn2" : ""}`}
                     href={"/ourTeam"}
                   >
-                 <button className=" text-shadow-xl hover:text-shadow-green  px-7 py-2 4k:py-4 4k:px-9 overflow-hidden border-2 border-green-50 transition-all duration-700 hover:border-blue-800 text-xl 4k:text-3xl font-semibold text-white hover:text-green-800 bg-slate-100 hover:bg-opacity-70 bg-opacity-20 rounded-2xl">
+                 <button className="group relative isolate inline-flex min-h-[44px] min-w-[44px] w-auto flex-none items-center justify-center overflow-hidden rounded-2xl border-2 border-white/55 bg-white/[0.12] px-5 lg:px-6 py-2.5 text-sm font-semibold text-white shadow-md backdrop-blur-md transition-[transform,box-shadow,background-color,border-color,color] duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-blue-900 hover:shadow-lg hover:shadow-blue-950/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-0 active:scale-[0.98] sm:px-8 4k:px-10 4k:py-4 4k:text-3xl motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                       Our Team
                     </button>
                   </Link>
@@ -603,13 +655,15 @@ export default function Home() {
 {/* اليوم الدولي لمكافحة الفساد */}
 {/* <FasadDay /> */}
 
+<MainPagePartners />
+
       {/* 4th section : company goal */}
       <Goal />
       {/* 6th section : company vision */}
       <Vision />
       {/* 8th section : company message */}
       <Message />
-      <MainPagePartners />
+    
 
       {/* second Section : Branches */}
       <Branches />

@@ -128,7 +128,7 @@ export default function About() {
         <>
           {/* About Us Header */}
           <div
-            className={`relative overflow-hidden  w-full  lg:h-[620px] 3xl:h-[750px] h-[300px] md:h-[350px]   mt-16 flex justify-center items-center`}
+            className={`relative overflow-hidden  w-full  h-[95vh]    flex justify-center items-center`}
           >
             <img
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -165,11 +165,11 @@ export default function About() {
                   <h2 className="text-white text-center text-xl lg:text-5xl mb-8 font-semibold text-shadow-xl">
                     للاستشارات المهنية
                   </h2>
-                  <h3 className="hidden md:block text-lg lg:text-xl   text-white ">
+                  <h3 className="text-center text-lg lg:text-xl   text-white ">
                     رحلة من الثقة والتميز في الخدمات المالية والمحاسبية منذ عام
                     2006م
                   </h3>
-                  <h3 className="hidden md:block text-lg lg:text-xl  mb-8 text-white ">
+                  <h3 className="text-center text-lg lg:text-xl  mb-8 text-white ">
                     نخدم عملاءنا بأعلى معايير الجودة والمهنية
                   </h3>
                   <div data-aos="fade-up">
@@ -189,11 +189,7 @@ export default function About() {
                         الملف التعريفي
                       </h3>
                     </Link>
-                    <Link target={"_blank"} href="/profileVedio">
-                      <h3 className=" inline-block rounded-2xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-2 border-white border text-center z-20 text-blue-950 text-sm md:text-lg font-bold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-50">
-                        شاهد الفيديو
-                      </h3>
-                    </Link>
+                 
                   </div>
                 </div>
               </div>
@@ -557,7 +553,7 @@ export default function About() {
         <>
           {/* About Us Header */}
           <div
-            className={`relative overflow-hidden  w-full  lg:h-[620px] 3xl:h-[750px] h-[300px] md:h-[350px]   mt-16 flex justify-center items-center`}
+            className={`relative overflow-hidden  w-full  h-[95vh]    flex justify-center items-center`}
           >
             <img
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -594,10 +590,10 @@ export default function About() {
                   <h2 className="text-white text-center text-xl lg:text-5xl mb-8 font-semibold text-shadow-xl">
                   For professional consultations
                   </h2>
-                  <h3 className="hidden md:block text-lg lg:text-xl   text-white ">
+                  <h3 className="text-center text-lg lg:text-xl   text-white ">
                   A journey of trust and excellence in financial and accounting services since 2006
                   </h3>
-                  <h3 className="hidden md:block text-lg lg:text-xl  mb-8 text-white ">
+                  <h3 className="text-center text-lg lg:text-xl  mb-8 text-white ">
                   Serve our clients with the highest standards of quality and professionalism.                  </h3>
                   <div data-aos="fade-up">
                     <button onClick={handleScroll}>
@@ -616,11 +612,7 @@ export default function About() {
                       Company profile
                       </h3>
                     </Link>
-                    <Link target={"_blank"} href="/profileVedio">
-                      <h3 className=" inline-block rounded-2xl px-2 md:px-5 cursor-pointer mx-1 bg-blue-100 bg-opacity-60 py-2 border-white border text-center z-20 text-blue-950 text-sm md:text-lg font-bold transition-all duration-500 hover:border-blue-950 hover:text-white hover:bg-opacity-50">
-                        Watch Video
-                      </h3>
-                    </Link>
+                 
                   </div>
                 </div>
               </div>
