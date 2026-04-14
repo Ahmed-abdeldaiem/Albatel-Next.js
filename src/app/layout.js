@@ -156,6 +156,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
       <head>
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NPZHPK8P');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
+
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="google69a49a7349cb352d" />
         
@@ -353,6 +367,16 @@ export default function RootLayout({ children }) {
         className={`${primaryFont.variable} ${primaryFont.className} antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning={true}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NPZHPK8P"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
       
          <LanguageContextProvider>
          <SocialBar />
