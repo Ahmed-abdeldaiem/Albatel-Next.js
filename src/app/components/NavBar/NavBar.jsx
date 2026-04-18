@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageContext } from "../../contexts/langContext";
 import { BRANCHES } from "../../data/branches";
+import useScrolledPast from "../../hooks/useScrolledPast";
 
 const WA_URL = "https://wa.me/966550554262";
 const WA_ICON =
@@ -336,28 +337,11 @@ function MobileNavDrawer({
 export default function NavBar() {
   const [openDropdownLanguage, setOpenDropdownLanguage] = useState(null);
   const [currentLanguage, setCurrentLanguage] = useState("ar");
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolled = useScrolledPast(80);
   const [isOpen, setIsOpen] = useState(false);
 
   const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
   const t = dir === "rtl" ? COPY.ar : COPY.en;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const scrollPercentage = (scrollPosition / windowHeight) * 100;
-
-      if (scrollPercentage >= 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!isOpen) return undefined;

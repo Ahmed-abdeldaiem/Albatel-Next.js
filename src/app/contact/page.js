@@ -1,14 +1,32 @@
+import axios from "axios";
 import ContactUs from "./ContactUs";
 
+const BASE_URL = "https://al-batel-team-data-default-rtdb.firebaseio.com";
 
-// Generate metadata for SEO
+async function getBranches() {
+  try {
+    const response = await axios.get(`${BASE_URL}/branches.json`);
+    const data = response.data;
+
+    if (!data) return [];
+    if (Array.isArray(data)) return data.filter(Boolean);
+    if (Array.isArray(data.branches)) return data.branches.filter(Boolean);
+    return [];
+  } catch (error) {
+    console.error("Failed to fetch branches:", error);
+    return [];
+  }
+}
+
+export const revalidate = 300;
+
 export async function generateMetadata() {
-
   const titleAr = "تواصل معنا | الباتل وشركاؤه للاستشارات المهنية";
-const descAr = "هل لديك استفسار؟ تواصل مع فريق خبراء الباتل وشركاؤه. نحن هنا لمساعدتك في جميع احتياجاتك المالية والاستشارية.";
-const titleEn = "Contact Us | Al-Batel & Co. Professional Services";
-const descEn = "Have a question? Get in touch with the expert team at Al-Batel & Co. We're here to assist with all your financial and consulting needs.";
-
+  const descAr =
+    "هل لديك استفسار؟ تواصل مع فريق خبراء الباتل وشركاؤه. نحن هنا لمساعدتك في جميع احتياجاتك المالية والاستشارية.";
+  const titleEn = "Contact Us | Al-Batel & Co. Professional Services";
+  const descEn =
+    "Have a question? Get in touch with the expert team at Al-Batel & Co. We're here to assist with all your financial and consulting needs.";
 
   return {
     title: titleAr,
@@ -44,12 +62,12 @@ const descEn = "Have a question? Get in touch with the expert team at Al-Batel &
   };
 }
 
+export default async function ContactPage() {
+  const branches = await getBranches();
 
-export default function ContactPage() {
   return (
     <div>
-      <ContactUs />
+      <ContactUs branches={branches} />
     </div>
   );
 }
-

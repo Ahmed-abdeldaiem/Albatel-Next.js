@@ -3,31 +3,14 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import Link from "next/link";
 import { LanguageContext } from "../../contexts/langContext";
 import { BRANCHES } from "../../data/branches";
+import useScrolledPast from "../../hooks/useScrolledPast";
 
 export default function SocialBar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolled = useScrolledPast(80);
   const [isBranchesOpen, setIsBranchesOpen] = useState(false);
   const branchesMenuRef = useRef(null);
   const { dir } = useContext(LanguageContext);
   const branches = BRANCHES;
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const scrollPercentage = (scrollPosition / windowHeight) * 100;
-      
-      if (scrollPercentage >= 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -40,7 +23,14 @@ export default function SocialBar() {
   }, []);
 
   return (
-    <div className={`${isScrolled ? 'static' : 'fixed top-0 left-0'} hidden lg:block w-full bg-blue-600 bg-opacity-40 backdrop-blur-lg px-3 py-1 shadow-md z-50 transition-all duration-500`}>
+    <div
+      aria-hidden={isScrolled}
+      className={`fixed top-0 left-0 hidden lg:block w-full bg-blue-600 bg-opacity-40 backdrop-blur-lg px-3 py-1 shadow-md z-50 transition-[transform,opacity] duration-500 ease-out motion-reduce:transition-none will-change-transform ${
+        isScrolled
+          ? "-translate-y-full opacity-0 pointer-events-none"
+          : "translate-y-0 opacity-100"
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 flex-wrap">
        
   <div className="flex gap-2 items-center">

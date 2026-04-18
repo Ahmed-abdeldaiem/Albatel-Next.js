@@ -1,176 +1,253 @@
 "use client";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { LanguageContext } from "../../contexts/langContext";
 import { PartnersContext } from "../../contexts/PartnersContext";
 
-
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
+/* =========================================================
+   MainPagePartners — unified AR/EN, modern marquee grid.
+   ========================================================= */
 export default function MainPagePartners() {
+  const { dir } = useContext(LanguageContext);
   const { getPartners } = useContext(PartnersContext);
-  const [partners, setPartners] = useState([]);
-  const [Loading, setLoading] = useState(false);
-  const { rightToLeft, leftToRight, dir } = useContext(LanguageContext);
-  
-  // حساب عدد الصور حسب عرض الشاشة
-  const [slidesToShow, setSlidesToShow] = useState(6);
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      once: false,
-      easing: 'ease-in-out'
-    });
-  }, []);
+  const isRtl = dir === "rtl";
 
-  // تحديث عدد الصور حسب عرض الشاشة
+  const [partners, setPartners] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [slidesToShow, setSlidesToShow] = useState(6);
+
+  /* ---- Responsive slide count ---- */
   useEffect(() => {
-    const updateSlidesToShow = () => {
-      const width = window.innerWidth;
-      
-      if (width < 480) setSlidesToShow(2);
-      else if (width < 640) setSlidesToShow(2);
-      else if (width < 768) setSlidesToShow(2);
-      else if (width < 1024) setSlidesToShow(4);
-      else if (width < 1440) setSlidesToShow(5);
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 480) setSlidesToShow(2);
+      else if (w < 768) setSlidesToShow(3);
+      else if (w < 1024) setSlidesToShow(4);
+      else if (w < 1440) setSlidesToShow(5);
       else setSlidesToShow(6);
     };
-
-    updateSlidesToShow();
-    window.addEventListener('resize', updateSlidesToShow);
-    return () => window.removeEventListener('resize', updateSlidesToShow);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
-  async function getPartnersData() {
-    setLoading(true);
-    let data = await getPartners();
 
-    setPartners(data);
-
-    setLoading(false);
-  }
-
+  /* ---- Fetch ---- */
   useEffect(() => {
-    getPartnersData();
-  }, []);
+    let cancelled = false;
+    (async () => {
+      try {
+        const data = await getPartners();
+        if (!cancelled) setPartners(Array.isArray(data) ? data : []);
+      } catch {
+        if (!cancelled) setPartners([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [getPartners]);
 
-  // Split partners into two groups for two rows
-  const partnersFirstRow = useMemo(() => {
-    return partners.filter((_, index) => index % 2 === 0);
-  }, [partners]);
-
-  const partnersSecondRow = useMemo(() => {
-    return partners.filter((_, index) => index % 2 === 1);
-  }, [partners]);
-
- 
-   // Settings for first slider (right to left)
-   const settingsFirstRow = {
-     dots: false,
-     infinite: true,
-     speed: 2000,
-     slidesToShow: slidesToShow, // استخدام القيمة المحسوبة
-     slidesToScroll: 1,
-     initialSlide: 0,
-     autoplay: true,
-     autoplaySpeed: 2000,
-     cssEase: "linear",
-     pauseOnHover: false,
-     rtl: false,
-   };
-
-  // Settings for second slider (left to right)
-  const settingsSecondRow = {
-    ...settingsFirstRow,
-    rtl: true, // Left to right movement
-    autoplaySpeed: 2000, // Slightly different speed for visual variety
-  };
-
-  
-
- 
-
-  const renderPartnerSlide = (partner, index) => (
-    <div key={index} className="px-2">
-      <div className="flex flex-col-reverse z-50 rounded-3xl overflow-hidden my-5 cursor-pointer group duration-700 transition-all w-full">
-        <div className="flex h-[100px] items-center relative overflow-hidden justify-center text-center">
-          <img
-            src={`${partner?.image}`}
-            className="w-full h-[100%] group-hover:scale-110 transition-all  duration-700"
-            alt="Partner image"
-          />
-          {/* <div className="absolute inset-0 bg-gradient-to-l from-green-300/20 to-blue-800/30 opacity-70 z-10"></div> */}
-        </div>
-      </div>
-    </div>
+  /* ---- Split rows for counter-direction marquee ---- */
+  const firstRow = useMemo(
+    () => partners.filter((_, i) => i % 2 === 0),
+    [partners]
+  );
+  const secondRow = useMemo(
+    () => partners.filter((_, i) => i % 2 === 1),
+    [partners]
   );
 
+  /* ---- Slider settings ---- */
+  const commonSettings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 2000,
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    pauseOnHover: true,
+    swipeToSlide: true,
+  };
 
+  const topRowSettings = { ...commonSettings, rtl: false };
+  const bottomRowSettings = { ...commonSettings, rtl: true };
+
+  /* ---- Translations ---- */
+  const t = {
+    eyebrow: isRtl ? "ثقة عملائنا" : "Trusted By",
+    title: isRtl ? "شركاء النجاح" : "Partners of Success",
+    sub: isRtl
+      ? "نفخر بشراكاتنا المثمرة وعملائنا الذين منحونا ثقتهم، فنجاحهم هو أعظم إنجازاتنا."
+      : "We are proud of our successful partnerships and the clients who trust us — their success is our greatest achievement.",
+    empty: isRtl
+      ? "سيتمّ تحميل شركائنا قريبًا..."
+      : "Our partners will load shortly...",
+    viewAll: isRtl ? "شاهد جميع الشركاء" : "View all partners",
+  };
 
   return (
-    <>
-     
-  
-<div  data-aos="fade-up">
-<h2  className="text-2xl lg:text-3xl text-shadow-blue 4k:text-5xl text-blue-900 text-center font-semibold  py-5" >
-        {dir == "rtl" ? <>شركاء النجاح</> : <>Partners of success</>}
-      </h2>
-      
-      <p className="p-2 md:px-5 mx-2 md:mx-5  font-semibold text-blue-950 text-lg 4k:text-3xl text-center">
-      {dir == "rtl" ? <>نفخر بشراكاتنا المثمرة وعملائنا الذين منحونا ثقتهم، فنجاحهم هو أعظم إنجازاتنا</> : <>Proud of our successful partnerships and our clients who have placed their trust in us; their success is our greatest achievement</>}      
-              </p>
-</div>
+    <section
+      className="relative py-14 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden"
+      aria-labelledby="partners-title"
+    >
+      <div
+        className="absolute -top-24 -start-24 w-80 h-80 rounded-full bg-blue-200/30 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-24 -end-24 w-80 h-80 rounded-full bg-green-200/30 blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
 
-      <div className="relative w-full bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/bg6.png')] shadow-lg bg-center" data-aos="fade-up">
-        {partners.length > 0 ? (
-          <div className="space-y-4">
-            {/* First Row - Moving Right to Left */}
-            {partnersFirstRow.length > 0 && (
-              <div className="w-full">
-                <Slider
-                  {...settingsFirstRow}
-                  className="w-full max-w-full overflow-hidden"
-                >
-                  {partnersFirstRow.map((partner, index) => 
-                    renderPartnerSlide(partner, `first-${index}`)
-                  )}
-                </Slider>
-              </div>
-            )}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        {/* Heading */}
+        <div className="text-center mb-10 sm:mb-14">
+          <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-700">
+            {t.eyebrow}
+          </span>
+          <h2
+            id="partners-title"
+            className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-950"
+          >
+            {t.title}
+          </h2>
+          <div className="mt-4 mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 via-green-500 to-blue-600" />
+          <p className="mt-5 mx-auto max-w-3xl text-slate-600 text-sm sm:text-base lg:text-lg">
+            {t.sub}
+          </p>
+        </div>
 
-            {/* Second Row - Moving Left to Right */}
-            {partnersSecondRow.length > 0 && (
-              <div className="w-full">
-                <Slider
-                  {...settingsSecondRow}
-                  className="w-full max-w-full overflow-hidden"
-                >
-                  {partnersSecondRow.map((partner, index) => 
-                    renderPartnerSlide(partner, `second-${index}`)
-                  )}
-                </Slider>
-              </div>
-            )}
+        {/* Marquee container */}
+        <div className="relative rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+          {/* Edge fades */}
+          <div
+            className="pointer-events-none absolute inset-y-0 start-0 w-16 sm:w-24 z-10 bg-gradient-to-e from-white to-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0))",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 end-0 w-16 sm:w-24 z-10"
+            style={{
+              backgroundImage:
+                "linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0))",
+            }}
+            aria-hidden="true"
+          />
 
-            {/* Fallback: If we have partners but they don't split evenly, show all in first row */}
-            {partners.length > 0 && partnersFirstRow.length === 0 && partnersSecondRow.length === 0 && (
-              <div className="w-full">
+          {loading ? (
+            <LoadingRows />
+          ) : partners.length === 0 ? (
+            <div className="text-center py-10">
+              <p className="text-slate-600 text-sm sm:text-base">{t.empty}</p>
+            </div>
+          ) : (
+            <div className="space-y-4 sm:space-y-6">
+              {firstRow.length > 0 && (
                 <Slider
-                  {...settingsFirstRow}
-                  className="w-full max-w-full overflow-hidden"
+                  {...topRowSettings}
+                  className="partners-slider w-full max-w-full overflow-hidden"
                 >
-                  {partners.map((partner, index) => 
-                    renderPartnerSlide(partner, `all-${index}`)
-                  )}
+                  {firstRow.map((p, i) => (
+                    <PartnerSlide key={`top-${i}`} partner={p} />
+                  ))}
                 </Slider>
-              </div>
-            )}
+              )}
+
+              {secondRow.length > 0 && (
+                <Slider
+                  {...bottomRowSettings}
+                  className="partners-slider w-full max-w-full overflow-hidden"
+                >
+                  {secondRow.map((p, i) => (
+                    <PartnerSlide key={`bottom-${i}`} partner={p} />
+                  ))}
+                </Slider>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* CTA */}
+        {!loading && partners.length > 0 ? (
+          <div className="mt-8 sm:mt-10 flex justify-center">
+            <Link
+              href="/partners"
+              className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-white text-blue-700 ring-1 ring-slate-200 text-sm sm:text-base font-semibold shadow-sm hover:ring-blue-500 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+            >
+              {t.viewAll}
+              <span
+                className={`transition-transform duration-300 ${
+                  isRtl
+                    ? "group-hover:-translate-x-1"
+                    : "group-hover:translate-x-1"
+                }`}
+                aria-hidden="true"
+              >
+                {isRtl ? "←" : "→"}
+              </span>
+            </Link>
           </div>
         ) : null}
       </div>
-    </>
+    </section>
+  );
+}
+
+/* =========================================================
+   Helper: Partner slide card.
+   ========================================================= */
+function PartnerSlide({ partner }) {
+  return (
+    <div className="px-2 sm:px-3">
+      <div className="group relative h-[90px] sm:h-[110px] flex items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200/70 hover:ring-blue-300 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500">
+        <img
+          src={partner?.image}
+          alt={partner?.name || "Partner"}
+          loading="lazy"
+          className="max-h-[70%] max-w-[80%] object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+        />
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   Helper: Loading skeleton rows.
+   ========================================================= */
+function LoadingRows() {
+  return (
+    <div className="space-y-4 sm:space-y-6">
+      {[0, 1].map((row) => (
+        <div
+          key={row}
+          className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
+        >
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-[90px] sm:h-[110px] rounded-2xl bg-gradient-to-br from-slate-100 to-slate-50 ring-1 ring-slate-200 animate-pulse"
+            />
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }
