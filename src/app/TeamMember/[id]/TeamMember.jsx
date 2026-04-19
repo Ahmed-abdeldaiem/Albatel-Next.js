@@ -379,12 +379,12 @@ export default function TeamMember() {
             </div>
 
             <article className="relative p-6 sm:p-8 lg:p-10 rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-blue-900/5">
-              <span className="absolute top-2 start-2 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-md">
+              <span className="absolute top-3 start-3 sm:top-4 sm:start-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-5 h-5 text-white"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-white"
                   aria-hidden="true"
                 >
                   <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
@@ -393,11 +393,7 @@ export default function TeamMember() {
                 </svg>
               </span>
 
-              <p
-                className={`${
-                  certChips.length > 0 ? "ps-14 sm:ps-16" : ""
-                } text-slate-700 text-base sm:text-lg lg:text-xl leading-loose text-justify whitespace-pre-line`}
-              >
+              <p className="ps-12 sm:ps-16 text-slate-700 text-base sm:text-lg lg:text-xl leading-loose text-justify whitespace-pre-line">
                 {certText}
               </p>
             </article>
@@ -428,12 +424,12 @@ export default function TeamMember() {
             </div>
 
             <article className="relative p-6 sm:p-8 lg:p-10 rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-blue-900/5">
-              <span className="absolute top-4 start-4 w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-md">
+              <span className="absolute top-3 start-3 sm:top-4 sm:start-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-5 h-5 text-white"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-white"
                   aria-hidden="true"
                 >
                   <path
@@ -445,7 +441,7 @@ export default function TeamMember() {
                 </svg>
               </span>
 
-              <p className="ps-14 sm:ps-16 text-slate-700 text-base sm:text-lg lg:text-xl leading-loose text-justify whitespace-pre-line">
+              <p className="ps-12 sm:ps-16 text-slate-700 text-base sm:text-lg lg:text-xl leading-loose text-justify whitespace-pre-line">
                 {experienceText}
               </p>
             </article>

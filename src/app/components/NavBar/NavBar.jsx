@@ -89,7 +89,7 @@ function MobileNavDrawer({
   onClose,
   dir,
   t,
-  getLinkClass,
+  isActivePath,
   currentLanguage,
   switchLanguage,
   leftToRight,
@@ -102,8 +102,14 @@ function MobileNavDrawer({
     if (!open) setBranchesOpen(false);
   }, [open]);
 
-  const drawerLinkClass = (href) =>
-    `${getLinkClass(href).replace("p-2 ", "").replace("text-gray-700", "text-slate-900")} block w-full rounded-lg px-3 py-2 text-start text-[15px] font-medium transition-colors hover:bg-slate-300/70`;
+  const drawerLinkClass = (href) => {
+    const active = isActivePath(href);
+    const base =
+      "group relative block w-full rounded-lg px-3 py-2 text-start text-[15px] font-bold transition-all duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 motion-reduce:transition-none";
+    return active
+      ? `${base} bg-gradient-to-r from-sky-600 to-blue-700 text-white shadow-md shadow-blue-900/20`
+      : `${base} text-slate-900 hover:bg-slate-300/70 hover:text-blue-800 hover:translate-x-0.5 rtl:hover:-translate-x-0.5`;
+  };
 
   return (
     <div
@@ -361,10 +367,12 @@ export default function NavBar() {
   }, [isOpen]);
 
   const pathname = usePathname();
+  const isActivePath = (href) =>
+    pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+
   const getLinkClass = (href) => {
-    const isActive =
-      pathname === href || (href !== "/" && pathname.startsWith(href));
-    return `p-2 linkStyle text-sm md:text-base  ${isActive ? "text-blue-700 " : "text-gray-700"}`;
+    const active = isActivePath(href);
+    return `linkStyle px-2 py-2 text-sm md:text-base ${active ? "is-active" : ""}`;
   };
 
   const toggleDropdown = (dropdownName) => {
@@ -422,12 +430,13 @@ export default function NavBar() {
             <div className="grid h-full w-full grid-cols-[1fr_auto_1fr] items-center gap-1 lg:hidden">
               <div className="flex min-w-0 justify-start">
                 <Link
-                  className="flex min-w-0 max-w-full items-center text-gray-950"
+                  className="group flex min-w-0 max-w-full items-center rounded-lg text-gray-950 transition-transform duration-300 ease-out active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 motion-reduce:transition-none"
                   href="/"
+                  aria-label={dir === "rtl" ? "الباتل - الصفحة الرئيسية" : "AlBatel - Home"}
                 >
                   <img
                     src="/BatelLogo1.png"
-                    className="h-10 w-auto shrink-0 px-0.5 sm:h-11"
+                    className="h-10 w-auto shrink-0 px-0.5 sm:h-11 transition-transform duration-500 ease-out group-active:rotate-[-6deg] motion-reduce:transition-none"
                     alt="Albatel Logo"
                   />
                   <div className="flex min-w-0 flex-col items-start justify-center ps-0.5">
@@ -447,12 +456,15 @@ export default function NavBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="WhatsApp"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-emerald-400/90 bg-white shadow-md shadow-emerald-900/10 transition hover:scale-105 hover:border-emerald-500 hover:shadow-lg"
+                  aria-label="WhatsApp"
+                  className="group relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-emerald-400/90 bg-white shadow-md shadow-emerald-900/10 transition-all duration-200 ease-out hover:scale-110 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/30 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 motion-reduce:transition-none motion-reduce:hover:scale-100"
                 >
+                  <span className="pointer-events-none absolute inset-0 rounded-full bg-emerald-400/0 transition-colors duration-300 group-hover:bg-emerald-400/10" aria-hidden />
+                  <span className="pointer-events-none absolute -inset-1 rounded-full border-2 border-emerald-400/50 opacity-0 group-hover:opacity-100 group-hover:animate-ping motion-reduce:group-hover:animate-none" aria-hidden />
                   <img
                     src={WA_ICON}
-                    alt="WhatsApp"
-                    className="h-6 w-6 object-contain"
+                    alt=""
+                    className="relative h-6 w-6 object-contain transition-transform duration-200 group-hover:rotate-[12deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
                   />
                 </a>
               </div>
@@ -461,42 +473,39 @@ export default function NavBar() {
                 <button
                   type="button"
                   onClick={() => setIsOpen((o) => !o)}
-                  className="menu-toggle-button inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300/90 bg-white text-gray-700 shadow-sm transition hover:border-blue-300 hover:text-blue-800"
+                  className={`menu-toggle-button group inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-white shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+                    isOpen
+                      ? "border-blue-300 text-blue-800 bg-blue-50"
+                      : "border-slate-300/90 text-gray-700 hover:border-blue-300 hover:text-blue-800"
+                  }`}
                   aria-expanded={isOpen}
                   aria-controls="mobile-menu"
+                  aria-label={isOpen ? t.close : t.menu}
                 >
                   <span className="sr-only">Toggle menu</span>
-                  {isOpen ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`h-6 w-6 transition-transform duration-300 ease-out ${isOpen ? "rotate-90 scale-110" : "group-hover:scale-110"} motion-reduce:transition-none`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    {isOpen ? (
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M6 18L18 6M6 6l12 12"
                       />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
+                    ) : (
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M4 6h16M4 12h16M4 18h16"
                       />
-                    </svg>
-                  )}
+                    )}
+                  </svg>
                 </button>
               </div>
             </div>
@@ -504,19 +513,20 @@ export default function NavBar() {
             <div className="hidden h-full w-full items-center justify-center gap-4 lg:flex lg:gap-6">
               <div className="flex w-full items-center gap-2 lg:gap-16 lg:text-xl">
                 <Link
-                  className="flex items-center text-gray-950 lg:me-5"
+                  className="group flex items-center text-gray-950 lg:me-5 rounded-full transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 motion-reduce:transition-none motion-reduce:hover:scale-100"
                   href="/"
+                  aria-label={dir === "rtl" ? "الباتل - الصفحة الرئيسية" : "AlBatel - Home"}
                 >
                   <img
                     src="/BatelLogo1.png"
-                    className="inline-block w-20 px-3"
+                    className="inline-block w-20 px-3 transition-transform duration-500 ease-out group-hover:rotate-[-6deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
                     alt="Albatel Logo"
                   />
                   <div className="flex flex-col items-start justify-center">
-                    <span className="text-green-950 mx-1 text-shadow-blue text-xl font-bold xl:text-2xl">
+                    <span className="text-green-950 mx-1 text-shadow-blue text-xl font-bold xl:text-2xl transition-colors duration-200 group-hover:text-blue-900">
                       الباتل
                     </span>
-                    <span className="text-blue-950 text-shadow-blue text-sm text-nowrap">
+                    <span className="text-blue-950 text-shadow-blue text-sm text-nowrap transition-colors duration-200 group-hover:text-sky-700">
                       AlBatel & Co
                     </span>
                   </div>
@@ -578,8 +588,10 @@ export default function NavBar() {
                   <button
                     type="button"
                     onClick={() => toggleDropdown("language")}
-                    className="inline-flex h-9 items-center gap-1.5 rounded-xl border border-white/45 bg-white/12 px-3 py-1 text-sm font-medium text-slate-800 shadow-sm ring-1 ring-inset ring-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200"
+                    className="group inline-flex h-9 items-center gap-1.5 rounded-xl border border-white/45 bg-white/12 px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-inset ring-white/20 backdrop-blur-sm transition-colors duration-200 ease-out hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                     id="languageDropdownButton"
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdownLanguage === "language"}
                   >
                     <img
                       src={
@@ -587,12 +599,12 @@ export default function NavBar() {
                           ? "https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/en.png"
                           : "https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/ar.jpg"
                       }
-                      className="h-4 w-4 rounded-full"
+                      className="h-4 w-4 rounded-full ring-1 ring-white/40"
                       alt={currentLanguage === "en" ? "English" : "Arabic"}
                     />
                     {currentLanguage === "en" ? "En (US)" : "Ar"}
                     <svg
-                      className={`h-3 w-3 transition-transform duration-300 ${openDropdownLanguage === "language" ? "rotate-180" : ""}`}
+                      className={`h-3 w-3 transition-transform duration-300 ease-out ${openDropdownLanguage === "language" ? "rotate-180" : ""}`}
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden
@@ -606,46 +618,56 @@ export default function NavBar() {
                   </button>
 
                   <div
-                    className={`absolute end-0 top-11 z-50 w-44 overflow-hidden rounded-xl border border-sky-100/35 bg-blue-900/80 shadow-lg shadow-blue-950/45 backdrop-blur-md transition-all duration-300 ${
+                    className={`absolute end-0 top-11 z-50 w-44 overflow-hidden rounded-xl border border-sky-100/35 bg-blue-900/85 shadow-xl shadow-blue-950/45 backdrop-blur-md transition-all duration-200 ease-out ${
                       openDropdownLanguage === "language"
-                        ? "visible translate-y-0 opacity-100"
-                        : "invisible -translate-y-1 opacity-0"
+                        ? "visible translate-y-0 scale-100 opacity-100"
+                        : "invisible -translate-y-1 scale-95 opacity-0"
                     }`}
                     id="languageDropdownMenu"
+                    role="menu"
+                    aria-label={t.lang}
                   >
                     <ul className="py-1">
                       <li>
                         <button
                           type="button"
+                          role="menuitem"
                           onClick={() => {
                             switchLanguage("en");
                             leftToRight();
                           }}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm font-medium text-slate-100 transition-colors duration-200 hover:bg-sky-500/20 hover:text-white"
+                          className={`group/item flex w-full items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-150 ease-out hover:bg-sky-500/25 hover:text-white hover:ps-4 focus-visible:outline-none focus-visible:bg-sky-500/30 focus-visible:text-white motion-reduce:transition-none ${currentLanguage === "en" ? "bg-sky-500/15 text-white" : "text-slate-100"}`}
                         >
                           <img
                             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/en.png"
-                            className="h-4 w-4 rounded-full"
+                            className="h-4 w-4 rounded-full ring-1 ring-white/30 transition-transform duration-200 group-hover/item:scale-110 motion-reduce:transition-none"
                             alt="English"
                           />
                           En (US)
+                          {currentLanguage === "en" && (
+                            <span className="ms-auto h-1.5 w-1.5 rounded-full bg-sky-300 shadow-[0_0_6px_rgba(125,211,252,0.8)]" aria-hidden />
+                          )}
                         </button>
                       </li>
                       <li>
                         <button
                           type="button"
+                          role="menuitem"
                           onClick={() => {
                             switchLanguage("ar");
                             rightToLeft();
                           }}
-                          className="flex w-full items-center gap-2 px-3 py-2 text-sm font-medium text-slate-100 transition-colors duration-200 hover:bg-sky-500/20 hover:text-white"
+                          className={`group/item flex w-full items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-150 ease-out hover:bg-sky-500/25 hover:text-white hover:ps-4 focus-visible:outline-none focus-visible:bg-sky-500/30 focus-visible:text-white motion-reduce:transition-none ${currentLanguage === "ar" ? "bg-sky-500/15 text-white" : "text-slate-100"}`}
                         >
                           <img
                             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/ar.jpg"
-                            className="h-4 w-4 rounded-full"
+                            className="h-4 w-4 rounded-full ring-1 ring-white/30 transition-transform duration-200 group-hover/item:scale-110 motion-reduce:transition-none"
                             alt="Arabic"
                           />
                           Ar
+                          {currentLanguage === "ar" && (
+                            <span className="ms-auto h-1.5 w-1.5 rounded-full bg-sky-300 shadow-[0_0_6px_rgba(125,211,252,0.8)]" aria-hidden />
+                          )}
                         </button>
                       </li>
                     </ul>
@@ -662,7 +684,7 @@ export default function NavBar() {
         onClose={() => setIsOpen(false)}
         dir={dir}
         t={t}
-        getLinkClass={getLinkClass}
+        isActivePath={isActivePath}
         currentLanguage={currentLanguage}
         switchLanguage={switchLanguage}
         leftToRight={leftToRight}
@@ -673,17 +695,18 @@ export default function NavBar() {
         type="button"
         onClick={scrollToTop}
         aria-label={dir === "rtl" ? "العودة للأعلى" : "Back to top"}
-        className={`fixed bottom-5 right-5 z-[90] hidden lg:inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/45 bg-gradient-to-b from-sky-500 to-blue-700 text-white shadow-lg shadow-blue-900/35 ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:from-sky-400 hover:to-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200 ${
+        className={`group fixed bottom-5 right-5 z-[90] inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/45 bg-gradient-to-b from-sky-500 to-blue-700 text-white shadow-lg shadow-blue-900/35 ring-1 ring-inset ring-white/30 backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-700/40 hover:from-sky-400 hover:to-blue-600 active:translate-y-0 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
           isScrolled ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
         }`}
       >
+        <span className="pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-300 group-hover:bg-white/10" aria-hidden />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="relative h-6 w-6 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:scale-100"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="2.5"
           aria-hidden
         >
           <path

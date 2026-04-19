@@ -125,12 +125,66 @@ html, body { height: 100%; margin: 0; }
   @apply font-bold transition-all duration-500 text-blue-500 
 }
 
-.linkStyle{
-  @apply font-bold
+/* ===== Professional NavBar Link with Animated Underline ===== */
+.linkStyle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  color: #374151; /* gray-700 */
+  transition: color 200ms ease-out, transform 200ms ease-out;
+  will-change: transform;
 }
 
-.linkStyle:hover{
-  @apply font-bold transition-all duration-500 text-blue-500  
+.linkStyle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  height: 2px;
+  width: 0;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, #0ea5e9, #1d4ed8); /* sky-500 -> blue-700 */
+  transform: translateX(-50%);
+  transition: width 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.linkStyle:hover {
+  color: #1d4ed8; /* blue-700 */
+}
+
+.linkStyle:hover::after,
+.linkStyle:focus-visible::after {
+  width: 65%;
+}
+
+.linkStyle:focus-visible {
+  outline: none;
+  color: #1d4ed8;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.45);
+}
+
+.linkStyle:active {
+  transform: translateY(1px);
+}
+
+.linkStyle.is-active {
+  color: #1d4ed8;
+}
+
+.linkStyle.is-active::after {
+  width: 80%;
+  background-image: linear-gradient(to right, #0284c7, #1e40af);
+  box-shadow: 0 1px 6px -1px rgba(29, 78, 216, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkStyle,
+  .linkStyle::after {
+    transition: none !important;
+  }
 }
 .row{
   @apply py-6 px-4  flex flex-wrap items-center
