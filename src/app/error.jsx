@@ -22,9 +22,9 @@ export default function Error() {
   <h1 className='text-5xl text-red-600 shadow-inner font-semibold rounded-full shadow-red-300'>
 Error 404
   </h1>
-  <h1 className='text-3xl text-red-600  font-semibold   py-4 '>
+  <h2 className='text-3xl text-red-600  font-semibold   py-4 '>
 Page not found
-  </h1>
+  </h2>
   <span className='text-red-500 font-semibold px-3 animate-pulse'>back to home </span>  
   <Link href={"/"}>
     

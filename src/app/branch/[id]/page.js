@@ -43,7 +43,14 @@ export async function generateMetadata({ params }) {
   const branches = await getBranches();
   const branch = branches.find((b) => b.id == id);
   if (!branch) {
-    return { title: "الفرع غير موجود | الباتل" };
+    return {
+      title: "الفرع غير موجود | الباتل",
+      description: "الفرع الذي تبحث عنه غير متاح حالياً.",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
   }
   const titleAr = branch.name?.ar || branch.name || "فرع الباتل";
   const titleEn = branch.name?.en || branch.name || titleAr;
