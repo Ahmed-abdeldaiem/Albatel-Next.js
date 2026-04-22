@@ -5,10 +5,10 @@ const SITE_URL = "https://www.albatelcpa.com";
 export async function generateMetadata() {
   const titleAr = "مؤلفاتنا | الباتل وشركاؤه للاستشارات المهنية";
   const descAr =
-    "إصدارات علمية من تأليف وتعريب نخبة من الخبراء — باتل الباتل (الباتل وشركاؤه)، ومحمد عرفة ووليد منير (UHY العالمية). موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO.";
+    "إصدارات علمية من تأليف وتعريب نخبة من كبار الخبراء المهنيين — باتل الباتل (الباتل وشركاؤه)، بمشاركة فردية من محمد عرفة ووليد منير. موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO.";
   const titleEn = "Our Publications | Al-Batel & Co.";
   const descEn =
-    "Scientific publications authored and translated by a leading team of experts — Batel Al-Batel (Al-Batel & Co.), Mohamed Arafa and Walid Munir (UHY Global). The Football Economics encyclopedia and the Internal Control Audit reference under the COSO framework.";
+    "Scientific publications authored and translated by a team of senior professional experts — Batel Al-Batel (Al-Batel & Co.), with individual contributions from Mohamed Arafa and Walid Munir. The Football Economics encyclopedia and the Internal Control Audit reference under the COSO framework.";
 
   return {
     title: titleAr,

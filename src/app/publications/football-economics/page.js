@@ -31,10 +31,11 @@ export async function generateMetadata() {
       type: "book",
       images: [
         {
-          url: `${SITE_URL}/Books/Book1.JPG`,
-          width: 1200,
-          height: 800,
+          url: `${SITE_URL}/Books/Book1-og.jpg`,
+          width: 1600,
+          height: 1067,
           alt: "Football Economics book cover",
+          type: "image/jpeg",
         },
       ],
     },
@@ -42,7 +43,7 @@ export async function generateMetadata() {
       card: "summary_large_image",
       title: titleEn,
       description: descEn,
-      images: [`${SITE_URL}/Books/Book1.JPG`],
+      images: [`${SITE_URL}/Books/Book1-og.jpg`],
     },
   };
 }
@@ -68,12 +69,10 @@ export default function FootballEconomicsPage() {
       {
         "@type": "Person",
         name: "محمد عرفة",
-        affiliation: { "@type": "Organization", name: "UHY" },
       },
       {
         "@type": "Person",
         name: "وليد منير",
-        affiliation: { "@type": "Organization", name: "UHY" },
       },
     ],
     publisher: {
@@ -81,7 +80,7 @@ export default function FootballEconomicsPage() {
       name: "دار فاروس للنشر والتوزيع",
     },
     inLanguage: "ar",
-    image: `${SITE_URL}/Books/Book1.JPG`,
+    image: `${SITE_URL}/Books/Book1-og.jpg`,
     offers: {
       "@type": "Offer",
       price: pub.price,

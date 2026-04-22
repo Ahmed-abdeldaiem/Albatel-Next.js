@@ -138,8 +138,8 @@ export default function PublicationDetail({ pub }) {
     authorsTitle: isRtl ? "المؤلفون" : "Authors",
     authorsTitleT: isRtl ? "فريق التعريب" : "Translation Team",
     authorsSub: isRtl
-      ? "نخبة من كبار الخبراء المهنيين من الباتل و UHY العالمية، بخبرة تجمع بين العمق الأكاديمي والممارسة الميدانية."
-      : "A team of senior professional experts from Al-Batel and UHY Global, combining academic depth with field practice.",
+      ? "نخبة من كبار الخبراء المهنيين، بخبرة تجمع بين العمق الأكاديمي والممارسة الميدانية."
+      : "A team of senior professional experts, combining academic depth with field practice.",
     credentialsTitle: isRtl ? "أبرز المؤهّلات والخبرات" : "Key Credentials",
     profileBtn: isRtl ? "الصفحة الشخصية" : "View Profile",
     audienceTitle: isRtl ? "لمن هذا الكتاب؟" : "Who is this book for?",

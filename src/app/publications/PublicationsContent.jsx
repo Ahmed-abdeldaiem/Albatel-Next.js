@@ -23,8 +23,8 @@ export default function PublicationsContent() {
       ? "من خبرة نخبة من المهنيين… إلى مكتبتك"
       : "From a team of leading experts to your shelf",
     heroSub: isRtl
-      ? "مؤلفات وموسوعات علمية من تأليف وتعريب نخبة من الخبراء من الباتل و UHY العالمية، تُثري المكتبة العربية في الاقتصاد الرياضي والمراجعة الداخلية والامتثال."
-      : "Scientific publications and encyclopedias authored and translated by a team of leading experts from Al-Batel and UHY Global, enriching the Arabic library in sports economics, internal control, and compliance.",
+      ? "مؤلفات وموسوعات علمية من تأليف وتعريب نخبة من كبار الخبراء المهنيين، تُثري المكتبة العربية في الاقتصاد الرياضي والمراجعة الداخلية والامتثال."
+      : "Scientific publications and encyclopedias authored and translated by a team of senior professional experts, enriching the Arabic library in sports economics, internal control, and compliance.",
     sectionTitle: isRtl ? "اختر إصدارك" : "Choose your publication",
     sectionSub: isRtl
       ? "اضغط على أي كتاب لعرض تفاصيله الكاملة، المؤلفين، فصوله، ومتطلبات الحصول عليه."
@@ -38,6 +38,10 @@ export default function PublicationsContent() {
     authorsList: isRtl
       ? "باتل الباتل، محمد عرفة، ووليد منير"
       : "Batel Al-Batel, Mohamed Arafa, and Walid Munir",
+    comingSoon: isRtl ? "قريبًا" : "Coming Soon",
+    comingSoonHint: isRtl
+      ? "سيُعلَن عن تفاصيل هذا الإصدار قريبًا بإذن الله."
+      : "Full details of this publication will be announced soon.",
   };
 
   return (
@@ -145,22 +149,36 @@ export default function PublicationsContent() {
               const savePct = pub.originalPrice
                 ? Math.round((save / pub.originalPrice) * 100)
                 : 0;
+              const isComingSoon = pub.comingSoon === true;
 
               return (
                 <article
                   key={pub.slug}
                   data-aos="fade-up"
                   data-aos-delay={idx * 120}
-                  className="group relative flex flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200/80 shadow-lg hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-500"
+                  className={`group relative flex flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200/80 shadow-lg transition-all duration-500 ${
+                    isComingSoon
+                      ? "opacity-95"
+                      : "hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1"
+                  }`}
                 >
-                  {/* Ribbon */}
-                  {pub.coverBadge && (
-                    <span className="absolute top-5 start-5 z-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-3 py-1 text-[11px] font-bold text-white shadow-lg shadow-orange-600/30">
+                  {/* Ribbon — Coming Soon or Cover Badge */}
+                  {isComingSoon ? (
+                    <span className="absolute top-5 start-5 z-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 px-3 py-1 text-[11px] font-bold text-white shadow-lg shadow-indigo-600/30">
                       <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                        <path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.85 1.417 8.265L12 18.897l-7.416 4.446 1.417-8.265L0 9.228l8.332-1.21z" />
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h-5V7h2v4h3v2z" />
                       </svg>
-                      {pub.coverBadge[lang]}
+                      {pub.coverBadge?.[lang] || t.comingSoon}
                     </span>
+                  ) : (
+                    pub.coverBadge && (
+                      <span className="absolute top-5 start-5 z-10 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-3 py-1 text-[11px] font-bold text-white shadow-lg shadow-orange-600/30">
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.85 1.417 8.265L12 18.897l-7.416 4.446 1.417-8.265L0 9.228l8.332-1.21z" />
+                        </svg>
+                        {pub.coverBadge[lang]}
+                      </span>
+                    )
                   )}
 
                   {/* Cover */}
@@ -168,9 +186,21 @@ export default function PublicationsContent() {
                     <img
                       src={pub.cover}
                       alt={pub.title[lang]}
-                      className="h-full w-auto object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
+                      className={`h-full w-auto object-contain drop-shadow-2xl transition-transform duration-700 ${
+                        isComingSoon ? "" : "group-hover:scale-105"
+                      }`}
                     />
-                    {/* Decorative gradient blur */}
+                    {/* Coming Soon overlay */}
+                    {isComingSoon && (
+                      <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-4">
+                        <div className="w-full rounded-xl bg-gradient-to-t from-indigo-950/80 via-indigo-950/40 to-transparent backdrop-blur-[2px] text-center py-3">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-xs font-bold text-indigo-800 shadow">
+                            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
+                            {t.comingSoon}
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     <div
                       className="absolute inset-x-0 -bottom-10 h-20 bg-gradient-to-t from-white to-transparent"
                       aria-hidden
@@ -186,78 +216,95 @@ export default function PublicationsContent() {
                       {pub.subtitle[lang]}
                     </p>
 
-                    <p className="mt-3 text-xs text-slate-500">
-                      <span className="font-semibold text-slate-700">{roleLabel}:</span>{" "}
-                      {t.authorsList}
-                    </p>
+                    {!isComingSoon && (
+                      <p className="mt-3 text-xs text-slate-500">
+                        <span className="font-semibold text-slate-700">{roleLabel}:</span>{" "}
+                        {t.authorsList}
+                      </p>
+                    )}
 
                     <p className="mt-4 text-sm text-slate-700 leading-relaxed line-clamp-3">
                       {pub.shortDesc[lang]}
                     </p>
 
-                    {/* Price */}
-                    <div className="mt-5 flex items-end gap-3 flex-wrap">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-3xl font-black text-emerald-700">
-                          {pub.price}
-                        </span>
-                        <span className="text-sm font-semibold text-emerald-700">
-                          {pub.currency[lang]}
-                        </span>
-                      </div>
-                      {pub.originalPrice && (
-                        <>
-                          <span className="text-lg text-slate-400 line-through">
-                            {pub.originalPrice}
-                          </span>
-                          <span className="inline-flex items-center rounded-md bg-rose-100 px-2 py-0.5 text-[11px] font-bold text-rose-700">
-                            {t.save} {savePct}%
-                          </span>
-                        </>
-                      )}
-                    </div>
-
-                    {/* CTAs */}
-                    <div className="mt-6 flex flex-col sm:flex-row gap-2.5 pt-5 border-t border-slate-100">
-                      <Link
-                        href={`/publications/${pub.slug}`}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-950 hover:bg-blue-900 px-4 py-2.5 text-sm font-bold text-white transition-all hover:shadow-lg hover:shadow-blue-900/30"
-                      >
-                        {t.learnMore}
-                        <svg
-                          className={`w-4 h-4 ${isRtl ? "rotate-180" : ""} group-hover:translate-x-0.5 transition-transform`}
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden
-                        >
-                          <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-                        </svg>
-                      </Link>
-
-                      <Link
-                        href={`/publications/order?book=${pub.slug}`}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-700/25 transition-all"
-                      >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                          <path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z" />
-                        </svg>
-                        {t.buyDirect}
-                      </Link>
-
-                      {pub.purchase?.jarir && (
-                        <a
-                          href={pub.purchase.jarir.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white hover:bg-orange-50 px-4 py-2 text-sm font-bold text-orange-700 transition-all hover:shadow-md"
-                        >
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+                    {isComingSoon ? (
+                      <div className="mt-auto pt-6 border-t border-slate-100">
+                        <div className="flex items-center gap-3 rounded-xl border border-dashed border-indigo-300 bg-indigo-50/60 px-4 py-3">
+                          <svg className="w-5 h-5 text-indigo-600 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h-5V7h2v4h3v2z" />
                           </svg>
-                          {t.buyJarir}
-                        </a>
-                      )}
-                    </div>
+                          <p className="text-xs sm:text-sm font-medium text-indigo-900 leading-snug">
+                            {t.comingSoonHint}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {/* Price */}
+                        <div className="mt-5 flex items-end gap-3 flex-wrap">
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-3xl font-black text-emerald-700">
+                              {pub.price}
+                            </span>
+                            <span className="text-sm font-semibold text-emerald-700">
+                              {pub.currency[lang]}
+                            </span>
+                          </div>
+                          {pub.originalPrice && (
+                            <>
+                              <span className="text-lg text-slate-400 line-through">
+                                {pub.originalPrice}
+                              </span>
+                              <span className="inline-flex items-center rounded-md bg-rose-100 px-2 py-0.5 text-[11px] font-bold text-rose-700">
+                                {t.save} {savePct}%
+                              </span>
+                            </>
+                          )}
+                        </div>
+
+                        {/* CTAs */}
+                        <div className="mt-6 flex flex-col sm:flex-row gap-2.5 pt-5 border-t border-slate-100">
+                          <Link
+                            href={`/publications/${pub.slug}`}
+                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-950 hover:bg-blue-900 px-4 py-2.5 text-sm font-bold text-white transition-all hover:shadow-lg hover:shadow-blue-900/30"
+                          >
+                            {t.learnMore}
+                            <svg
+                              className={`w-4 h-4 ${isRtl ? "rotate-180" : ""} group-hover:translate-x-0.5 transition-transform`}
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              aria-hidden
+                            >
+                              <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                            </svg>
+                          </Link>
+
+                          <Link
+                            href={`/publications/order?book=${pub.slug}`}
+                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-700/25 transition-all"
+                          >
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                              <path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z" />
+                            </svg>
+                            {t.buyDirect}
+                          </Link>
+
+                          {pub.purchase?.jarir && (
+                            <a
+                              href={pub.purchase.jarir.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white hover:bg-orange-50 px-4 py-2 text-sm font-bold text-orange-700 transition-all hover:shadow-md"
+                            >
+                              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                                <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+                              </svg>
+                              {t.buyJarir}
+                            </a>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </article>
               );

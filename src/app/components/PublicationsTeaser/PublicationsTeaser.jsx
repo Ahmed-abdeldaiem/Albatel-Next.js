@@ -21,8 +21,8 @@ export default function PublicationsTeaser() {
       ? "إسهاماتنا العلمية تعبر الحدود"
       : "Our scientific contributions reach beyond borders",
     sub: isRtl
-      ? "كتابان من تأليف وتعريب نخبة من الخبراء المهنيين من الباتل و UHY العالمية — موسوعة اقتصاديات كرة القدم الأولى من نوعها بالعربية، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO. متوفّرة في مكتبة جرير، ومتاحة للطلب المباشر."
-      : "Two books authored and translated by a team of leading experts from Al-Batel and UHY Global — the first-of-its-kind Arabic encyclopedia on football economics, and a professional reference on internal control audit under COSO. Available at Jarir Bookstore and for direct order.",
+      ? "كتابان من تأليف وتعريب نخبة من كبار الخبراء المهنيين — موسوعة اقتصاديات كرة القدم الأولى من نوعها بالعربية، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO. متوفّرة في مكتبة جرير، ومتاحة للطلب المباشر."
+      : "Two books authored and translated by a team of senior professional experts — the first-of-its-kind Arabic encyclopedia on football economics, and a professional reference on internal control audit under COSO. Available at Jarir Bookstore and for direct order.",
     cta: isRtl ? "اكتشف مؤلفاتنا" : "Explore our publications",
 
     chips: isRtl

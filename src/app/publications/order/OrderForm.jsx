@@ -21,6 +21,8 @@ import FormAlert from "@/components/FormAlert";
 
 const MAX_QUANTITY = 20;
 
+const ORDERABLE_PUBLICATIONS = PUBLICATIONS.filter((p) => !p.comingSoon);
+
 /* Wrapper needed because useSearchParams must live under Suspense. */
 export default function OrderForm() {
   return (
@@ -46,9 +48,9 @@ function OrderFormInner() {
 
   const initialBookSlug = useMemo(() => {
     const fromQuery = searchParams.get("book");
-    if (fromQuery && PUBLICATIONS.some((p) => p.slug === fromQuery))
+    if (fromQuery && ORDERABLE_PUBLICATIONS.some((p) => p.slug === fromQuery))
       return fromQuery;
-    return PUBLICATIONS[0].slug;
+    return ORDERABLE_PUBLICATIONS[0].slug;
   }, [searchParams]);
 
   const t = {
@@ -202,8 +204,8 @@ function OrderFormInner() {
 
   const selectedBook = useMemo(
     () =>
-      PUBLICATIONS.find((p) => p.slug === formik.values.book_slug) ||
-      PUBLICATIONS[0],
+      ORDERABLE_PUBLICATIONS.find((p) => p.slug === formik.values.book_slug) ||
+      ORDERABLE_PUBLICATIONS[0],
     [formik.values.book_slug]
   );
 
@@ -396,7 +398,7 @@ function OrderFormInner() {
                   aria-label={t.labels.book}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-2.5"
                 >
-                  {PUBLICATIONS.map((p) => {
+                  {ORDERABLE_PUBLICATIONS.map((p) => {
                     const active = formik.values.book_slug === p.slug;
                     return (
                       <button

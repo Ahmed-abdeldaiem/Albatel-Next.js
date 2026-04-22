@@ -68,12 +68,10 @@ export default function InternalAuditPage() {
       {
         "@type": "Person",
         name: "محمد عرفة",
-        affiliation: { "@type": "Organization", name: "UHY" },
       },
       {
         "@type": "Person",
         name: "وليد منير",
-        affiliation: { "@type": "Organization", name: "UHY" },
       },
     ],
     author: { "@type": "Person", name: "Lynford Graham" },

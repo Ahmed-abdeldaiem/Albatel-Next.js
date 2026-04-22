@@ -121,7 +121,7 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.85,
       alternates: langAlternates("/publications/football-economics"),
-      images: [BASE_URL + "/Books/Book1.JPG"],
+      images: [BASE_URL + "/Books/Book1-og.jpg"],
     },
     {
       url: BASE_URL + "/publications/internal-audit",

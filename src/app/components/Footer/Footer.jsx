@@ -125,6 +125,18 @@ export default function Footer() {
       : `© ${new Date().getFullYear()} All Rights Reserved — Al-Batel`,
     developedBy: isRtl ? "تطوير" : "Developed by",
     developerName: "Ahmed Abdeldaiem",
+    pubs: {
+      badge: isRtl ? "إصدارات علمية" : "Scientific Publications",
+      heading: isRtl
+        ? "مؤلفاتنا — من نخبة من كبار الخبراء المهنيين"
+        : "Our Publications — by a team of senior professional experts",
+      subtitle: isRtl
+        ? "موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية وفق إطار COSO الجديد. متوفّرة في جرير وللطلب المباشر."
+        : "The Football Economics encyclopedia and the Internal Control Audit reference under the new COSO framework. Available at Jarir and for direct order.",
+      cta: isRtl ? "تصفّح المؤلفات" : "Browse Publications",
+      bookFootball: isRtl ? "اقتصاديات كرة القدم" : "Football Economics",
+      bookAudit: isRtl ? "مراجعة الرقابة الداخلية" : "Internal Control Audit",
+    },
   };
 
   return (
@@ -148,6 +160,84 @@ export default function Footer() {
       <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-green-400 to-blue-500" />
 
       <div className="relative z-10 max-w-7xl 4k:max-w-screen-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-14 pb-6">
+        {/* =======================================================
+            PUBLICATIONS SPOTLIGHT BANNER
+            A dedicated, harmonised strip that showcases the two books
+            and offers a single clear CTA to /publications.
+            ======================================================= */}
+        <div
+          data-aos="fade-up"
+          className="relative mb-12 overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-r from-emerald-500/10 via-sky-500/10 to-emerald-500/10 backdrop-blur-sm shadow-xl shadow-black/20"
+        >
+          {/* Decorative blurred glows */}
+          <div className="pointer-events-none absolute -top-12 -end-12 h-44 w-44 rounded-full bg-emerald-400/25 blur-3xl" aria-hidden />
+          <div className="pointer-events-none absolute -bottom-16 -start-12 h-44 w-44 rounded-full bg-sky-400/20 blur-3xl" aria-hidden />
+
+          <div className="relative flex flex-col items-center gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:gap-8 lg:p-8">
+            {/* ---- Text block ---- */}
+            <div className="flex-1 text-center lg:text-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-200">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                {t.pubs.badge}
+              </span>
+              <h3 className="mt-3 text-lg font-bold text-white sm:text-xl lg:text-2xl">
+                {t.pubs.heading}
+              </h3>
+              <p className="mt-2 mx-auto max-w-xl text-sm leading-relaxed text-blue-100/85 sm:text-[15px] lg:mx-0">
+                {t.pubs.subtitle}
+              </p>
+            </div>
+
+            {/* ---- Book covers ---- */}
+            <div className="flex items-center justify-center gap-3 shrink-0">
+              <Link
+                href="/publications/football-economics"
+                aria-label={t.pubs.bookFootball}
+                className="group relative block"
+              >
+                <img
+                  src="/Books/Book1-og.jpg"
+                  alt={t.pubs.bookFootball}
+                  loading="lazy"
+                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 -rotate-3 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
+                />
+              </Link>
+              <Link
+                href="/publications/internal-audit"
+                aria-label={t.pubs.bookAudit}
+                className="group relative block"
+              >
+                <img
+                  src="/Books/Book2.jfif"
+                  alt={t.pubs.bookAudit}
+                  loading="lazy"
+                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 rotate-3 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
+                />
+              </Link>
+            </div>
+
+            {/* ---- CTA button ---- */}
+            <Link
+              href="/publications"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-emerald-500/60 sm:text-[15px]"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V2H6.5A2.5 2.5 0 004 4.5v15z" />
+              </svg>
+              {t.pubs.cta}
+              <span
+                className={`transition-transform duration-300 ${
+                  isRtl
+                    ? "group-hover:-translate-x-1"
+                    : "group-hover:translate-x-1"
+                }`}
+              >
+                {isRtl ? "←" : "→"}
+              </span>
+            </Link>
+          </div>
+        </div>
+
         {/* =======================================================
             MAIN GRID: Brand / Quick Links / Services / Contact
             ======================================================= */}

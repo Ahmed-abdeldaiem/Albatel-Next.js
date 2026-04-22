@@ -50,16 +50,16 @@ export const AUTHORS = {
     id: "mohamed",
     name: { ar: "محمد عرفة", en: "Mohamed Arafa" },
     role: {
-      ar: "شريك المراجعة في UHY العالمية — Certified IPSASB",
-      en: "UHY Audit Partner — Certified IPSASB",
+      ar: "محاسب قانوني ومراجع معتمد — Certified IPSASB",
+      en: "Certified Public Accountant & Auditor — Certified IPSASB",
     },
     affiliation: {
-      ar: "UHY — وليد منير ومحمد عرفة، محاسبون ومراجعون قانونيون",
-      en: "UHY — Waled Mounir & Muhammad Arafa, Auditors & Public Accountants",
+      ar: "مُشارك كفرد في التأليف والتعريب — خبير مهني في المراجعة والامتثال",
+      en: "Individual contributor to authoring & translation — Professional Expert in Audit & Compliance",
     },
     bio: {
-      ar: "شريك المراجعة في UHY العالمية، وخبير في التدريب المهني وتطوير الكفاءات في المحاسبة والمراجعة، ومدير التشغيل والعمليات بمركز بتيل الإتقان للتدريب.",
-      en: "Audit Partner at UHY Global, an expert in professional training and competency development in accounting and audit, and Operations Director at Batel Al-Etqan Training Center.",
+      ar: "خبير مهني في المراجعة والامتثال، وخبير في التدريب المهني وتطوير الكفاءات في المحاسبة والمراجعة، ومدير التشغيل والعمليات بمركز بتيل الإتقان للتدريب.",
+      en: "Professional expert in audit and compliance, a specialist in professional training and competency development in accounting and audit, and Operations Director at Batel Al-Etqan Training Center.",
     },
     credentials: {
       ar: [
@@ -90,16 +90,16 @@ export const AUTHORS = {
     id: "walid",
     name: { ar: "وليد منير", en: "Walid Munir" },
     role: {
-      ar: "شريك الضرائب ورئيس قسم تسعير المعاملات في UHY",
-      en: "Tax Partner & Head of Transfer Pricing Department — UHY",
+      ar: "خبير الضرائب وتسعير المعاملات — ماجستير في المالية العامة والضرائب",
+      en: "Tax & Transfer Pricing Expert — Master's in Public Finance & Tax",
     },
     affiliation: {
-      ar: "UHY — وليد منير ومحمد عرفة، محاسبون ومراجعون قانونيون",
-      en: "UHY — Waled Mounir & Muhammad Arafa, Auditors & Public Accountants",
+      ar: "مُشارك كفرد في التأليف والتعريب — خبير مهني في الضرائب وتسعير المعاملات",
+      en: "Individual contributor to authoring & translation — Professional Expert in Taxation & Transfer Pricing",
     },
     bio: {
-      ar: "شريك الضرائب ورئيس قسم تسعير المعاملات (Transfer Pricing) في UHY، ومدير التدريب والتطوير بمركز بتيل الإتقان للتدريب. حاصل على الماجستير في المالية العامة والضرائب.",
-      en: "Tax Partner and Head of the Transfer Pricing Department at UHY, and Training & Development Director at Batel Al-Etqan Training Center. Holds a Master's in Public Finance & Tax.",
+      ar: "خبير في الضرائب وتسعير المعاملات (Transfer Pricing)، ومدير التدريب والتطوير بمركز بتيل الإتقان للتدريب. حاصل على الماجستير في المالية العامة والضرائب.",
+      en: "Expert in taxation and Transfer Pricing, and Training & Development Director at Batel Al-Etqan Training Center. Holds a Master's in Public Finance & Tax.",
     },
     credentials: {
       ar: [
@@ -330,8 +330,8 @@ export const PUBLICATIONS = [
       en: "A professional reference for auditors and accountants — a rigorous translation of one of the leading works in internal control and compliance under the COSO framework.",
     },
     longDesc: {
-      ar: "تعريب علمي دقيق لكتاب البروفيسور Lynford Graham الشهير، أنجزه فريق من كبار الخبراء المهنيين يضمّ باتل الباتل (الباتل وشركاؤه)، ومحمد عرفة ووليد منير (UHY العالمية). يغطّي الكتاب منهجيات التوثيق والاختبار في بيئة الرقابة الداخلية، وتطبيقات إطار COSO المحدّث، ويُعدّ مرجعًا أساسيًا لمدقّقي الحسابات والمراجعين الداخليين وطلاب الدراسات العليا.",
-      en: "A rigorous translation of Professor Lynford Graham's renowned book, produced by a team of senior professional experts including Batel Al-Batel (Al-Batel & Co.), Mohamed Arafa and Walid Munir (UHY Global). It covers documentation and testing methodologies in internal control environments, applications of the updated COSO framework, and serves as a core reference for external auditors, internal auditors, and graduate students.",
+      ar: "تعريب علمي دقيق لكتاب البروفيسور Lynford Graham الشهير، أنجزه فريق من كبار الخبراء المهنيين بقيادة الأستاذ باتل الباتل (الباتل وشركاؤه)، بمشاركة فردية من الأستاذ محمد عرفة والأستاذ وليد منير. يغطّي الكتاب منهجيات التوثيق والاختبار في بيئة الرقابة الداخلية، وتطبيقات إطار COSO المحدّث، ويُعدّ مرجعًا أساسيًا لمدقّقي الحسابات والمراجعين الداخليين وطلاب الدراسات العليا.",
+      en: "A rigorous translation of Professor Lynford Graham's renowned book, produced by a team of senior professional experts led by Batel Al-Batel (Al-Batel & Co.), with individual contributions from Mohamed Arafa and Walid Munir. It covers documentation and testing methodologies in internal control environments, applications of the updated COSO framework, and serves as a core reference for external auditors, internal auditors, and graduate students.",
     },
     authors: ["batel", "mohamed", "walid"],
     authorRole: "translator",
@@ -390,6 +390,25 @@ export const PUBLICATIONS = [
       ar: "ترجمة دقيقة وأكاديمية لأحد أهم مراجع الرقابة الداخلية العالمية، بلمسة مهنية من فريق الباتل.",
       en: "A precise, academic translation of one of the world's leading internal control references — with a professional touch from the Al-Batel team.",
     },
+  },
+  {
+    slug: "fasad",
+    comingSoon: true,
+    title: {
+      ar: "الفساد",
+      en: "Corruption",
+    },
+    subtitle: {
+      ar: "إصدار قادم قريبًا",
+      en: "Coming soon",
+    },
+    shortDesc: {
+      ar: "إصدار مهني جديد من الباتل — ترقّبوا التفاصيل الكاملة والمحتوى العلمي خلال الفترة القادمة.",
+      en: "A new professional publication from Al-Batel — stay tuned for the full details and scientific content.",
+    },
+    cover: "/Books/fasad.jpeg",
+    coverBadge: { ar: "قريبًا", en: "Coming Soon" },
+    currency: { ar: "﷼", en: "SAR" },
   },
 ];
 
