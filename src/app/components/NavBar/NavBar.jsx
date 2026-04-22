@@ -65,6 +65,16 @@ const COPY = {
     branches: "فروعنا",
     follow: "تابعنا",
     lang: "اللغة",
+    publications: "مؤلفاتنا",
+    publicationsAll: "إصداراتنا",
+    publicationsAllDesc: "إصدارات علمية من تأليف وتعريب نخبة من الخبراء",
+    blogDesc: "مقالات مهنية من خبراء الباتل",
+    bookFootball: "اقتصاديات كرة القدم",
+    bookAudit: "مراجعة الرقابة الداخلية",
+    bookFootballDesc: "موسوعة في الاستثمار الرياضي",
+    bookAuditDesc: "تعريب عن إطار COSO الجديد",
+    servicesAll: "جميع الخدمات",
+    servicesAllDesc: "اطّلع على مجموعة خدماتنا المهنية المتكاملة",
   },
   en: {
     home: "Home",
@@ -81,8 +91,93 @@ const COPY = {
     branches: "Branches",
     follow: "Follow us",
     lang: "Language",
+    publications: "Our Publications",
+    publicationsAll: "All Publications",
+    publicationsAllDesc: "Scientific works by a team of leading experts",
+    blogDesc: "Professional insights from Al-Batel experts",
+    bookFootball: "Football Economics",
+    bookAudit: "Internal Control Audit",
+    bookFootballDesc: "An encyclopedia on sports investment",
+    bookAuditDesc: "Translated under the new COSO framework",
+    servicesAll: "All Services",
+    servicesAllDesc: "Browse our full range of professional services",
   },
 };
+
+const SERVICES = [
+  {
+    id: "Financial_Consulting_service",
+    ar: "الإستشارات المالية",
+    en: "Financial Consulting",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v2m9-9a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    id: "Audit_Financial_Statements_service",
+    ar: "مراجعة القوائم المالية",
+    en: "Audit of Financial Statements",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+  },
+  {
+    id: "Transfer_Pricing_Documentation_service",
+    ar: "ملفات توثيق السعر المحايد",
+    en: "Transfer Pricing Documentation",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  },
+  {
+    id: "Internal_Audit_service",
+    ar: "التدقيق الداخلي",
+    en: "Internal Audit",
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+  },
+  {
+    id: "Cost_Management_service",
+    ar: "إدارة التكاليف",
+    en: "Cost Management",
+    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+  },
+  {
+    id: "Planning_and_Analysis_service",
+    ar: "التخطيط المالي والتحليل",
+    en: "Financial Planning & Analysis",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  },
+  {
+    id: "Tax_Services",
+    ar: "خدمات ضريبية",
+    en: "Tax Services",
+    icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z",
+  },
+  {
+    id: "Accounting_Services",
+    ar: "خدمات المحاسبة",
+    en: "Accounting Services",
+    icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    id: "Training_Services",
+    ar: "تدريب وتطوير القدرات",
+    en: "Training & Capacity Development",
+    icon: "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
+  },
+  {
+    id: "Special_Issues_Reports_Services",
+    ar: "مراجعة القضايا والتقارير الخاصة",
+    en: "Special Issues & Reports Review",
+    icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
+  },
+  {
+    id: "Estate_Liquidation_Services",
+    ar: "تصفية التركات",
+    en: "Estate Liquidation",
+    icon: "M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3",
+  },
+  {
+    id: "actuarial_Services",
+    ar: "خدمات اكتوارية",
+    en: "Actuarial Services",
+    icon: "M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z",
+  },
+];
 
 function MobileNavDrawer({
   open,
@@ -97,9 +192,15 @@ function MobileNavDrawer({
 }) {
   const isRtl = dir === "rtl";
   const [branchesOpen, setBranchesOpen] = useState(false);
+  const [pubsOpen, setPubsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
-    if (!open) setBranchesOpen(false);
+    if (!open) {
+      setBranchesOpen(false);
+      setPubsOpen(false);
+      setServicesOpen(false);
+    }
   }, [open]);
 
   const drawerLinkClass = (href) => {
@@ -227,10 +328,104 @@ function MobileNavDrawer({
             {[
               ["/", t.home],
               ["/about", t.about],
-              ["/services", t.services],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={drawerLinkClass(href)}
+                  onClick={onClose}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+
+            <li className="pt-1.5">
+              <button
+                type="button"
+                onClick={() => setServicesOpen((v) => !v)}
+                className={`flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-[15px] font-bold transition-all ${
+                  isActivePath("/services")
+                    ? "bg-gradient-to-r from-sky-600 to-blue-700 text-white shadow-md shadow-blue-900/20"
+                    : "text-slate-900 hover:bg-slate-300/70 hover:text-blue-800"
+                }`}
+                aria-expanded={servicesOpen}
+                id="mobile-services-toggle"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  {t.services}
+                </span>
+                <svg
+                  className={`h-4 w-4 shrink-0 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                className={`grid transition-all duration-300 ease-out ${
+                  servicesOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-90"
+                }`}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <ul className="mt-1 ms-2 space-y-0.5 border-s-2 border-sky-500/30 ps-3">
+                    <li>
+                      <Link
+                        href="/services"
+                        className={drawerLinkClass("/services")}
+                        onClick={onClose}
+                      >
+                        {t.servicesAll}
+                      </Link>
+                    </li>
+                    {SERVICES.map((svc) => {
+                      const href = `/service/${encodeURIComponent(svc.id)}`;
+                      return (
+                        <li key={svc.id}>
+                          <Link
+                            href={href}
+                            className={`${drawerLinkClass(href)} text-sm`}
+                            onClick={onClose}
+                          >
+                            {isRtl ? svc.ar : svc.en}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            {[
               ["/ourTeam", t.team],
               ["/partners", t.partners],
-              ["/blog", t.blog],
               ["/careers", t.careers],
             ].map(([href, label]) => (
               <li key={href}>
@@ -243,6 +438,97 @@ function MobileNavDrawer({
                 </Link>
               </li>
             ))}
+
+            <li className="pt-1.5">
+              <button
+                type="button"
+                onClick={() => setPubsOpen((v) => !v)}
+                className={`flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-[15px] font-bold transition-all ${
+                  isActivePath("/publications") || isActivePath("/blog")
+                    ? "bg-gradient-to-r from-sky-600 to-blue-700 text-white shadow-md shadow-blue-900/20"
+                    : "text-slate-900 hover:bg-slate-300/70 hover:text-blue-800"
+                }`}
+                aria-expanded={pubsOpen}
+                id="mobile-pubs-toggle"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V2H6.5A2.5 2.5 0 004 4.5v15z"
+                    />
+                  </svg>
+                  {t.publications}
+                </span>
+                <svg
+                  className={`h-4 w-4 shrink-0 transition-transform duration-200 ${pubsOpen ? "rotate-180" : ""}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                className={`grid transition-all duration-300 ease-out ${
+                  pubsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-90"
+                }`}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <ul className="mt-1 ms-2 space-y-0.5 border-s-2 border-sky-500/30 ps-3">
+                    <li>
+                      <Link
+                        href="/publications"
+                        className={drawerLinkClass("/publications")}
+                        onClick={onClose}
+                      >
+                        {t.publicationsAll}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/publications/football-economics"
+                        className={`${drawerLinkClass("/publications/football-economics")} text-sm`}
+                        onClick={onClose}
+                      >
+                        {t.bookFootball}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/publications/internal-audit"
+                        className={`${drawerLinkClass("/publications/internal-audit")} text-sm`}
+                        onClick={onClose}
+                      >
+                        {t.bookAudit}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/blog"
+                        className={drawerLinkClass("/blog")}
+                        onClick={onClose}
+                      >
+                        {t.blog}
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
           </ul>
 
           <div className="mt-4 grid gap-2">
@@ -342,6 +628,8 @@ function MobileNavDrawer({
 
 export default function NavBar() {
   const [openDropdownLanguage, setOpenDropdownLanguage] = useState(null);
+  const [pubsDropdownOpen, setPubsDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState("ar");
   const isScrolled = useScrolledPast(80);
   const [isOpen, setIsOpen] = useState(false);
@@ -409,6 +697,22 @@ export default function NavBar() {
       ) {
         setOpenDropdownLanguage(null);
       }
+
+      if (
+        pubsDropdownOpen &&
+        !event.target.closest("#pubsDropdownButton") &&
+        !event.target.closest("#pubsDropdownMenu")
+      ) {
+        setPubsDropdownOpen(false);
+      }
+
+      if (
+        servicesDropdownOpen &&
+        !event.target.closest("#servicesDropdownButton") &&
+        !event.target.closest("#servicesDropdownMenu")
+      ) {
+        setServicesDropdownOpen(false);
+      }
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -416,7 +720,7 @@ export default function NavBar() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [isOpen, openDropdownLanguage]);
+  }, [isOpen, openDropdownLanguage, pubsDropdownOpen, servicesDropdownOpen]);
 
   const headerTop = isScrolled ? "top-0" : "top-0 lg:top-12";
 
@@ -547,13 +851,101 @@ export default function NavBar() {
                         {t.about}
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        className={getLinkClass("/services") + " text-nowrap"}
-                        href="/services"
+                    <li className="relative">
+                      <button
+                        type="button"
+                        id="servicesDropdownButton"
+                        onClick={() => {
+                          setServicesDropdownOpen((v) => !v);
+                          setPubsDropdownOpen(false);
+                        }}
+                        onMouseEnter={() => {
+                          setServicesDropdownOpen(true);
+                          setPubsDropdownOpen(false);
+                        }}
+                        aria-haspopup="menu"
+                        aria-expanded={servicesDropdownOpen}
+                        className={`linkStyle inline-flex items-center gap-1.5 px-2 py-2 text-sm md:text-base text-nowrap ${
+                          isActivePath("/services") || pathname?.startsWith("/service/")
+                            ? "is-active"
+                            : ""
+                        }`}
                       >
                         {t.services}
-                      </Link>
+                        <svg
+                          className={`h-3.5 w-3.5 transition-transform duration-300 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
+
+                      <div
+                        id="servicesDropdownMenu"
+                        role="menu"
+                        onMouseLeave={() => setServicesDropdownOpen(false)}
+                        className={`absolute start-0 top-[calc(100%+6px)] z-50 w-[560px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-white/60 bg-white/95 shadow-2xl shadow-blue-950/20 backdrop-blur-xl transition-all duration-200 ease-out ${
+                          servicesDropdownOpen
+                            ? "visible translate-y-0 opacity-100"
+                            : "invisible -translate-y-2 opacity-0"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-3 bg-gradient-to-br from-blue-950 via-blue-900 to-emerald-900 px-4 py-3.5">
+                          <div className="min-w-0">
+                            <p className="text-sm font-bold text-white">
+                              {t.services}
+                            </p>
+                            <p className="mt-0.5 text-[11px] text-sky-100/80">
+                              {t.servicesAllDesc}
+                            </p>
+                          </div>
+                          <Link
+                            href="/services"
+                            onClick={() => setServicesDropdownOpen(false)}
+                            className="inline-flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold text-white ring-1 ring-inset ring-white/25 backdrop-blur-sm transition hover:bg-white/25"
+                          >
+                            {t.servicesAll}
+                            <svg className="h-3 w-3 rtl:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                              <path fillRule="evenodd" d="M7.05 4.55a.75.75 0 011.06 0l4.9 4.9a.75.75 0 010 1.06l-4.9 4.9a.75.75 0 11-1.06-1.06L11.43 10 7.05 5.61a.75.75 0 010-1.06z" clipRule="evenodd" />
+                            </svg>
+                          </Link>
+                        </div>
+
+                        <ul className="grid grid-cols-2 gap-1 p-2">
+                          {SERVICES.map((svc, i) => {
+                            const label = dir === "rtl" ? svc.ar : svc.en;
+                            return (
+                              <li key={svc.id}>
+                                <Link
+                                  href={`/service/${encodeURIComponent(svc.id)}`}
+                                  onClick={() => setServicesDropdownOpen(false)}
+                                  className="group flex items-start gap-2.5 rounded-xl px-2.5 py-2 transition-colors hover:bg-slate-100"
+                                >
+                                  <span className="relative mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-700 text-white shadow-sm">
+                                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                                      <path d={svc.icon} />
+                                    </svg>
+                                    <span className="absolute -top-1 -end-1 inline-flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-emerald-500 px-1 text-[9px] font-bold text-white ring-2 ring-white">
+                                      {String(i + 1).padStart(2, "0")}
+                                    </span>
+                                  </span>
+                                  <span className="min-w-0 flex-1">
+                                    <span className="block text-[13px] font-bold leading-tight text-blue-950 group-hover:text-sky-700">
+                                      {label}
+                                    </span>
+                                  </span>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
                     </li>
                     <li>
                       <Link
@@ -571,13 +963,150 @@ export default function NavBar() {
                         {t.partners}
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        className={getLinkClass("/blog") + " text-nowrap"}
-                        href="/blog"
+                    <li className="relative">
+                      <button
+                        type="button"
+                        id="pubsDropdownButton"
+                        onClick={() => {
+                          setPubsDropdownOpen((v) => !v);
+                          setServicesDropdownOpen(false);
+                        }}
+                        onMouseEnter={() => {
+                          setPubsDropdownOpen(true);
+                          setServicesDropdownOpen(false);
+                        }}
+                        aria-haspopup="menu"
+                        aria-expanded={pubsDropdownOpen}
+                        className={`linkStyle inline-flex items-center gap-1.5 px-2 py-2 text-sm md:text-base text-nowrap ${
+                          isActivePath("/publications") || isActivePath("/blog")
+                            ? "is-active"
+                            : ""
+                        }`}
                       >
-                        {t.blog}
-                      </Link>
+                        {t.publications}
+                        <svg
+                          className={`h-3.5 w-3.5 transition-transform duration-300 ${pubsDropdownOpen ? "rotate-180" : ""}`}
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
+
+                      <div
+                        id="pubsDropdownMenu"
+                        role="menu"
+                        onMouseLeave={() => setPubsDropdownOpen(false)}
+                        className={`absolute start-0 top-[calc(100%+6px)] z-50 w-[320px] overflow-hidden rounded-2xl border border-white/60 bg-white/95 shadow-2xl shadow-blue-950/20 backdrop-blur-xl transition-all duration-200 ease-out ${
+                          pubsDropdownOpen
+                            ? "visible translate-y-0 opacity-100"
+                            : "invisible -translate-y-2 opacity-0"
+                        }`}
+                      >
+                        <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-emerald-900 px-4 py-3.5">
+                          <p className="text-sm font-bold text-white">
+                            {t.publications}
+                          </p>
+                        </div>
+
+                        <ul className="p-2">
+                          <li>
+                            <Link
+                              href="/publications"
+                              onClick={() => setPubsDropdownOpen(false)}
+                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                            >
+                              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-700 text-white shadow-sm">
+                                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V2H6.5A2.5 2.5 0 004 4.5v15z" />
+                                </svg>
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                                  {t.publicationsAll}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {t.publicationsAllDesc}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/publications/football-economics"
+                              onClick={() => setPubsDropdownOpen(false)}
+                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                            >
+                              <img
+                                src="/Books/Book1.JPG"
+                                alt=""
+                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                              />
+                              <span className="min-w-0">
+                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                                  {t.bookFootball}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {t.bookFootballDesc}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/publications/internal-audit"
+                              onClick={() => setPubsDropdownOpen(false)}
+                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                            >
+                              <img
+                                src="/Books/Book2.jfif"
+                                alt=""
+                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                              />
+                              <span className="min-w-0">
+                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                                  {t.bookAudit}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {t.bookAuditDesc}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+
+                          <li className="my-1 border-t border-slate-200" />
+
+                          <li>
+                            <Link
+                              href="/blog"
+                              onClick={() => setPubsDropdownOpen(false)}
+                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                            >
+                              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-green-700 text-white shadow-sm">
+                                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 9h6M7 13h10M7 17h10" />
+                                </svg>
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                                  {t.blog}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {t.blogDesc}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                   </ul>
                 </nav>

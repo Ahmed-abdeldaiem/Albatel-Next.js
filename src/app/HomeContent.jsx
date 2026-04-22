@@ -17,6 +17,7 @@ import MainPagePartners from "./components/MainPagePartners/MainPagePartners";
 import Manager from "./components/Manager/Manager";
 import Message from "./components/Message/Message";
 import ContactUs from "./contact/ContactUs";
+import PublicationsTeaser from "./components/PublicationsTeaser/PublicationsTeaser";
 import ServiceDesc from "./components/ServiceDesc/ServiceDesc";
 import Vision from "./components/Vision/Vision";
 
@@ -561,6 +562,7 @@ export default function HomeContent({ branches = [] }) {
       <Message />
 
       <Manager />
+      <PublicationsTeaser />
       <Branches />
       <ServiceDesc />
 

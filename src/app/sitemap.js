@@ -108,6 +108,36 @@ export default async function sitemap() {
       priority: 0.6,
       alternates: langAlternates("/profileVedio"),
     },
+    {
+      url: BASE_URL + "/publications",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: langAlternates("/publications"),
+    },
+    {
+      url: BASE_URL + "/publications/football-economics",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+      alternates: langAlternates("/publications/football-economics"),
+      images: [BASE_URL + "/Books/Book1.JPG"],
+    },
+    {
+      url: BASE_URL + "/publications/internal-audit",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: langAlternates("/publications/internal-audit"),
+      images: [BASE_URL + "/Books/Book2.jfif"],
+    },
+    {
+      url: BASE_URL + "/blog",
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+      alternates: langAlternates("/blog"),
+    },
   ];
 
   const [services, branches] = await Promise.all([
