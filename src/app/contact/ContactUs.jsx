@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-hot-toast";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { LanguageContext } from "../contexts/langContext";
+import FormAlert from "@/components/FormAlert";
 
 // Static consultation types (no API needed — these are fixed service names)
 const CONSULTATION_TYPES = [
@@ -36,8 +35,9 @@ export default function ContactUs({
   const { dir } = useContext(LanguageContext);
   const isRtl = dir === "rtl";
 
-  const [contactError, setContactError] = useState("");
+  const [alert, setAlert] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const alertRef = useRef(null);
 
   const [selectedBranchId, setSelectedBranchId] = useState(
     branches?.[0]?.id ?? null
@@ -91,6 +91,14 @@ export default function ContactUs({
       send: isRtl ? "إرسال الرسالة" : "Send Message",
       sending: isRtl ? "جارٍ الإرسال..." : "Sending...",
       required: isRtl ? "هذا الحقل مطلوب" : "This field is required",
+      successTitle: isRtl ? "تم إرسال رسالتك بنجاح!" : "Message sent successfully!",
+      successBody: isRtl
+        ? "سيتواصل معك فريق الباتل خلال 24 ساعة عمل."
+        : "The Al-Batel team will reach out to you within 24 business hours.",
+      errorTitle: isRtl ? "تعذّر إرسال الرسالة" : "Unable to send your message",
+      errorBody: isRtl
+        ? "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى بعد قليل، أو التواصل معنا عبر واتساب."
+        : "Something went wrong while sending. Please try again shortly or contact us via WhatsApp.",
     },
     branches: {
       heading: isRtl ? "فروعنا" : "Our Branches",
@@ -114,13 +122,15 @@ export default function ContactUs({
     },
   };
 
-  function sendEmail(formValues) {
-    setIsLoading(true);
-    setContactError("");
+  function scrollAlertIntoView() {
+    requestAnimationFrame(() => {
+      alertRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
 
-    const serviceID = "service_dgxxhf6";
-    const publicKey = "tpDBNi84p2X5xrrVN";
-    const templateID = "template_7on1yag";
+  async function sendEmail(formValues) {
+    setIsLoading(true);
+    setAlert(null);
 
     const selectedType = consultationTypes.find(
       (c) => c.id === formValues.consultationTypeId
@@ -139,45 +149,40 @@ export default function ContactUs({
             selectedBranch?.name?.en || ""
           }`.trim()
         : "",
+      honeypot: formValues.hp_field || "",
     };
 
-    emailjs
-      .send(serviceID, templateID, payload, publicKey)
-      .then(() => {
-        toast.success(
-          isRtl ? "تم إرسال رسالتك بنجاح!" : "Message sent successfully!",
-          {
-            duration: 2500,
-            position: "top-center",
-            style: {
-              background: "#20c997",
-              color: "#fff",
-              fontWeight: "bold",
-            },
-            icon: "👍",
-          }
-        );
-        setIsLoading(false);
-        formik.resetForm();
-      })
-      .catch((error) => {
-        console.error("FAILED...", error);
-        const msg = isRtl
-          ? "فشل إرسال الرسالة. يرجى المحاولة لاحقاً."
-          : "Failed to send message. Please try again later.";
-        setContactError(msg);
-        toast.error(msg, {
-          duration: 2500,
-          position: "top-center",
-          style: {
-            background: "#ff004f",
-            color: "#fff",
-            fontWeight: "bold",
-          },
-          icon: "❌",
-        });
-        setIsLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data?.error || `Request failed (${res.status})`);
+      }
+
+      setAlert({
+        type: "success",
+        title: t.form.successTitle,
+        message: t.form.successBody,
+      });
+      formik.resetForm();
+      scrollAlertIntoView();
+    } catch (error) {
+      console.error("FAILED...", error);
+      setAlert({
+        type: "error",
+        title: t.form.errorTitle,
+        message: t.form.errorBody,
+      });
+      scrollAlertIntoView();
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const formik = useFormik({
@@ -187,6 +192,7 @@ export default function ContactUs({
       email: "",
       consultationTypeId: "",
       message: "",
+      hp_field: "",
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -357,16 +363,45 @@ export default function ContactUs({
               </p>
             </div>
 
-            {contactError && (
-              <div
-                role="alert"
-                className="mb-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
-              >
-                {contactError}
+            {alert && (
+              <div ref={alertRef} className="mb-6">
+                <FormAlert
+                  type={alert.type}
+                  title={alert.title}
+                  message={alert.message}
+                  isRtl={isRtl}
+                  onClose={() => setAlert(null)}
+                  autoDismissMs={alert.type === "success" ? 8000 : 0}
+                />
               </div>
             )}
 
             <form onSubmit={formik.handleSubmit} className="space-y-5" noValidate>
+              {/* Honeypot field (hidden from real users, bots fill it). */}
+              {/* Uses a non-standard field name to avoid browser autofill. */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-10000px",
+                  top: "auto",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="hp_field">Leave this field empty</label>
+                <input
+                  id="hp_field"
+                  type="text"
+                  name="hp_field"
+                  tabIndex="-1"
+                  autoComplete="new-password"
+                  value={formik.values.hp_field}
+                  onChange={formik.handleChange}
+                />
+              </div>
+
               {/* Name + Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Field

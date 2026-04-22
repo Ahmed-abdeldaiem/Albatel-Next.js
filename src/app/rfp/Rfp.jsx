@@ -1,23 +1,23 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { LanguageContext } from "../contexts/langContext";
+import FormAlert from "@/components/FormAlert";
 
 export default function Rfp() {
   const { dir } = useContext(LanguageContext);
   const isRtl = dir === "rtl";
 
-  const [contactError, setContactError] = useState("");
+  const [alert, setAlert] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const alertRef = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 900, once: true, easing: "ease-in-out" });
@@ -96,12 +96,15 @@ export default function Rfp() {
       emailUs: isRtl ? "راسلنا بريدياً" : "Email us",
     },
     success: isRtl ? "تم إرسال طلبك بنجاح!" : "Request sent successfully!",
-    error: isRtl
-      ? "فشل إرسال الطلب. يرجى المحاولة لاحقاً."
-      : "Failed to send request. Please try again later.",
+    successBody: isRtl
+      ? "استلمنا طلبك وسيتواصل معك فريق الباتل خلال 24 ساعة عمل بعرض مفصّل."
+      : "We've received your request. Our team will contact you within 24 business hours with a detailed proposal.",
+    error: isRtl ? "تعذّر إرسال الطلب" : "Unable to send your request",
+    errorBody: isRtl
+      ? "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى بعد قليل، أو التواصل معنا عبر واتساب."
+      : "Something went wrong while sending. Please try again shortly or contact us via WhatsApp.",
   };
 
-  /* ---------- EmailJS send (preserved) ---------- */
   function formatDate(d) {
     if (!d) return "";
     const date = new Date(d);
@@ -112,52 +115,55 @@ export default function Rfp() {
     return `${dd}/${mm}/${yyyy}`;
   }
 
-  function sendEmail(formValues) {
+  function scrollAlertIntoView() {
+    requestAnimationFrame(() => {
+      alertRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  async function sendEmail(formValues) {
     setIsLoading(true);
-    setContactError("");
+    setAlert(null);
 
-    const serviceID = "service_dgxxhf6";
-    const publicKey = "tpDBNi84p2X5xrrVN";
-    const templateID = "template_h0od4ff";
-
-    // Format dates for a readable email body while keeping template-compatible keys
     const payload = {
       ...formValues,
       period_from: formatDate(formValues.period_from),
       period_to: formatDate(formValues.period_to),
+      honeypot: formValues.hp_field || "",
     };
+    delete payload.hp_field;
 
-    emailjs
-      .send(serviceID, templateID, payload, publicKey)
-      .then(() => {
-        toast.success(t.success, {
-          duration: 2500,
-          position: "top-center",
-          style: {
-            background: "#20c997",
-            color: "#fff",
-            fontWeight: "bold",
-          },
-          icon: "👍",
-        });
-        setIsLoading(false);
-        formik.resetForm();
-      })
-      .catch((error) => {
-        console.error("FAILED...", error);
-        setContactError(t.error);
-        toast.error(t.error, {
-          duration: 2500,
-          position: "top-center",
-          style: {
-            background: "#ff004f",
-            color: "#fff",
-            fontWeight: "bold",
-          },
-          icon: "❌",
-        });
-        setIsLoading(false);
+    try {
+      const res = await fetch("/api/rfp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data?.error || `Request failed (${res.status})`);
+      }
+
+      setAlert({
+        type: "success",
+        title: t.success,
+        message: t.successBody,
+      });
+      formik.resetForm();
+      scrollAlertIntoView();
+    } catch (error) {
+      console.error("FAILED...", error);
+      setAlert({
+        type: "error",
+        title: t.error,
+        message: t.errorBody,
+      });
+      scrollAlertIntoView();
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const formik = useFormik({
@@ -171,6 +177,7 @@ export default function Rfp() {
       period_from: "",
       period_to: "",
       message: "",
+      hp_field: "",
     },
     validationSchema: Yup.object({
       company_name: Yup.string()
@@ -305,12 +312,16 @@ export default function Rfp() {
               </p>
             </div>
 
-            {contactError && (
-              <div
-                role="alert"
-                className="mb-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
-              >
-                {contactError}
+            {alert && (
+              <div ref={alertRef} className="mb-6">
+                <FormAlert
+                  type={alert.type}
+                  title={alert.title}
+                  message={alert.message}
+                  isRtl={isRtl}
+                  onClose={() => setAlert(null)}
+                  autoDismissMs={alert.type === "success" ? 8000 : 0}
+                />
               </div>
             )}
 
@@ -319,6 +330,31 @@ export default function Rfp() {
               className="space-y-8"
               noValidate
             >
+              {/* Honeypot field (hidden from real users, bots fill it). */}
+              {/* Uses a non-standard field name to avoid browser autofill. */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-10000px",
+                  top: "auto",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="rfp_hp_field">Leave this field empty</label>
+                <input
+                  id="rfp_hp_field"
+                  type="text"
+                  name="hp_field"
+                  tabIndex="-1"
+                  autoComplete="new-password"
+                  value={formik.values.hp_field}
+                  onChange={formik.handleChange}
+                />
+              </div>
+
               {/* Section 1: Company */}
               <FormSection
                 heading={t.sections.company}
