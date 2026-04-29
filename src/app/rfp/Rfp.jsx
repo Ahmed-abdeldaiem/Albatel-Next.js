@@ -253,7 +253,7 @@ export default function Rfp() {
     !formik.values.message;
 
   return (
-    <section className="relative" dir={dir}>
+    <section className="relative overflow-hidden" dir={dir}>
       {/* ============= HERO ============= */}
       <div className="relative bg-[url('https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/rfp2.jpg')] bg-cover bg-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/85 via-blue-900/70 to-green-800/60" />
