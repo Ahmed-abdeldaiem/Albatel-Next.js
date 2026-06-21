@@ -129,7 +129,7 @@ export default function PublicationDetail({ pub }) {
     buyJarir: isRtl ? "اشترِ من مكتبة جرير" : "Buy from Jarir Bookstore",
     save: isRtl ? "وفّر" : "Save",
     save30d: isRtl ? "عرض محدود" : "Limited offer",
-    statsTitle: isRtl ? "الموسوعة بالأرقام" : "The Encyclopedia in Numbers",
+ 
     aboutTitle: isRtl ? "عن الكتاب" : "About the Book",
     structureTitle: isRtl ? "بنية الموسوعة" : "The Encyclopedia Structure",
     structureSub: isRtl
@@ -153,8 +153,8 @@ export default function PublicationDetail({ pub }) {
     acclaimTitle: isRtl ? "الصدى الدولي" : "International Acclaim",
     finalCta: isRtl ? "جاهز لاقتناء نسختك؟" : "Ready to get your copy?",
     finalCtaSub: isRtl
-      ? "اختر الطريقة التي تناسبك — طلب مباشر من الباتل، أو عبر مكتبة جرير."
-      : "Pick the method that suits you — order directly from Al-Batel, or through Jarir.",
+      ? " إطلب مباشر من الباتل"
+      : "Order directly from Al-Batel",
     partnerTitle: isRtl
       ? "بالتعاون مع دار فاروس للنشر والتوزيع"
       : "In partnership with Faros Publishing House",
@@ -244,8 +244,19 @@ export default function PublicationDetail({ pub }) {
                 {authors.map((a) => a.name[lang]).join(isRtl ? " — " : " — ")}
               </p>
 
+<div className="flex flex-col  gap-4">
+                {/* Sponsor / Patronage badge */}
+                {pub.sponsor && (
+                <div className="mt-4 inline-flex items-start gap-2 rounded-xl bg-emerald-500/15 backdrop-blur-md border border-emerald-300/30 px-3.5 py-2 text-emerald-100 text-xs sm:text-sm font-medium leading-snug max-w-xl">
+                  <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                  </svg>
+                  <span>{pub.sponsor[lang]}</span>
+                </div>
+              )}
+
               {/* Price block */}
-              <div className="mt-6 inline-flex flex-wrap items-end gap-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4">
+              <div className="mt-6 w-1/2  md:w-1/4 inline-flex flex-wrap items-end gap-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4">
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl sm:text-5xl font-black text-emerald-300">
                     {pub.price}
@@ -265,7 +276,7 @@ export default function PublicationDetail({ pub }) {
                   </>
                 )}
               </div>
-
+</div>
               {/* CTAs with distinct identities */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 {/* Direct order — Al-Batel identity (green-navy) */}
@@ -274,7 +285,7 @@ export default function PublicationDetail({ pub }) {
                   className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 px-6 py-3.5 text-white font-bold shadow-xl shadow-emerald-900/40 transition-all hover:-translate-y-0.5"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                    <path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z" />
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                   </svg>
                   {t.buyDirect}
                 </Link>
@@ -310,34 +321,6 @@ export default function PublicationDetail({ pub }) {
           />
         </svg>
       </section>
-
-      {/* ============= STATS ============= */}
-      {pub.stats && pub.stats.length > 0 && (
-        <section className="bg-slate-50 py-10 sm:py-14">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {pub.stats.map((s, i) => (
-                <div
-                  key={i}
-                  data-aos="fade-up"
-                  data-aos-delay={i * 80}
-                  className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 p-5 sm:p-6 text-center shadow-sm hover:shadow-md transition"
-                >
-                  <div className="absolute -top-6 -end-6 h-20 w-20 rounded-full bg-gradient-to-br from-emerald-100 to-sky-100 opacity-50" aria-hidden />
-                  <div className="relative">
-                    <p className="text-3xl sm:text-4xl font-black bg-gradient-to-br from-blue-950 to-emerald-700 bg-clip-text text-transparent">
-                      {s.value}
-                    </p>
-                    <p className="mt-2 text-xs sm:text-sm font-semibold text-slate-600 leading-tight">
-                      {s.label[lang]}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ============= ABOUT ============= */}
       <section className="bg-white py-14 sm:py-20">
@@ -749,7 +732,7 @@ export default function PublicationDetail({ pub }) {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 px-6 py-3.5 text-white font-bold shadow-xl shadow-emerald-700/30 transition-all hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                <path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z" />
+                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
               </svg>
               {t.buyDirect}
             </Link>
@@ -769,6 +752,12 @@ export default function PublicationDetail({ pub }) {
           {pub.publisher && (
             <p className="mt-10 text-xs text-slate-500">
               {t.partnerTitle}
+            </p>
+          )}
+
+          {pub.sponsor && (
+            <p className="mt-2 text-xs font-semibold text-emerald-700">
+              {pub.sponsor[lang]}
             </p>
           )}
         </div>

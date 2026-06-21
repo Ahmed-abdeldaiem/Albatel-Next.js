@@ -184,7 +184,7 @@ export default function PublicationsContent() {
                   {/* Cover */}
                   <div className="relative h-[300px] sm:h-[340px] overflow-hidden bg-gradient-to-br from-slate-100 via-white to-slate-100 flex items-center justify-center">
                     <img
-                      src={pub.cover}
+                      src={pub.listCover || pub.cover}
                       alt={pub.title[lang]}
                       className={`h-full w-auto object-contain drop-shadow-2xl transition-transform duration-700 ${
                         isComingSoon ? "" : "group-hover:scale-105"
@@ -284,7 +284,7 @@ export default function PublicationsContent() {
                             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-700/25 transition-all"
                           >
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                              <path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z" />
+                              <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                             </svg>
                             {t.buyDirect}
                           </Link>

@@ -71,8 +71,10 @@ const COPY = {
     blogDesc: "مقالات مهنية من خبراء الباتل",
     bookFootball: "اقتصاديات كرة القدم",
     bookAudit: "مراجعة الرقابة الداخلية",
+    bookSportsCorruption: "الفساد والاحتيال في الرياضة",
     bookFootballDesc: "موسوعة في الاستثمار الرياضي",
     bookAuditDesc: "تعريب عن إطار COSO الجديد",
+    bookSportsCorruptionDesc: "حوكمة الرياضة ومكافحة الاحتيال",
     servicesAll: "جميع الخدمات",
     servicesAllDesc: "اطّلع على مجموعة خدماتنا المهنية المتكاملة",
   },
@@ -97,8 +99,10 @@ const COPY = {
     blogDesc: "Professional insights from Al-Batel experts",
     bookFootball: "Football Economics",
     bookAudit: "Internal Control Audit",
+    bookSportsCorruption: "Corruption and Fraud in Sports",
     bookFootballDesc: "An encyclopedia on sports investment",
     bookAuditDesc: "Translated under the new COSO framework",
+    bookSportsCorruptionDesc: "Sports governance and fraud prevention",
     servicesAll: "All Services",
     servicesAllDesc: "Browse our full range of professional services",
   },
@@ -514,6 +518,15 @@ function MobileNavDrawer({
                         onClick={onClose}
                       >
                         {t.bookAudit}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/publications/sports-corruption-fraud"
+                        className={`${drawerLinkClass("/publications/sports-corruption-fraud")} text-sm`}
+                        onClick={onClose}
+                      >
+                        {t.bookSportsCorruption}
                       </Link>
                     </li>
                     <li>
@@ -1076,6 +1089,28 @@ export default function NavBar() {
                                 </span>
                                 <span className="mt-0.5 block text-xs text-slate-500">
                                   {t.bookAuditDesc}
+                                </span>
+                              </span>
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link
+                              href="/publications/sports-corruption-fraud"
+                              onClick={() => setPubsDropdownOpen(false)}
+                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                            >
+                              <img
+                                src="/Books/book3.JPG"
+                                alt=""
+                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                              />
+                              <span className="min-w-0">
+                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                                  {t.bookSportsCorruption}
+                                </span>
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {t.bookSportsCorruptionDesc}
                                 </span>
                               </span>
                             </Link>

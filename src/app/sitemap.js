@@ -132,6 +132,14 @@ export default async function sitemap() {
       images: [BASE_URL + "/Books/Book2.jfif"],
     },
     {
+      url: BASE_URL + "/publications/sports-corruption-fraud",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: langAlternates("/publications/sports-corruption-fraud"),
+      images: [BASE_URL + "/Books/book3.JPG"],
+    },
+    {
       url: BASE_URL + "/blog",
       lastModified: now,
       changeFrequency: "weekly",

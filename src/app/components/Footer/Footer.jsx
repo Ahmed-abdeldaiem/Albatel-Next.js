@@ -131,8 +131,8 @@ export default function Footer() {
         ? "مؤلفاتنا — من نخبة من كبار الخبراء المهنيين"
         : "Our Publications — by a team of senior professional experts",
       subtitle: isRtl
-        ? "موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية وفق إطار COSO الجديد. متوفّرة في جرير وللطلب المباشر."
-        : "The Football Economics encyclopedia and the Internal Control Audit reference under the new COSO framework. Available at Jarir and for direct order.",
+        ? "موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية وفق إطار COSO الجديد، ومؤلف الفساد والاحتيال في الرياضة، متوفّرة في جرير وللطلب المباشر."
+        : "The Encyclopedia of Football Economics, the Reference for Internal Control Review under the New COSO Framework, and the book Corruption and Fraud in Sports are available at Jarir and for direct order.",
       cta: isRtl ? "تصفّح المؤلفات" : "Browse Publications",
       bookFootball: isRtl ? "اقتصاديات كرة القدم" : "Football Economics",
       bookAudit: isRtl ? "مراجعة الرقابة الداخلية" : "Internal Control Audit",
@@ -196,22 +196,34 @@ export default function Footer() {
                 className="group relative block"
               >
                 <img
-                  src="/Books/Book1-og.jpg"
+                  src="/Books/Book1- 1.jpg"
                   alt={t.pubs.bookFootball}
                   loading="lazy"
-                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 -rotate-3 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
+                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 -rotate-6 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
                 />
               </Link>
               <Link
                 href="/publications/internal-audit"
                 aria-label={t.pubs.bookAudit}
-                className="group relative block"
+                className="group relative z-10 block"
               >
                 <img
                   src="/Books/Book2.jfif"
                   alt={t.pubs.bookAudit}
                   loading="lazy"
-                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 rotate-3 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
+                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
+                />
+              </Link>
+              <Link
+                href="/publications/sports-corruption-fraud"
+                aria-label={t.pubs.bookSportsCorruption}
+                className="group relative block"
+              >
+                <img
+                  src="/Books/book3 - 2.JPG"
+                  alt={t.pubs.bookSportsCorruption}
+                  loading="lazy"
+                  className="h-28 w-auto rounded-lg shadow-xl shadow-black/40 ring-2 ring-white/25 transition-all duration-300 rotate-6 group-hover:rotate-0 group-hover:scale-105 group-hover:ring-emerald-300/70 sm:h-32"
                 />
               </Link>
             </div>

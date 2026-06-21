@@ -392,23 +392,150 @@ export const PUBLICATIONS = [
     },
   },
   {
-    slug: "fasad",
-    comingSoon: true,
+    slug: "sports-corruption-fraud",
     title: {
-      ar: "الفساد",
-      en: "Corruption",
+      ar: "الفساد والاحتيال في الرياضة",
+      en: "Corruption and Fraud in Sports",
     },
     subtitle: {
-      ar: "إصدار قادم قريبًا",
-      en: "Coming soon",
+      ar: "ثمانية عشر فصلًا بين النظرية والتطبيق والرقابة والحوكمة",
+      en: "Eighteen chapters spanning theory, practice, oversight, and governance",
     },
     shortDesc: {
-      ar: "إصدار مهني جديد من الباتل — ترقّبوا التفاصيل الكاملة والمحتوى العلمي خلال الفترة القادمة.",
-      en: "A new professional publication from Al-Batel — stay tuned for the full details and scientific content.",
+      ar: "مرجع عربي متكامل في الفساد والاحتيال بقطاع الرياضة — يجمع العمق النظري بدراسات الحالة والأدوات القانونية والرقابية للمواجهة. صادر برعاية رسمية من مؤسسة باتل عبدالله الباتل للبحوث والدراسات.",
+      en: "A comprehensive Arabic reference on corruption and fraud in the sports sector — integrating theoretical depth with case studies and legal & oversight tools. Published under the official patronage of the Batel Abdullah Al-Batel Foundation for Research and Studies.",
     },
-    cover: "/Books/fasad.jpeg",
-    coverBadge: { ar: "قريبًا", en: "Coming Soon" },
+    longDesc: {
+      ar: "يُمثّل هذا الإصدار مرجعًا عربيًا متكاملاً حول الفساد والاحتيال في قطاع الرياضة. ينطلق من تشخيص التحوّل الاقتصادي والسياسي والإعلامي للقطاع، ثم يتوسّع في المفاهيم والأدلة والأدوات القانونية والرقابية للمواجهة، جامعًا بين العمق النظري والوقائع التاريخية ودراسات الحالة في مسار منطقي يخدم الباحث وصانع القرار والمهتم بالنزاهة الرياضية. يضمّ الإصدار ثمانية عشر فصلاً مرتّبة تسلسليًا بين الجوانب المفاهيمية والتطبيقية والقانونية، ويناقش تلاعب النتائج والرشوة وفساد المناقصات والعقود وارتباط الرياضة بجرائم غسل الأموال، ويُحلّل قانون ماكولين في مكافحة التلاعب الرياضي، ويستعين بفصل مترجم من أعمال البروفيسور Wray Vamplew حول اقتصاديات التلاعب بالرياضة. صدر الكتاب برعاية رسمية وحصرية من مؤسسة باتل عبدالله الباتل للبحوث والدراسات ضمن مبادراتها لدعم الإنتاج العلمي وسدّ الفجوات المعرفية في الوطن العربي.",
+      en: "This publication represents a comprehensive Arabic reference on corruption and fraud in the sports sector. It begins by diagnosing the economic, political, and media transformation of the sector, then expands into concepts, evidence, and the legal and oversight tools to confront it — combining theoretical depth with historical facts and case studies in a logical path that serves researchers, decision-makers, and anyone concerned with sports integrity. The work comprises eighteen sequentially organized chapters spanning conceptual, applied, and legal dimensions, covering match-fixing, bribery, procurement and contract fraud, and the link between sports and money laundering. It analyzes the McLaren law on combating sports manipulation, and draws on a translated chapter from Professor Wray Vamplew's work on the economics of sports manipulation. The book is published under the exclusive official patronage of the Batel Abdullah Al-Batel Foundation for Research and Studies, as part of its initiatives to support scientific output and bridge knowledge gaps across the Arab world.",
+    },
+    authors: ["batel", "mohamed", "walid"],
+    authorRole: "author",
+    cover: "/Books/book3.JPG",
+    listCover: "/Books/book3-1.JPG",
+    coverBadge: { ar: "إصدار جديد", en: "New Release" },
+    publisher: { ar: "دار فاروس للنشر والتوزيع", en: "Faros Publishing House" },
+    sponsor: {
+      ar: "برعاية رسمية وحصرية من مؤسسة باتل عبدالله الباتل للبحوث والدراسات",
+      en: "Under the exclusive official patronage of the Batel Abdullah Al-Batel Foundation for Research and Studies",
+    },
+    price: 99,
     currency: { ar: "﷼", en: "SAR" },
+    stats: [
+      {
+        value: "18",
+        label: { ar: "فصلاً متسلسلاً", en: "Sequential chapters" },
+      },
+      {
+        value: "5",
+        label: { ar: "محاور علمية رئيسية", en: "Main scientific axes" },
+      },
+      {
+        value: "1",
+        label: { ar: "مرجع عربي متكامل", en: "Comprehensive Arabic reference" },
+      },
+      {
+        value: "+",
+        label: { ar: "دراسات حالة محلية ودولية", en: "Local & international case studies" },
+      },
+    ],
+    structure: [
+      {
+        icon: "analysis",
+        title: { ar: "الموضوع والدافع", en: "Topic & Motivation" },
+        count: {
+          ar: "تشخيص تحوّل الرياضة من ترفيه إلى صناعة",
+          en: "Diagnosing sport's shift from leisure to industry",
+        },
+        color: "from-blue-500 to-indigo-600",
+      },
+      {
+        icon: "data",
+        title: { ar: "المفهوم والأبعاد", en: "Concept & Dimensions" },
+        count: {
+          ar: "تلاعب، رشوة، فساد العقود، وغسل أموال",
+          en: "Match-fixing, bribery, contract fraud, money laundering",
+        },
+        color: "from-rose-500 to-pink-600",
+      },
+      {
+        icon: "accounting",
+        title: { ar: "المنهجية والمحتوى", en: "Methodology & Content" },
+        count: {
+          ar: "18 فصلاً + دراسات حالة + فصل لـ Wray Vamplew",
+          en: "18 chapters + case studies + a Wray Vamplew chapter",
+        },
+        color: "from-amber-500 to-orange-600",
+      },
+      {
+        icon: "management",
+        title: { ar: "المواجهة والمعالجة", en: "Addressing & Treatment" },
+        count: {
+          ar: "حوكمة، إبلاغ، أُطر قانونية وقانون ماكولين",
+          en: "Governance, whistleblowing, legal frameworks & McLaren law",
+        },
+        color: "from-emerald-500 to-green-600",
+      },
+      {
+        icon: "economy",
+        title: { ar: "الرعاية والهدف", en: "Patronage & Objective" },
+        count: {
+          ar: "برعاية مؤسسة باتل عبدالله الباتل للبحوث والدراسات",
+          en: "Sponsored by the Batel Abdullah Al-Batel Foundation",
+        },
+        color: "from-violet-500 to-purple-700",
+      },
+    ],
+    highlights: [
+      {
+        ar: "18 فصلاً تجمع النظرية بالتطبيق والرقابة والحوكمة",
+        en: "18 chapters integrating theory, practice, oversight, and governance",
+        icon: "framework",
+      },
+      {
+        ar: "برعاية رسمية من مؤسسة باتل عبدالله الباتل للبحوث والدراسات",
+        en: "Officially sponsored by the Batel Abdullah Al-Batel Foundation",
+        icon: "global",
+      },
+      {
+        ar: "تحليل قانون ماكولين في مكافحة التلاعب الرياضي",
+        en: "Analysis of the McLaren law on combating sports manipulation",
+        icon: "methodology",
+      },
+      {
+        ar: "فصل مترجم من أعمال البروفيسور Wray Vamplew",
+        en: "Translated chapter from Professor Wray Vamplew's work",
+        icon: "audit",
+      },
+    ],
+    audience: {
+      ar: [
+        "صنّاع القرار في الاتحادات والأندية والهيئات الرياضية",
+        "الباحثون والأكاديميون في الإدارة والقانون والاقتصاد الرياضي",
+        "مسؤولو الحوكمة والامتثال ومكافحة الفساد في المؤسسات",
+        "الإعلام الرياضي والمهتمون بالشفافية والرقابة",
+        "الجامعات والمكتبات المتخصصة في الدراسات الرياضية والقانونية",
+      ],
+      en: [
+        "Decision-makers in sports federations, clubs, and governing bodies",
+        "Researchers and academics in sports management, law, and economics",
+        "Governance, compliance, and anti-corruption officers in organizations",
+        "Sports media and those interested in transparency and oversight",
+        "Universities and specialized libraries in sports and legal studies",
+      ],
+    },
+    purchase: {
+      jarir: null,
+      direct: {
+        enabled: true,
+        label: { ar: "اطلب نسختك من الباتل", en: "Order your copy from Al-Batel" },
+      },
+    },
+    events: [],
+    testimonialQuote: {
+      ar: "حماية الرياضة من العبث ليست رفاهية — بل شرط لمصداقية الصناعة وكرامة المنافسة.",
+      en: "Protecting sports from manipulation is not a luxury — it is a condition for the credibility of the industry and the dignity of competition.",
+    },
   },
 ];
 
