@@ -668,7 +668,7 @@ function JobCard({ job, t, isRtl, lang }) {
         className={`absolute top-4 ${
           isRtl ? "-start-10" : "-end-10"
         } bg-gradient-to-r from-green-500 to-green-600 text-white text-[10px] sm:text-xs font-bold py-1 px-10 shadow-md ${
-          isRtl ? "-rotate-45" : "rotate-45"
+          isRtl ? "rotate-45" : "rotate-45"
         } select-none`}
       >
         {t.card.newBadge}
