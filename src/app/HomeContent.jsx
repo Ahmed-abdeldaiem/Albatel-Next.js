@@ -182,9 +182,9 @@ export default function HomeContent({ branches = [] }) {
       render: () => (
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
           <span
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium ${
               currentIndex === 0
-                ? "opacity-100 translate-y-0"
+                ? "hero-enter hero-enter-delay-1"
                 : "opacity-0 translate-y-3"
             }`}
           >
@@ -199,17 +199,17 @@ export default function HomeContent({ branches = [] }) {
             height={373}
             loading="eager"
             decoding="async"
-            className={`mt-5 w-44 sm:w-56 md:w-60  transition-all duration-700 ${
+            className={`mt-5 w-44 sm:w-56 md:w-60 ${
               currentIndex === 0
-                ? "opacity-100 scale-100"
+                ? "hero-enter-logo hero-enter-delay-2"
                 : "opacity-0 scale-95"
             }`}
           />
 
           <h1
-            className={` text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl max-w-4xl leading-snug drop-shadow-lg transition-all duration-700 delay-75 ${
+            className={` text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl max-w-4xl leading-snug drop-shadow-lg ${
               currentIndex === 0
-                ? "opacity-100 translate-y-0"
+                ? "hero-enter hero-enter-delay-3"
                 : "opacity-0 translate-y-4"
             }`}
           >
@@ -217,9 +217,9 @@ export default function HomeContent({ branches = [] }) {
           </h1>
 
           <p
-            className={`mt-3 mx-auto max-w-3xl text-white/90 text-sm sm:text-base lg:text-xl leading-relaxed transition-all duration-700 delay-100 ${
+            className={`mt-3 mx-auto max-w-3xl text-white/90 text-sm sm:text-base lg:text-xl leading-relaxed ${
               currentIndex === 0
-                ? "opacity-100 translate-y-0"
+                ? "hero-enter hero-enter-delay-4"
                 : "opacity-0 translate-y-4"
             }`}
           >
@@ -227,9 +227,9 @@ export default function HomeContent({ branches = [] }) {
           </p>
 
           <div
-            className={`mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 transition-all duration-700 delay-150 ${
+            className={`mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 ${
               currentIndex === 0
-                ? "opacity-100 translate-y-0"
+                ? "hero-enter hero-enter-delay-5"
                 : "opacity-0 translate-y-5"
             }`}
           >
