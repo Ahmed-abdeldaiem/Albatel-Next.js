@@ -170,6 +170,13 @@ const SERVICES = [
     icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
   },
   {
+    id: "Arbitration_Dispute_Resolution_Services",
+    ar: "التحكيم وتسوية المنازعات",
+    en: "Arbitration & Dispute Resolution",
+    icon: "M3 6l9-4 9 4v2H3V6zm2 4h2v8H5v-8zm6 0h2v8h-2v-8zm6 0h2v8h-2v-8zM2 20h20v2H2v-2z",
+  }
+  ,
+  {
     id: "Estate_Liquidation_Services",
     ar: "تصفية التركات",
     en: "Estate Liquidation",
