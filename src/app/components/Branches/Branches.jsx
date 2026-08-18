@@ -82,7 +82,7 @@ export default function Branches() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-700">
             {t.eyebrow}
           </span>
@@ -99,7 +99,7 @@ export default function Branches() {
         </div>
 
         {/* Mini stats strip */}
-        <div className="mb-10 grid grid-cols-3 gap-3 sm:gap-5 max-w-2xl mx-auto">
+        <div data-aos="fade-up" data-aos-delay="80" className="mb-10 grid grid-cols-3 gap-3 sm:gap-5 max-w-2xl mx-auto">
           <MiniStat value={`${BRANCHES.length}`} label={t.branchesCount} />
           <MiniStat value="7+" label={t.cities} />
           <MiniStat value="KSA" label={t.kingdom} />
@@ -108,7 +108,7 @@ export default function Branches() {
         {/* Grid */}
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  justify-center items-center gap-4 sm:gap-5">
           {BRANCHES.map((branch, i) => (
-            <li key={branch.id}>
+            <li key={branch.id} data-aos="fade-up" data-aos-delay={(i % 3) * 80}>
               <Link
                 href={`/branch/${branch.id}`}
                 className="group block relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-sm bg-white hover:ring-blue-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"

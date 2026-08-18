@@ -258,6 +258,8 @@ function MobileNavDrawer({
             <img
               src="/BatelLogo1.png"
               alt="AlBatel & Co"
+              width={503}
+              height={496}
               className="h-9 w-auto shrink-0 object-contain"
             />
           </Link>
@@ -760,6 +762,8 @@ export default function NavBar() {
                 >
                   <img
                     src="/BatelLogo1.png"
+                    width={503}
+                    height={496}
                     className="h-10 w-auto shrink-0 px-0.5 sm:h-11 transition-transform duration-500 ease-out group-active:rotate-[-6deg] motion-reduce:transition-none"
                     alt="Albatel Logo"
                   />
@@ -843,6 +847,8 @@ export default function NavBar() {
                 >
                   <img
                     src="/BatelLogo1.png"
+                    width={503}
+                    height={496}
                     className="inline-block w-20 px-3 transition-transform duration-500 ease-out group-hover:rotate-[-6deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
                     alt="Albatel Logo"
                   />
@@ -1063,11 +1069,21 @@ export default function NavBar() {
                               onClick={() => setPubsDropdownOpen(false)}
                               className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
                             >
-                              <img
-                                src="/Books/Book1.JPG"
-                                alt=""
-                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                              />
+                              {pubsDropdownOpen ? (
+                                <img
+                                  src="/Books/Book1.JPG"
+                                  alt=""
+                                  width={32}
+                                  height={40}
+                                  decoding="async"
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                                />
+                              ) : (
+                                <span
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
+                                  aria-hidden
+                                />
+                              )}
                               <span className="min-w-0">
                                 <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
                                   {t.bookFootball}
@@ -1085,11 +1101,21 @@ export default function NavBar() {
                               onClick={() => setPubsDropdownOpen(false)}
                               className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
                             >
-                              <img
-                                src="/Books/Book2.jfif"
-                                alt=""
-                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                              />
+                              {pubsDropdownOpen ? (
+                                <img
+                                  src="/Books/Book2.jfif"
+                                  alt=""
+                                  width={32}
+                                  height={40}
+                                  decoding="async"
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                                />
+                              ) : (
+                                <span
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
+                                  aria-hidden
+                                />
+                              )}
                               <span className="min-w-0">
                                 <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
                                   {t.bookAudit}
@@ -1107,11 +1133,21 @@ export default function NavBar() {
                               onClick={() => setPubsDropdownOpen(false)}
                               className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
                             >
-                              <img
-                                src="/Books/book3.JPG"
-                                alt=""
-                                className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                              />
+                              {pubsDropdownOpen ? (
+                                <img
+                                  src="/Books/book3.JPG"
+                                  alt=""
+                                  width={32}
+                                  height={40}
+                                  decoding="async"
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
+                                />
+                              ) : (
+                                <span
+                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
+                                  aria-hidden
+                                />
+                              )}
                               <span className="min-w-0">
                                 <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
                                   {t.bookSportsCorruption}

@@ -169,6 +169,8 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
           src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png"
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/75 to-green-800/55" />
@@ -184,7 +186,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
 
         {/* CPA badge */}
         <div
-          data-aos="fade-down"
           className="absolute top-0 sm:top-24 md:top-32 start-4 md:start-10 z-20"
         >
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-semibold shadow-sm">
@@ -195,13 +196,13 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
 
         {/* Certified badge (bottom corner) */}
         <div
-          data-aos="fade-up"
           className="hidden md:block absolute bottom-6 end-6 z-20 w-28 lg:w-32"
         >
           <img
             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/Logos%20and%20Certified2/111-removebg-preview.png"
             alt={isRtl ? "شعار الاعتماد" : "Certification logo"}
             loading="lazy"
+            decoding="async"
             className="w-full h-auto drop-shadow-2xl"
           />
         </div>
@@ -225,7 +226,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
           </nav>
 
           <span
-            data-aos="fade-up"
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -234,16 +234,12 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
 
           <h1
             id="team-hero-title"
-            data-aos="fade-up"
-            data-aos-delay="100"
             className="mt-5 text-white font-bold text-3xl sm:text-4xl lg:text-6xl leading-tight drop-shadow-lg"
           >
             {t.hero.title}
           </h1>
 
           <div
-            data-aos="fade-up"
-            data-aos-delay="200"
             className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-white/90 text-lg sm:text-xl lg:text-2xl font-semibold"
           >
             <span>{t.hero.line1.a}</span>
@@ -254,8 +250,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
           </div>
 
           <div
-            data-aos="fade-up"
-            data-aos-delay="250"
             className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-white/75 text-sm sm:text-base lg:text-lg"
           >
             <span>{t.hero.line2.a}</span>
@@ -266,8 +260,6 @@ export default function TeamPage2({ employees: initialEmployees = [] }) {
    
 
           <div
-            data-aos="fade-up"
-            data-aos-delay="350"
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             <button

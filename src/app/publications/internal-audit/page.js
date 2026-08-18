@@ -91,6 +91,12 @@ export default function InternalAuditPage() {
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/Books/Book2.jfif"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}

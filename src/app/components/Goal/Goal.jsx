@@ -40,7 +40,7 @@ export default function Goal() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-700">
             {t.eyebrow}
           </span>
@@ -54,7 +54,7 @@ export default function Goal() {
         </div>
 
         {/* Card */}
-        <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bg-white">
+        <div data-aos="fade-up" data-aos-delay="120" className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bg-white">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Image column */}
             <div className="relative min-h-[280px] sm:min-h-[360px] md:min-h-full bg-gradient-to-br from-green-700 via-green-800 to-blue-900 overflow-hidden">
@@ -101,6 +101,8 @@ export default function Goal() {
                 {t.items.map((item, i) => (
                   <li
                     key={i}
+                    data-aos="fade-up"
+                    data-aos-delay={100 + i * 60}
                     className="group flex items-start gap-3 p-3 sm:p-4 rounded-2xl ring-1 ring-slate-200 bg-gradient-to-br from-white to-slate-50 hover:ring-green-500 hover:shadow-md transition-all duration-300"
                   >
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-green-700 text-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">

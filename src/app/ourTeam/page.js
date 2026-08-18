@@ -63,9 +63,17 @@ const descEn = "Meet our team of certified accountants and consultants. Our dive
 export default async function ContactPage() {
   const employees = await getTeamMembersServer();
   return (
-    <div>
-      <TeamPage2 employees={employees} />
-    </div>
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/team.png"
+        fetchPriority="high"
+      />
+      <div>
+        <TeamPage2 employees={employees} />
+      </div>
+    </>
   );
 }
 

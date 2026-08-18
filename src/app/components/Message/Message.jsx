@@ -52,7 +52,7 @@ export default function Message() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-amber-700">
             {t.eyebrow}
           </span>
@@ -69,7 +69,7 @@ export default function Message() {
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bg-gradient-to-br from-white via-amber-50/40 to-white">
           <div className="grid grid-cols-1 md:grid-cols-[0.9fr,1.1fr]">
             {/* Image column */}
-            <div className="relative min-h-[260px] md:min-h-full overflow-hidden">
+            <div data-aos="fade-up" data-aos-delay="80" className="relative min-h-[260px] md:min-h-full overflow-hidden">
               <img
                 src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/home%20images/message-1.jpg"
                 alt={isRtl ? "رسالة الشركة" : "Company message"}
@@ -84,7 +84,7 @@ export default function Message() {
             </div>
 
             {/* Text column */}
-            <div className="relative p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
+            <div data-aos="fade-up" data-aos-delay="120" className="relative p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
               <span className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs sm:text-sm font-semibold ring-1 ring-amber-200">
                 <QuoteIcon />
                 {t.highlight}
@@ -111,6 +111,8 @@ export default function Message() {
                 {t.values.map((v, i) => (
                   <li
                     key={i}
+                    data-aos="fade-up"
+                    data-aos-delay={100 + i * 60}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white ring-1 ring-slate-200 text-blue-950 text-xs sm:text-sm font-semibold shadow-sm hover:ring-amber-500 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-amber-500 to-blue-600" />

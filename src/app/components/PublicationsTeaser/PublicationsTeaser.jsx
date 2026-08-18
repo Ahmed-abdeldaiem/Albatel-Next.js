@@ -69,6 +69,8 @@ export default function PublicationsTeaser() {
                   ? "مؤلفات الباتل — كتابان في الاقتصاد الرياضي والمراجعة الداخلية"
                   : "Al-Batel Publications — Football Economics and Internal Audit"
               }
+              loading="lazy"
+              decoding="async"
               className="relative w-full max-w-xl drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             />
             {/* Floating badge */}

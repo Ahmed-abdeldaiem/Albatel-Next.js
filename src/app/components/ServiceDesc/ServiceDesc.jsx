@@ -85,7 +85,7 @@ export default function ServiceDesc() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-700">
             {t.eyebrow}
           </span>
@@ -104,7 +104,7 @@ export default function ServiceDesc() {
         {/* Two-column: image + pillar list */}
         <div className="grid grid-cols-1 lg:grid-cols-[0.95fr,1.05fr] gap-8 lg:gap-12 items-center">
           {/* Image */}
-          <div className="relative">
+          <div data-aos="fade-up" className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-200">
               <img
                 src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/special%20BG/mainPageService.png"
@@ -131,6 +131,8 @@ export default function ServiceDesc() {
             {t.pillars.map((p, i) => (
               <li
                 key={i}
+                data-aos="fade-up"
+                data-aos-delay={100 + i * 60}
                 className="group relative flex gap-4 p-4 sm:p-5 rounded-2xl ring-1 ring-slate-200 bg-white hover:ring-green-500 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
               >
                 <span className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
@@ -150,7 +152,7 @@ export default function ServiceDesc() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <div data-aos="fade-up" data-aos-delay="200" className="mt-12 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <span className="text-slate-600 text-sm sm:text-base font-medium">
             {t.ctaHint}
           </span>

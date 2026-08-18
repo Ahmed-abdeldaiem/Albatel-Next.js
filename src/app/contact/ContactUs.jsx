@@ -44,7 +44,7 @@ export default function ContactUs({
   );
 
   useEffect(() => {
-    AOS.init({ duration: 900, once: true, easing: "ease-in-out" });
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
   }, []);
 
   // Keep selected branch in sync if branches list updates (e.g. after ISR revalidation)

@@ -1,6 +1,6 @@
 "use client";
-import React from 'react'
-import { createContext, useState } from "react";
+import React, { useCallback } from 'react'
+import { createContext } from "react";
 import axios from 'axios';
 
 
@@ -18,7 +18,7 @@ let baseUrl='https://al-batel-team-data-default-rtdb.firebaseio.com/'
 
  
 
-  function getPartners() {
+  const getPartners = useCallback(() => {
     return axios
       .get(`${baseUrl}partners.json`, {})
       .then((response) => {
@@ -30,7 +30,7 @@ let baseUrl='https://al-batel-team-data-default-rtdb.firebaseio.com/'
       .catch(() => {
         return [];
       });
-  }
+  }, []);
 
     
  

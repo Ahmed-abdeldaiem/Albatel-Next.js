@@ -8,6 +8,8 @@ import React, {
   useState,
 } from "react";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import { LanguageContext } from "./contexts/langContext";
 
@@ -35,7 +37,6 @@ export default function HomeContent({ branches = [] }) {
   const isRtl = dir === "rtl";
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const [paused, setPaused] = useState(false);
 
   const autoPlayRef = useRef(null);
@@ -60,7 +61,14 @@ export default function HomeContent({ branches = [] }) {
   }, [goNext]);
 
   useEffect(() => {
-    setMounted(true);
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+    const refresh = () => AOS.refresh();
+    const id = window.requestAnimationFrame(refresh);
+    const t = window.setTimeout(refresh, 400);
+    return () => {
+      window.cancelAnimationFrame(id);
+      window.clearTimeout(t);
+    };
   }, []);
 
   useEffect(() => {
@@ -99,8 +107,6 @@ export default function HomeContent({ branches = [] }) {
     }
     touchStartX.current = null;
   };
-
-  if (!mounted) return null;
 
   /* ---- Translations ---- */
   const t = {
@@ -189,7 +195,10 @@ export default function HomeContent({ branches = [] }) {
           <img
             src="/BatelWhiteLogo.png"
             alt={isRtl ? "شعار الباتل" : "Al-Batel logo"}
+            width={329}
+            height={373}
             loading="eager"
+            decoding="async"
             className={`mt-5 w-44 sm:w-56 md:w-60  transition-all duration-700 ${
               currentIndex === 0
                 ? "opacity-100 scale-100"
@@ -434,13 +443,18 @@ export default function HomeContent({ branches = [] }) {
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
               }`}
-              style={{
-                backgroundImage: `url('${s.bg}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
             >
+              <img
+                src={s.bg}
+                alt=""
+                aria-hidden="true"
+                width={i === 0 ? 1285 : i === 1 ? 1500 : 756}
+                height={i === 0 ? 746 : i === 1 ? 1001 : 313}
+                fetchPriority={i === 0 ? "high" : "low"}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding={i === 0 ? "sync" : "async"}
+                className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+              />
               {/* Unified overlay — subtle blue gradient + dotted pattern */}
               <div className="absolute inset-0 z-10 bg-gradient-to-br from-blue-950/80 via-blue-900/70 to-indigo-900/70" />
               <div

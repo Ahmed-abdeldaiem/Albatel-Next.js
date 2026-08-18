@@ -85,7 +85,7 @@ export default function SocialBar() {
       {/* whatsapp button */} 
       <div className="flex gap-2 items-center justify-center">
           <a href="https://wa.me/966550554262" className="flex flex-row gap-2 group p-2 hover:bg-white/20 rounded-full transition-all duration-300" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-            <img className="w-5 h-5 group-hover:scale-110 transition-all duration-300" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="WhatsApp" />
+            <img className="w-5 h-5 group-hover:scale-110 transition-all duration-300" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="WhatsApp" width={20} height={20} decoding="async" />
             <span className="text-white text-sm  ">966550554262+</span>
           </a>
         </div>
@@ -103,7 +103,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%209.png" 
-              alt="LinkedIn" 
+              alt="LinkedIn"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
 
@@ -118,7 +121,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%205.png" 
-              alt="Instagram" 
+              alt="Instagram"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
 
@@ -133,7 +139,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%202.png" 
-              alt="Twitter/X" 
+              alt="Twitter/X"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
 
@@ -148,7 +157,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%204.png" 
-              alt="Facebook" 
+              alt="Facebook"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
 
@@ -163,7 +175,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%207.png" 
-              alt="YouTube" 
+              alt="YouTube"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
 
@@ -178,7 +193,10 @@ export default function SocialBar() {
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%203.png" 
-              alt="TikTok" 
+              alt="TikTok"
+              width={20}
+              height={20}
+              decoding="async"
             />
           </a>
         </div>

@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { LanguageContext } from "../../contexts/langContext";
 import { PartnersContext } from "../../contexts/PartnersContext";
+import AOS from "aos";
 
 /* =========================================================
    MainPagePartners — unified AR/EN, modern marquee grid.
@@ -58,6 +59,12 @@ export default function MainPagePartners() {
       cancelled = true;
     };
   }, [getPartners]);
+
+  useEffect(() => {
+    if (loading) return undefined;
+    const t = window.setTimeout(() => AOS.refresh(), 50);
+    return () => window.clearTimeout(t);
+  }, [loading]);
 
   /* ---- Split rows for counter-direction marquee ---- */
   const firstRow = useMemo(
@@ -116,7 +123,7 @@ export default function MainPagePartners() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-700">
             {t.eyebrow}
           </span>
@@ -133,7 +140,7 @@ export default function MainPagePartners() {
         </div>
 
         {/* Marquee container */}
-        <div className="relative rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+        <div data-aos="fade-up" data-aos-delay="120" className="relative rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl p-4 sm:p-6 lg:p-8 overflow-hidden">
           {/* Edge fades */}
           <div
             className="pointer-events-none absolute inset-y-0 start-0 w-16 sm:w-24 z-10 bg-gradient-to-e from-white to-transparent"
@@ -187,7 +194,7 @@ export default function MainPagePartners() {
 
         {/* CTA */}
         {!loading && partners.length > 0 ? (
-          <div className="mt-8 sm:mt-10 flex justify-center">
+          <div data-aos="fade-up" data-aos-delay="200" className="mt-8 sm:mt-10 flex justify-center">
             <Link
               href="/partners"
               className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-white text-blue-700 ring-1 ring-slate-200 text-sm sm:text-base font-semibold shadow-sm hover:ring-blue-500 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"

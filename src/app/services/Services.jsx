@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -49,14 +49,9 @@ export default function Services({ services = [] }) {
   const { dir } = useContext(LanguageContext);
   const isRtl = dir === "rtl";
   const lang = isRtl ? "ar" : "en";
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
-  }, []);
-
-  useEffect(() => {
-    setMounted(true);
     window.scrollTo(0, 0);
   }, []);
 
@@ -66,8 +61,6 @@ export default function Services({ services = [] }) {
     const top = section.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top, behavior: "smooth" });
   }, []);
-
-  if (!mounted) return null;
 
   /* ---- All UI strings in one place ---- */
   const t = {
@@ -159,7 +152,6 @@ export default function Services({ services = [] }) {
 
         {/* CPA badge */}
         <div
-          data-aos="fade-down"
           className="absolute top-0 sm:top-24 md:top-32 start-4 md:start-10 z-20"
         >
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-semibold shadow-sm">
@@ -170,16 +162,17 @@ export default function Services({ services = [] }) {
 
         {/* Vision 2030 */}
         <img
-          data-aos="fade-up"
           src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/2030.png"
           className="hidden md:block w-[130px] lg:w-[150px] absolute bottom-6 end-6 bg-white/10 backdrop-blur-md border border-white/25 rounded-2xl p-2.5 z-20"
           alt={isRtl ? "رؤية المملكة 2030" : "Saudi Vision 2030"}
+          width={150}
+          height={150}
           loading="lazy"
+          decoding="async"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-24 sm:py-28 lg:py-32 text-center w-full">
           <span
-            data-aos="fade-up"
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -188,24 +181,18 @@ export default function Services({ services = [] }) {
 
           <h1
             id="services-hero-title"
-            data-aos="fade-up"
-            data-aos-delay="100"
             className="mt-5 text-white font-bold text-3xl sm:text-4xl lg:text-6xl leading-tight drop-shadow-lg"
           >
             {t.hero.title}
           </h1>
 
           <p
-            data-aos="fade-up"
-            data-aos-delay="200"
             className="mt-5 mx-auto max-w-3xl text-white/90 text-sm sm:text-base lg:text-xl leading-relaxed"
           >
             {t.hero.subtitle}
           </p>
 
           <div
-            data-aos="fade-up"
-            data-aos-delay="300"
             className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             <button

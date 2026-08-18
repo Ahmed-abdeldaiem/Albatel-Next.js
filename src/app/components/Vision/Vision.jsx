@@ -34,7 +34,7 @@ export default function Vision() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-blue-700">
             {t.eyebrow}
           </span>
@@ -51,7 +51,7 @@ export default function Vision() {
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl bg-white">
           <div className="grid grid-cols-1 md:grid-cols-[1.1fr,0.9fr]">
             {/* Text column (first on all layouts — reversed mood vs Goal) */}
-            <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center order-2 md:order-1">
+            <div data-aos="fade-up" data-aos-delay="120" className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center order-2 md:order-1">
               <span className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs sm:text-sm font-semibold ring-1 ring-blue-200">
                 <EyeIcon />
                 {t.highlight}
@@ -61,6 +61,8 @@ export default function Vision() {
                 {t.items.map((item, i) => (
                   <li
                     key={i}
+                    data-aos="fade-up"
+                    data-aos-delay={100 + i * 60}
                     className="group relative p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-white ring-1 ring-slate-200 hover:ring-blue-500 hover:shadow-md transition-all duration-300"
                   >
                     <span
@@ -78,7 +80,7 @@ export default function Vision() {
             </div>
 
             {/* Visual column — Vision 2030 emphasis */}
-            <div className="relative min-h-[260px] md:min-h-full bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden order-1 md:order-2 flex items-center justify-center">
+            <div data-aos="fade-up" data-aos-delay="80" className="relative min-h-[260px] md:min-h-full bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden order-1 md:order-2 flex items-center justify-center">
               <div
                 className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none"
                 style={{

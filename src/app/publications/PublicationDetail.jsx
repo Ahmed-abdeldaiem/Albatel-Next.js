@@ -202,19 +202,21 @@ export default function PublicationDetail({ pub }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Cover */}
-            <div data-aos="fade-up" className="flex justify-center order-2 lg:order-1">
-              <div className="relative">
+            <div className="flex justify-center order-2 lg:order-1">
+              <div className="relative min-h-[240px] sm:min-h-[360px] flex items-center justify-center">
                 <div className="absolute -inset-6 bg-gradient-to-br from-emerald-400/30 to-sky-400/30 blur-3xl rounded-full" aria-hidden />
                 <img
                   src={pub.cover}
                   alt={pub.title[lang]}
+                  fetchPriority="high"
+                  decoding="async"
                   className="relative max-h-[500px] w-auto drop-shadow-2xl rounded-lg transition-transform duration-700 hover:-rotate-2 hover:scale-105"
                 />
               </div>
             </div>
 
             {/* Text */}
-            <div data-aos="fade-up" data-aos-delay="150" className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2">
               {pub.coverBadge && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-3 py-1 text-[11px] font-bold text-white shadow-lg shadow-orange-600/30">
                   <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

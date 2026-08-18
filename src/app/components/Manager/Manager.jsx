@@ -127,7 +127,7 @@ export default function Manager() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div data-aos="fade-up" className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-green-300">
             {t.eyebrow}
           </span>
@@ -146,7 +146,7 @@ export default function Manager() {
         {/* Stats grid */}
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
           {stats.map((s, i) => (
-            <li key={i}>
+            <li key={i} data-aos="fade-up" data-aos-delay={(i % 5) * 80}>
               <StatCard
                 value={s.value}
                 suffix={s.suffix}
@@ -159,7 +159,7 @@ export default function Manager() {
         </ul>
 
         {/* CTA */}
-        <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <div data-aos="fade-up" data-aos-delay="200" className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <span className="text-white/80 text-sm sm:text-base font-medium">
             {t.ctaHint}
           </span>
