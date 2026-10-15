@@ -18,7 +18,7 @@ const CONTACT = {
   email: "albatelcpa@albatelcpa.com",
   whatsapp: "https://wa.me/966550554262",
   profilePdf:
-    "https://drive.google.com/file/d/1BBEoYERTflhKtBvB-y8LPT2DX7KvD2SE/view?usp=sharing",
+    "https://drive.google.com/file/d/1AHOP2BIbWWLr0RgY-GASfaNS4vKTH2nD/view?usp=drive_link",
   mainBranchMap:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.871481582673!2d46.77138042674242!3d24.6969443008465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f07ef0e77e823%3A0x42db3ce2638cbcb5!2salbatel%20%26%20co.%20professional%20services!5e0!3m2!1sen!2seg!4v1727558304978!5m2!1sen!2seg",
 };

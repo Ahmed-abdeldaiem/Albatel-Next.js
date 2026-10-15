@@ -53,7 +53,7 @@ export default function PDFModal() {
       ),
     },
     {
-      href: "https://drive.google.com/file/d/1BBEoYERTflhKtBvB-y8LPT2DX7KvD2SE/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1AHOP2BIbWWLr0RgY-GASfaNS4vKTH2nD/view?usp=drive_link",
       label: dir === "rtl" ? "الملف التعريفي" : "Profile PDF",
       bg: "bg-blue-900/90",
       external: true,
