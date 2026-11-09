@@ -256,17 +256,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* ---- Brand column ---- */}
           <div data-aos="fade-up" className="sm:col-span-2 lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 group-hover:bg-white/20 transition-all duration-300">
-                <img
-                  src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel-API/refs/heads/main/home%20images/logo-1.png"
-                  className="h-7 w-auto"
-                  alt="Al-Batel Logo"
-                />
-              </span>
-              <span className="text-sm sm:text-base lg:text-lg font-semibold text-white group-hover:text-green-300 transition-colors duration-300">
-                {t.brand.name}
-              </span>
+            {/* Full official logo (white) — the navbar keeps the compact mark */}
+            <Link href="/" className="inline-block opacity-95 transition-opacity duration-300 hover:opacity-100">
+              <img
+                src="/albatel-logo-white.png"
+                width={760}
+                height={165}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-[260px] sm:w-[300px]"
+                alt={t.brand.name}
+              />
             </Link>
 
             <p className="mt-5 text-sm sm:text-base text-blue-100/85 leading-relaxed max-w-md">

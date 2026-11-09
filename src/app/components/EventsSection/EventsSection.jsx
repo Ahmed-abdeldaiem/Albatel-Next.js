@@ -50,6 +50,7 @@ export default function EventsSection() {
     cards.push({
       key: ev.key,
       image: ev.image,
+      imagePosition: ev.imagePosition,
       imageAlt: ev.imageCaption[lang],
       badge: isRtl ? "قريبًا" : "Coming soon",
       title: ev.title[lang],
@@ -89,6 +90,7 @@ export default function EventsSection() {
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectPosition: c.imagePosition || "center" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent" />
                 <span

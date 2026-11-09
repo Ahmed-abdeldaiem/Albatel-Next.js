@@ -189,10 +189,11 @@ export const UPCOMING_EVENTS = [
     },
     books: ["football-economics", "internal-audit", "sports-corruption-fraud"],
     href: "/publications",
-    image: "/Books/riyadh-2025-signing.jpg",
+    image: "/Books/riyadh-2025-authors.jpg",
+    imagePosition: "50% 30%", // portrait photo — keep the three authors' faces in frame
     imageCaption: {
-      ar: "من حفل توقيع إصداراتنا في معرض الرياض 2025",
-      en: "From our book signing at the Riyadh fair 2025",
+      ar: "المؤلفون الثلاثة على منصة التوقيع — معرض الرياض 2025",
+      en: "The three authors at the signing platform — Riyadh fair 2025",
     },
   },
 ];

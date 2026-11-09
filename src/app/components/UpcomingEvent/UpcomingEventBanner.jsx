@@ -72,6 +72,7 @@ export default function UpcomingEventBanner({ bookSlug }) {
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
+                  style={{ objectPosition: ev.imagePosition || "center" }}
                 />
                 <span className="absolute bottom-3 start-3 end-3 rounded-xl bg-blue-950/80 px-3 py-2 text-xs font-semibold backdrop-blur">
                   {ev.imageCaption[lang]}
