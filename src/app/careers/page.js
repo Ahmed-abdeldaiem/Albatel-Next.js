@@ -13,10 +13,6 @@ export async function generateMetadata() {
       description: descAr,
       alternates: {
         canonical: "/careers", // Using "/careers" is more standard than "/AvailableJobs"
-        languages: {
-          "ar-SA": "/careers",
-          "en-US": "/careers",
-        },
       },
       openGraph: {
         title: titleEn,

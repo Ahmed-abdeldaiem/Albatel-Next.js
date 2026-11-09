@@ -1,43 +1,13 @@
 User-agent: *
 Allow: /
 
-# Block all query parameters to prevent spam pages
-Disallow: /*?*
-Disallow: /*?a=*
-Disallow: /*?utm_*
-Disallow: /*?fbclid=*
-Disallow: /*?gclid=*
+# Old spam URLs (?a=..., .php, wp-admin, ...) are intentionally NOT blocked here:
+# they return 410 Gone (see src/middleware.js) and Google must be able to crawl
+# them to see that and drop them from the index.
+# /_next/ is not blocked either: Google needs its CSS/JS to render the pages.
 
-# Block suspicious paths
+# Internal API endpoints
 Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /phpmyadmin/
-Disallow: /cpanel/
-Disallow: /.htaccess
-Disallow: /.env
-Disallow: /config/
-Disallow: /backup/
-Disallow: /temp/
-Disallow: /tmp/
-
-# Block common spam patterns
-Disallow: /*.php$
-Disallow: /*.asp$
-Disallow: /*.jsp$
-Disallow: /*.cgi$
-Disallow: /*.pl$
-
-# Allow important files
-Allow: /favicon.ico
-Allow: /favicon/
-Allow: /BatelLogo1.png
-Allow: /BatelWhiteLogo.png
-Allow: /sitemap.xml
-Allow: /robots.txt
 
 # Sitemap location
-Sitemap: https://albatelcpa.com/sitemap.xml
+Sitemap: https://www.albatelcpa.com/sitemap.xml

@@ -241,6 +241,32 @@ export default function ServiceDetail({ service }) {
         </svg>
       </header>
 
+      {/* Audit-season campaign link — only on the financial statements audit service */}
+      {String(service?.id || "").startsWith("Audit_Financial_Statements") && (
+        <div className="bg-white px-4 pt-8 sm:px-6 lg:px-10">
+          <Link
+            href="/audit-season"
+            data-cta="service-audit-season"
+            className="group mx-auto flex max-w-5xl flex-col items-start gap-3 rounded-2xl bg-gradient-to-r from-blue-950 via-blue-900 to-emerald-800 p-5 text-white shadow-xl shadow-blue-950/20 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span>
+              <span className="block text-xs font-bold text-emerald-300">
+                {isRtl ? "موسم مراجعة القوائم المالية" : "Financial statements audit season"}
+              </span>
+              <span className="mt-1 block text-lg font-bold">
+                {isRtl
+                  ? "المراجع الذي يحضر جرد 31 ديسمبر يجب أن يُعيَّن قبله"
+                  : "The auditor who attends the 31 Dec stock count must be appointed before it"}
+              </span>
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-green-500 to-green-600 px-5 py-2.5 text-sm font-bold shadow-lg shadow-green-500/30 transition group-hover:-translate-y-0.5">
+              {isRtl ? "عيّن مراجعك الآن" : "Appoint your auditor"}
+              <span aria-hidden>{isRtl ? "←" : "→"}</span>
+            </span>
+          </Link>
+        </div>
+      )}
+
       {/* ===================================================
           2) OVERVIEW (About the Service + Info Cards)
           =================================================== */}

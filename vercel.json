@@ -1,17 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/((?!sitemap\\.xml|robots\\.txt).*)",
-      "has": [
-        {
-          "type": "query",
-          "key": "a"
-        }
-      ],
-      "destination": "/",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

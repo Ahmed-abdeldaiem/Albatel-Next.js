@@ -14,10 +14,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/rfp",
-      languages: {
-        "ar-SA": "/rfp",
-        "en-US": "/rfp",
-      },
     },
     openGraph: {
       title: titleEn,

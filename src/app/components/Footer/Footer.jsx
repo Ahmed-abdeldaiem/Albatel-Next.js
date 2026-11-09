@@ -131,8 +131,8 @@ export default function Footer() {
         ? "مؤلفاتنا — من نخبة من كبار الخبراء المهنيين"
         : "Our Publications — by a team of senior professional experts",
       subtitle: isRtl
-        ? "موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية وفق إطار COSO الجديد، ومؤلف الفساد والاحتيال في الرياضة، متوفّرة في جرير وللطلب المباشر."
-        : "The Encyclopedia of Football Economics, the Reference for Internal Control Review under the New COSO Framework, and the book Corruption and Fraud in Sports are available at Jarir and for direct order.",
+        ? "موسوعة اقتصاديات كرة القدم، ومرجع مراجعة الرقابة الداخلية وفق إطار COSO الجديد، ومؤلف الفساد والاحتيال في الرياضة — جميعها متاحة للطلب المباشر، وموسوعة اقتصاديات كرة القدم متوفّرة أيضًا في جرير."
+        : "The Encyclopedia of Football Economics, the Reference for Internal Control Review under the New COSO Framework, and the book Corruption and Fraud in Sports — all available to order directly, with Football Economics also at Jarir.",
       cta: isRtl ? "تصفّح المؤلفات" : "Browse Publications",
       bookFootball: isRtl ? "اقتصاديات كرة القدم" : "Football Economics",
       bookAudit: isRtl ? "مراجعة الرقابة الداخلية" : "Internal Control Audit",

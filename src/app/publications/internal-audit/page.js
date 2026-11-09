@@ -19,10 +19,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/publications/internal-audit",
-      languages: {
-        "ar-SA": "/publications/internal-audit",
-        "en-US": "/publications/internal-audit",
-      },
     },
     openGraph: {
       title: titleEn,

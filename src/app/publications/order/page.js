@@ -15,10 +15,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/publications/order",
-      languages: {
-        "ar-SA": "/publications/order",
-        "en-US": "/publications/order",
-      },
     },
     robots: {
       index: false,

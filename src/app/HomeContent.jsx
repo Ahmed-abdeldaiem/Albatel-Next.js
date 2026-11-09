@@ -12,6 +12,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { LanguageContext } from "./contexts/langContext";
+import { AUDIT_SEASON_PATH, getAuditSeason, getSeasonMessage } from "./data/campaigns";
+import EventsSection from "./components/EventsSection/EventsSection";
 
 import Branches from "./components/Branches/Branches";
 import Goal from "./components/Goal/Goal";
@@ -108,6 +110,11 @@ export default function HomeContent({ branches = [] }) {
     touchStartX.current = null;
   };
 
+  /* ---- Audit-season campaign takes over slide 2 (see data/campaigns.js) ---- */
+  const season = getAuditSeason();
+  const campaignOn = season.active;
+  const seasonMsg = getSeasonMessage(season, isRtl);
+
   /* ---- Translations ---- */
   const t = {
     cpa: isRtl ? "محاسبون ومراجعون قانونيون" : "Certified Public Accountants",
@@ -121,7 +128,24 @@ export default function HomeContent({ branches = [] }) {
       primary: isRtl ? "اطلب استشارتك" : "Request a consultation",
       secondary: isRtl ? "تعرّف علينا" : "About us",
     },
-    slide2: {
+    slide2: campaignOn ? {
+      eyebrow: isRtl ? `حملة قوائم ${season.fiscalYear}` : `FY${season.fiscalYear} audit season`,
+      title: seasonMsg.headline,
+      sub: isRtl
+        ? "موسم القوائم لا يبدأ في يناير — من يعيّن مراجعه قبل الإقفال يحضر جرده، ويُنهي إقراره الزكوي وإيداعه في موعده ودون مفاجآت."
+        : "The audit season doesn't start in January — appoint your auditor before year-end and meet the count, zakat and filing deadlines without surprises.",
+      items: [
+        ...season.milestones.map(
+          (m) => `${m.title[isRtl ? "ar" : "en"]} — ${isRtl ? m.label.shortAr : m.label.shortEn}`
+        ),
+        isRtl ? "شريك واحد من البداية حتى الإيداع" : "One partner from start to filing",
+      ],
+      cta: isRtl ? "عيّن مراجعك الآن" : "Appoint your auditor",
+      href: AUDIT_SEASON_PATH,
+      bg: "/audit-season/warehouse-aisle.jpg",
+    } : {
+      href: "/services",
+      bg: "/homeSlide2.jpg",
       eyebrow: isRtl ? "خدماتنا" : "Our Services",
       title: isRtl
         ? "حلول مهنية متكاملة"
@@ -260,7 +284,7 @@ export default function HomeContent({ branches = [] }) {
       ),
     },
     {
-      bg: "/homeSlide2.jpg",
+      bg: t.slide2.bg,
       render: () => (
         <div
           className={`relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-4 md:items-start md:text-start md:ps-16 lg:ps-28 xl:ps-40`}
@@ -314,7 +338,8 @@ export default function HomeContent({ branches = [] }) {
               }`}
             >
               <Link
-                href="/services"
+                href={t.slide2.href}
+                data-cta={campaignOn ? "home-slide-audit-season" : undefined}
                 className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow-lg shadow-green-500/30 hover:shadow-green-500/60 hover:-translate-y-0.5 transition-all duration-300"
               >
                 {t.slide2.cta}
@@ -570,6 +595,8 @@ export default function HomeContent({ branches = [] }) {
           services, and finally the contact form.
           =================================================== */}
       <MainPagePartners />
+
+      <EventsSection />
 
       <Goal />
       <Vision />

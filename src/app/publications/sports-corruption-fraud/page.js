@@ -19,10 +19,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/publications/sports-corruption-fraud",
-      languages: {
-        "ar-SA": "/publications/sports-corruption-fraud",
-        "en-US": "/publications/sports-corruption-fraud",
-      },
     },
     openGraph: {
       title: titleEn,

@@ -76,6 +76,8 @@ const COPY = {
     bookAuditDesc: "تعريب عن إطار COSO الجديد",
     bookSportsCorruptionDesc: "حوكمة الرياضة ومكافحة الاحتيال",
     servicesAll: "جميع الخدمات",
+    auditSeason: "موسم مراجعة القوائم المالية",
+    auditSeasonDesc: "من الجرد حتى الإقرار الزكوي والإيداع في قوائم",
     servicesAllDesc: "اطّلع على مجموعة خدماتنا المهنية المتكاملة",
   },
   en: {
@@ -104,6 +106,8 @@ const COPY = {
     bookAuditDesc: "Translated under the new COSO framework",
     bookSportsCorruptionDesc: "Sports governance and fraud prevention",
     servicesAll: "All Services",
+    auditSeason: "Financial statements audit season",
+    auditSeasonDesc: "From the stock count to zakat and Qawaem filing",
     servicesAllDesc: "Browse our full range of professional services",
   },
 };
@@ -415,6 +419,15 @@ function MobileNavDrawer({
                         onClick={onClose}
                       >
                         {t.servicesAll}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/audit-season"
+                        className={`${drawerLinkClass("/audit-season")} font-bold text-emerald-700`}
+                        onClick={onClose}
+                      >
+                        {t.auditSeason}
                       </Link>
                     </li>
                     {SERVICES.map((svc) => {
@@ -943,6 +956,22 @@ export default function NavBar() {
                           </Link>
                         </div>
 
+                        <Link
+                          href="/audit-season"
+                          onClick={() => setServicesDropdownOpen(false)}
+                          className="mx-2 mt-2 flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-50 to-sky-50 px-3 py-2.5 ring-1 ring-emerald-200 transition hover:ring-emerald-400"
+                        >
+                          <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500 text-white shadow-sm">
+                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                              <rect x="3" y="5" width="18" height="16" rx="2" />
+                              <path d="M3 10h18M8 3v4M16 3v4" />
+                            </svg>
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[13px] font-bold leading-tight text-blue-950">{t.auditSeason}</span>
+                            <span className="block text-[11px] text-emerald-700">{t.auditSeasonDesc}</span>
+                          </span>
+                        </Link>
                         <ul className="grid grid-cols-2 gap-1 p-2">
                           {SERVICES.map((svc, i) => {
                             const label = dir === "rtl" ? svc.ar : svc.en;

@@ -17,10 +17,6 @@ const descEn = "Learn about Al-Batel & Co. and our integrated consulting service
     description: descAr,
     alternates: {
       canonical: "/profileVedio",
-      languages: {
-        "ar-SA": "/profileVedio",
-        "en-US": "/profileVedio",
-      },
     },
     openGraph: {
       title: titleEn,

@@ -7,6 +7,27 @@ import "aos/dist/aos.css";
 
 import { LanguageContext } from "../contexts/langContext";
 import { getAuthorsForPublication } from "../data/publications";
+import YouTubeFacade from "../components/YouTubeFacade/YouTubeFacade";
+import UpcomingEventBanner from "../components/UpcomingEvent/UpcomingEventBanner";
+
+const SITE_URL = "https://www.albatelcpa.com";
+
+function videoSchema(pub, lang) {
+  if (!pub.videos) return null;
+  const all = [pub.videos.featured, ...(pub.videos.clips || [])].filter(Boolean);
+  return all.map((v) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.title.ar,
+    description: pub.videos.sub.ar,
+    thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
+    uploadDate: v.uploadDate,
+    embedUrl: `https://www.youtube.com/embed/${v.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
+    inLanguage: "ar",
+    isPartOf: { "@type": "WebPage", url: `${SITE_URL}/publications/${pub.slug}` },
+  }));
+}
 
 /* ============================================================
    Icon glyphs used in the "structure of the book" cards.
@@ -324,6 +345,9 @@ export default function PublicationDetail({ pub }) {
         </svg>
       </section>
 
+      {/* ============= UPCOMING EVENT (date-driven) ============= */}
+      <UpcomingEventBanner bookSlug={pub.slug} />
+
       {/* ============= ABOUT ============= */}
       <section className="bg-white py-14 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -599,6 +623,68 @@ export default function PublicationDetail({ pub }) {
         </section>
       )}
 
+      {/* ============= VIDEOS ============= */}
+      {pub.videos && (
+        <section className="bg-white py-14 sm:py-20">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema(pub, lang)) }}
+          />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div className="text-center mb-10" data-aos="fade-up">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-950">
+                {pub.videos.title[lang]}
+              </h2>
+              <p className="mt-3 text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+                {pub.videos.sub[lang]}
+              </p>
+            </div>
+
+            {(() => {
+              const play = isRtl ? "تشغيل" : "Play";
+              const { featured, clips = [] } = pub.videos;
+              const shorts = clips.filter((v) => v.vertical);
+              const wide = clips.filter((v) => !v.vertical);
+
+              if (featured.vertical) {
+                return (
+                  <div className="mx-auto max-w-xs" data-aos="fade-up">
+                    <YouTubeFacade id={featured.id} title={featured.title[lang]} vertical playLabel={play} />
+                  </div>
+                );
+              }
+
+              return (
+                <>
+                  <div
+                    className={`grid gap-6 items-start ${
+                      shorts.length ? "lg:grid-cols-[minmax(0,1fr)_15rem]" : "max-w-4xl mx-auto"
+                    }`}
+                    data-aos="fade-up"
+                  >
+                    <YouTubeFacade id={featured.id} title={featured.title[lang]} playLabel={play} />
+                    {shorts.length > 0 && (
+                      <div className="mx-auto grid w-full max-w-[15rem] gap-4">
+                        {shorts.map((v) => (
+                          <YouTubeFacade key={v.id} id={v.id} title={v.title[lang]} vertical playLabel={play} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {wide.length > 0 && (
+                    <div className="mt-6 grid gap-4 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
+                      {wide.map((v) => (
+                        <YouTubeFacade key={v.id} id={v.id} title={v.title[lang]} playLabel={play} />
+                      ))}
+                    </div>
+                  )}
+                </>
+              );
+            })()}
+          </div>
+        </section>
+      )}
+
       {/* ============= EVENTS GALLERY ============= */}
       {pub.events && pub.events.length > 0 && activeEvent && (
         <section className="bg-slate-50 py-14 sm:py-20">
@@ -608,7 +694,7 @@ export default function PublicationDetail({ pub }) {
                 {t.eventsTitle}
               </h2>
               <p className="mt-3 text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-                {t.eventsSub}
+                {pub.eventsSub?.[lang] || t.eventsSub}
               </p>
             </div>
 

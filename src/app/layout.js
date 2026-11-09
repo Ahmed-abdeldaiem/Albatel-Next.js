@@ -8,12 +8,13 @@ import Footer from "./components/Footer/Footer";
 import PDFModal from "./components/PDFModal/PDFModal";
 import ImageProtection from "./components/ImageProtection/ImageProtection";
 import SocialBar from "./components/SocialBar/SocialBar";
+import CampaignBar from "./components/CampaignBar/CampaignBar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
 
 export const metadata = {
   // Primary Meta Tags
-  metadataBase: new URL('https://albatelcpa.com/'),
+  metadataBase: new URL('https://www.albatelcpa.com/'),
   title: "الباتل محاسبون ومراجعون قانونيون",
   description:
     "شركة الباتل وشركاؤه - محاسبون ومراجعون قانونيون في الرياض منذ 2006. حلول متكاملة في المحاسبة، التدقيق، الاستشارات الضريبية والمالية والضرائب الدولية، نخدم جميع أنحاء المملكة بسلسلة من ٩  فروع",
@@ -73,11 +74,11 @@ export const metadata = {
   openGraph: {
     title: "الباتل محاسبون ومراجعون قانونيون",
     description: "شركة الباتل تقدم خدمات المحاسبة، التدقيق، والاستشارات المالية والضريبية.",
-    url: "https://albatelcpa.com/",
+    url: "https://www.albatelcpa.com/",
     siteName: "الباتل محاسبون ومراجعون قانونيون",
     images: [
       {
-        url: "https://albatelcpa.com/BatelLogo1.png",
+        url: "https://www.albatelcpa.com/BatelLogo1.png",
         width: 800,
         height: 600,
         alt: "الباتل محاسبون ومراجعون قانونيون logo",
@@ -87,7 +88,7 @@ export const metadata = {
     locale: "ar_SA",
     type: "website",
     countryName: "المملكة العربية السعودية",
-    emails: ["info@albatelcpa.com"],
+    emails: ["albatelcpa@albatelcpa.com"],
     phoneNumbers: ["+966550554262"],
     alternateLocale: ["en_US"],
   },
@@ -97,20 +98,13 @@ export const metadata = {
     card: "summary_large_image",
     title: "الباتل محاسبون ومراجعون قانونيون",
     description: "شركة الباتل تقدم خدمات المحاسبة، التدقيق، والاستشارات المالية والضريبية.",
-    images: ["https://albatelcpa.com/BatelLogo1.png"],
+    images: ["https://www.albatelcpa.com/BatelLogo1.png"],
     creator: "@albatelcpa",
     site: "@albatelcpa",
   },
   
-  // Additional Meta Tags
-  alternates: {
-    canonical: 'https://albatelcpa.com/',
-    languages: {
-      'ar-SA': 'https://albatelcpa.com/',
-      'en-US': 'https://albatelcpa.com/',
-    },
-  },
-  
+  // Canonical is set per page (the home page sets "/" in app/page.js)
+
   // Verification
   verification: {
     google: "google69a49a7349cb352d",
@@ -135,9 +129,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* End Google Tag Manager */}
 
-        {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="google69a49a7349cb352d" />
-        
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="الباتل محاسبون ومراجعون قانونيون" />
         <meta name="publisher" content="الباتل محاسبون ومراجعون قانونيون" />
@@ -147,17 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="geo.placename" content="الرياض" />
         <meta name="geo.position" content="24.7136;46.6753" />
         <meta name="ICBM" content="24.7136, 46.6753" />
-        
-        {/* Additional Open Graph Tags */}
-        <meta property="og:site_name" content="الباتل محاسبون ومراجعون قانونيون" />
-        <meta property="og:locale" content="ar_SA" />
-        <meta property="article:author" content="الباتل محاسبون ومراجعون قانونيون" />
-        <meta property="article:publisher" content="https://albatelcpa.com" />
-        
-        {/* Twitter Card Additional Tags */}
-        <meta name="twitter:site" content="@albatelcpa" />
-        <meta name="twitter:creator" content="@albatelcpa" />
-        
+
         {/* Additional SEO Tags */}
         <meta name="theme-color" content="#1e40af" />
         <meta name="msapplication-TileColor" content="#1e40af" />
@@ -178,8 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        <Script
-          id="structured-data"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
@@ -188,15 +168,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "@type": "Organization",
                 "name": "الباتل محاسبون ومراجعون قانونيون",
                 "alternateName": "Al-Batel Accountants and Legal Auditors",
-                "url": "https://albatelcpa.com",
+                "url": "https://www.albatelcpa.com",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://albatelcpa.com/BatelLogo1.png",
+                  "url": "https://www.albatelcpa.com/BatelLogo1.png",
                   "width": 800,
                   "height": 600,
                   "caption": "الباتل محاسبون ومراجعون قانونيون logo"
                 },
-                "image": "https://albatelcpa.com/BatelLogo1.png",
+                "image": "https://www.albatelcpa.com/BatelLogo1.png",
                 "description": "شركة الباتل وشركاؤه - محاسبون ومراجعون قانونيون في الرياض منذ 2006. حلول متكاملة في المحاسبة، التدقيق، الاستشارات الضريبية والمالية. معتمدون من SOCPA.",
                 "address": {
                   "@type": "PostalAddress",
@@ -301,33 +281,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "الباتل محاسبون ومراجعون قانونيون",
-                "url": "https://albatelcpa.com",
+                "url": "https://www.albatelcpa.com",
                 "description": "شركة الباتل تقدم خدمات المحاسبة، تدقيق الحسابات، الاستشارات المالية والضريبية",
                 "publisher": {
                   "@type": "Organization",
                   "name": "الباتل محاسبون ومراجعون قانونيون",
                   "logo": {
                     "@type": "ImageObject",
-                    "url": "https://albatelcpa.com/BatelLogo1.png"
+                    "url": "https://www.albatelcpa.com/BatelLogo1.png"
                   }
-                },
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": "https://albatelcpa.com/search?q={search_term_string}",
-                  "query-input": "required name=search_term_string"
                 }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "الرئيسية",
-                    "item": "https://albatelcpa.com"
-                  }
-                ]
               }
             ])
           }}
@@ -350,6 +313,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       
          <LanguageContextProvider>
          <SocialBar />
+         <CampaignBar />
          <ImageProtection />
          <PDFModal />
          <PartnersContextProvider>

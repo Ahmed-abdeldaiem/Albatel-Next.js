@@ -63,10 +63,6 @@ export async function generateMetadata({ params }) {
     keywords,
     alternates: {
       canonical: `/service/${service.id}`,
-      languages: {
-        "ar-SA": `/service/${service.id}`,
-        "en-US": `/service/${service.id}?lang=en`,
-      },
     },
     openGraph: {
       title: titleEn,
@@ -94,7 +90,7 @@ export async function generateMetadata({ params }) {
 
 
 export default async function ServiceDetailPage({ params }) {
-  const { id } = params; 
+  const { id } = await params;
   const allServices = await getServiceDetail();
 
   

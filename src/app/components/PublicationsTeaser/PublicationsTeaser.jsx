@@ -21,13 +21,13 @@ export default function PublicationsTeaser() {
       ? "إسهاماتنا العلمية تعبر الحدود"
       : "Our scientific contributions reach beyond borders",
     sub: isRtl
-      ? "كتابان من تأليف وتعريب نخبة من كبار الخبراء المهنيين — موسوعة اقتصاديات كرة القدم الأولى من نوعها بالعربية، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO. متوفّرة في مكتبة جرير، ومتاحة للطلب المباشر."
-      : "Two books authored and translated by a team of senior professional experts — the first-of-its-kind Arabic encyclopedia on football economics, and a professional reference on internal control audit under COSO. Available at Jarir Bookstore and for direct order.",
+      ? "ثلاثة إصدارات من تأليف وتعريب نخبة من كبار الخبراء المهنيين — موسوعة اقتصاديات كرة القدم الأولى من نوعها بالعربية، ومرجع مراجعة الرقابة الداخلية والامتثال وفق إطار COSO، ومؤلف الفساد والاحتيال في الرياضة. جميعها متاحة للطلب المباشر، والموسوعة متوفّرة أيضًا في مكتبة جرير."
+      : "Three books authored and translated by a team of senior professional experts — the first-of-its-kind Arabic encyclopedia on football economics, a professional reference on internal control audit under COSO, and Corruption and Fraud in Sports. All available to order directly, with the encyclopedia also at Jarir Bookstore.",
     cta: isRtl ? "اكتشف مؤلفاتنا" : "Explore our publications",
 
     chips: isRtl
-      ? ["19 فصلًا علميًا", "جرير", "معرض القاهرة 2026", "إطار COSO الجديد"]
-      : ["19 chapters", "Jarir", "Cairo Fair 2026", "New COSO Framework"],
+      ? ["3 إصدارات", "جرير", "معرضا الرياض والقاهرة", "إطار COSO الجديد"]
+      : ["3 publications", "Jarir", "Riyadh & Cairo fairs", "New COSO Framework"],
   };
 
   return (

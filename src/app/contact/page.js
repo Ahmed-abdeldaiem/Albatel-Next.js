@@ -33,10 +33,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/contact",
-      languages: {
-        "ar-SA": "/contact",
-        "en-US": "/contact",
-      },
     },
     openGraph: {
       title: titleEn,

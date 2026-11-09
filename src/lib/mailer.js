@@ -36,7 +36,7 @@ export function escapeHtml(input) {
     .replace(/'/g, "&#39;");
 }
 
-const LOGO_URL = "https://albatelcpa.com/BatelLogo1.png";
+const LOGO_URL = "https://www.albatelcpa.com/BatelLogo1.png";
 
 export function buildEmailHtml({ title, rows, message }) {
   const rowsHtml = rows

@@ -29,10 +29,6 @@ const descEn = "We provide integrated solutions in financial consulting, auditin
     description: descAr,
     alternates: {
       canonical: "/services",
-      languages: {
-        "ar-SA": "/services",
-        "en-US": "/services",
-      },
     },
     openGraph: {
       title: titleEn,

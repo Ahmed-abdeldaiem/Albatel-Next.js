@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 
 import { LanguageContext } from "../contexts/langContext";
 import { PUBLICATIONS } from "../data/publications";
+import UpcomingEventBanner from "../components/UpcomingEvent/UpcomingEventBanner";
 
 export default function PublicationsContent() {
   const { dir } = useContext(LanguageContext);
@@ -129,6 +130,9 @@ export default function PublicationsContent() {
           />
         </svg>
       </section>
+
+      {/* ============= UPCOMING EVENT (date-driven) ============= */}
+      <UpcomingEventBanner />
 
       {/* ============= BOOK CARDS ============= */}
       <section className="bg-gradient-to-b from-slate-50 via-white to-slate-50 py-14 sm:py-20">

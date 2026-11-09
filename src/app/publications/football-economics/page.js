@@ -19,10 +19,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/publications/football-economics",
-      languages: {
-        "ar-SA": "/publications/football-economics",
-        "en-US": "/publications/football-economics",
-      },
     },
     openGraph: {
       title: titleEn,

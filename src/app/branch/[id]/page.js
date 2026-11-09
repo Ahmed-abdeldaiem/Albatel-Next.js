@@ -78,7 +78,7 @@ export async function generateMetadata({ params }) {
 
 
 export default async function BranchPage({ params }) {
-  const { id } = params; 
+  const { id } = await params;
   const allBranches = await getBranches();
 
   

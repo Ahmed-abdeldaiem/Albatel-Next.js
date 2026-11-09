@@ -299,6 +299,24 @@ export const PUBLICATIONS = [
         ],
       },
     ],
+    videos: {
+      title: { ar: "الكتاب في الإعلام — بودكاست كِناز", en: "The Book in the Media — Kenaz Podcast" },
+      sub: {
+        ar: "لقاء المؤلفين محمد عرفة ووليد منير على بودكاست كِناز حول اقتصاديات كرة القدم والاستثمار الرياضي، ومقاطع مختارة منه.",
+        en: "Co-authors Mohamed Arafa and Walid Mounir on the Kenaz podcast discussing football economics and sports investment, with selected clips.",
+      },
+      featured: {
+        id: "PSjkFpmO0x8",
+        title: { ar: "اقتصاديات كرة القدم من الملاعب للبورصات | اللقاء الكامل على بودكاست كِناز", en: "Football Economics — full interview on the Kenaz podcast" },
+        uploadDate: "2026-05-05",
+      },
+      clips: [
+        { id: "AihASnOlYh4", title: { ar: "مقطع من لقاء كِناز", en: "Clip from the Kenaz interview" }, uploadDate: "2026-08-20" },
+        { id: "nUTS53t74GI", title: { ar: "اقتصاديات كرة القدم | مؤلفات ومترجمات", en: "Football Economics | Our publications" }, uploadDate: "2026-07-20" },
+        { id: "-6c7ANA9YhQ", title: { ar: "الكتاب في بودكاست كِناز", en: "The book on the Kenaz podcast" }, uploadDate: "2026-07-14" },
+        { id: "a9JzxQEDJW8", title: { ar: "كتاب اقتصاديات كرة القدم في دقيقة", en: "The book in a minute" }, uploadDate: "2026-09-17", vertical: true },
+      ],
+    },
     jarirShowcase: {
       image: "/Books/Jarir.jfif",
       title: {
@@ -385,7 +403,63 @@ export const PUBLICATIONS = [
         label: { ar: "اطلب نسختك من الباتل", en: "Order your copy from Al-Batel" },
       },
     },
-    events: [],
+    eventsSub: {
+      ar: "لقطات من مشاركة الكتاب في حفلات التوقيع بمعرضي الرياض والقاهرة الدوليين للكتاب.",
+      en: "Moments from the book's signing ceremonies at the Riyadh and Cairo international book fairs.",
+    },
+    events: [
+      {
+        key: "riyadh2025",
+        title: {
+          ar: "معرض الرياض الدولي للكتاب 2025",
+          en: "Riyadh International Book Fair 2025",
+        },
+        date: { ar: "2025", en: "2025" },
+        description: {
+          ar: "حفل توقيع مشترك لكتابي «مراجعة الرقابة الداخلية والامتثال» و«اقتصاديات كرة القدم» بحضور المترجمين والمؤلفين، في جناح دار فاروس العلمية للنشر والتوزيع.",
+          en: "A joint signing of «Internal Control Audit and Compliance» and «Football Economics» with the translators and authors, at the Faros Scientific Publishing booth.",
+        },
+        images: [
+          "/Books/Riyad1.jfif",
+          "/Books/Riyad2.jfif",
+          "/Books/Riyad3.jfif",
+          "/Books/Riyad4.jfif",
+          "/Books/Riyad5.jfif",
+        ],
+      },
+      {
+        key: "cairo2026",
+        title: {
+          ar: "معرض القاهرة الدولي للكتاب 2026",
+          en: "Cairo International Book Fair 2026",
+        },
+        date: { ar: "يناير 2026", en: "January 2026" },
+        description: {
+          ar: "شارك الكتاب ضمن إصدارات الباتل في معرض القاهرة الدولي للكتاب، إلى جانب ندوة علمية وحفل توقيع بحضور المترجمين.",
+          en: "The book featured among Al-Batel's publications at the Cairo International Book Fair, alongside a scientific seminar and signing with the translators.",
+        },
+        images: [
+          "/Books/Cairo1.jfif",
+          "/Books/Cairo2.jfif",
+          "/Books/Cairo3.jfif",
+          "/Books/Cairo4.jfif",
+        ],
+      },
+    ],
+    videos: {
+      title: { ar: "من الكتاب — بالعربي وبدقيقة", en: "From the book — in a minute" },
+      sub: {
+        ar: "ضوابطك موجودة… لكن هل تستطيع إثبات أنها تعمل؟ مقطع قصير من مرجع COSO بالعربي.",
+        en: "Your controls exist — but can you prove they work? A short take from the Arabic COSO reference.",
+      },
+      featured: {
+        id: "y3TKg6sZz5I",
+        title: { ar: "ضوابطك موجودة… لكن هل تستطيع إثبات أنها تعمل؟ | مرجع COSO بالعربي", en: "Your controls exist — can you prove they work? | COSO in Arabic" },
+        uploadDate: "2026-11-09",
+        vertical: true,
+      },
+      clips: [],
+    },
     testimonialQuote: {
       ar: "ترجمة دقيقة وأكاديمية لأحد أهم مراجع الرقابة الداخلية العالمية، بلمسة مهنية من فريق الباتل.",
       en: "A precise, academic translation of one of the world's leading internal control references — with a professional touch from the Al-Batel team.",
@@ -420,6 +494,7 @@ export const PUBLICATIONS = [
       en: "Under the exclusive official patronage of the Batel Abdullah Al-Batel Foundation for Research and Studies",
     },
     price: 99,
+    originalPrice: 150,
     currency: { ar: "﷼", en: "SAR" },
     stats: [
       {

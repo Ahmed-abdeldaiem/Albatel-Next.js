@@ -96,10 +96,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/blog",
-      languages: {
-        "ar-SA": "/blog",
-        "en-US": "/blog",
-      },
     },
     openGraph: {
       title: titleEn,

@@ -1,4 +1,4 @@
-const BASE_URL = "https://albatelcpa.com";
+const BASE_URL = "https://www.albatelcpa.com";
 const FIREBASE_BASE = "https://al-batel-team-data-default-rtdb.firebaseio.com";
 
 async function getServiceDetail() {
@@ -11,6 +11,18 @@ async function getServiceDetail() {
     if (Array.isArray(data)) return data;
     if (Array.isArray(data.serviceDetail)) return data.serviceDetail;
     return [];
+  } catch {
+    return [];
+  }
+}
+
+async function getTeam() {
+  try {
+    const res = await fetch(`${FIREBASE_BASE}/team.json`, {
+      next: { revalidate: 3600 },
+    });
+    const data = await res.json();
+    return Array.isArray(data) ? data.filter(Boolean) : [];
   } catch {
     return [];
   }
@@ -31,15 +43,6 @@ async function getBranches() {
   }
 }
 
-function langAlternates(path) {
-  const url = `${BASE_URL}${path}`;
-  return {
-    languages: {
-      "ar-SA": url,
-      "en-US": url,
-    },
-  };
-}
 
 export default async function sitemap() {
   const now = new Date();
@@ -50,77 +53,73 @@ export default async function sitemap() {
       changeFrequency: "weekly",
       priority: 1,
       images: [BASE_URL + "/BatelLogo1.png"],
-      alternates: langAlternates("/"),
+    },
+    {
+      url: BASE_URL + "/audit-season",
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [BASE_URL + "/audit-season/og-audit-season.jpg"],
     },
     {
       url: BASE_URL + "/about",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
-      alternates: langAlternates("/about"),
     },
     {
       url: BASE_URL + "/services",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
-      alternates: langAlternates("/services"),
     },
     {
       url: BASE_URL + "/ourTeam",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: langAlternates("/ourTeam"),
     },
     {
       url: BASE_URL + "/partners",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: langAlternates("/partners"),
     },
     {
       url: BASE_URL + "/contact",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: langAlternates("/contact"),
     },
     {
       url: BASE_URL + "/rfp",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
-      alternates: langAlternates("/rfp"),
     },
     {
       url: BASE_URL + "/careers",
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.7,
-      alternates: langAlternates("/careers"),
     },
     {
       url: BASE_URL + "/profileVedio",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
-      alternates: langAlternates("/profileVedio"),
     },
     {
       url: BASE_URL + "/publications",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
-      alternates: langAlternates("/publications"),
     },
     {
       url: BASE_URL + "/publications/football-economics",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.85,
-      alternates: langAlternates("/publications/football-economics"),
       images: [BASE_URL + "/Books/Book1-og.jpg"],
     },
     {
@@ -128,7 +127,6 @@ export default async function sitemap() {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: langAlternates("/publications/internal-audit"),
       images: [BASE_URL + "/Books/Book2.jfif"],
     },
     {
@@ -136,7 +134,6 @@ export default async function sitemap() {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: langAlternates("/publications/sports-corruption-fraud"),
       images: [BASE_URL + "/Books/book3.JPG"],
     },
     {
@@ -144,13 +141,13 @@ export default async function sitemap() {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.7,
-      alternates: langAlternates("/blog"),
     },
   ];
 
-  const [services, branches] = await Promise.all([
+  const [services, branches, team] = await Promise.all([
     getServiceDetail(),
     getBranches(),
+    getTeam(),
   ]);
 
   const serviceUrls = (services || []).map((s) => ({
@@ -158,7 +155,6 @@ export default async function sitemap() {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
-    alternates: langAlternates(`/service/${s.id}`),
   }));
 
   const branchUrls = (branches || []).map((b) => ({
@@ -166,8 +162,14 @@ export default async function sitemap() {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,
-    alternates: langAlternates(`/branch/${b.id}`),
   }));
 
-  return [...staticPages, ...serviceUrls, ...branchUrls];
+  const teamUrls = team.map((p) => ({
+    url: `${BASE_URL}/TeamMember/${p.id}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...serviceUrls, ...branchUrls, ...teamUrls];
 }

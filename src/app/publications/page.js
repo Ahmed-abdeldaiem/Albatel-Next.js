@@ -15,10 +15,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/publications",
-      languages: {
-        "ar-SA": "/publications",
-        "en-US": "/publications",
-      },
     },
     openGraph: {
       title: titleEn,

@@ -16,10 +16,6 @@ export async function generateMetadata() {
     description: descAr,
     alternates: {
       canonical: "/partners", // Assuming the URL is /partners
-      languages: {
-        "ar-SA": "/partners",
-        "en-US": "/partners",
-      },
     },
     openGraph: {
       title: titleEn,

@@ -15,10 +15,6 @@ const descEn = "Since 2006, we have been providing SOCPA-certified consulting ex
     description: descAr,
     alternates: {
       canonical: "/about",
-      languages: {
-        "ar-SA": "/about",
-        "en-US": "/about",
-      },
     },
     openGraph: {
       title: titleEn,

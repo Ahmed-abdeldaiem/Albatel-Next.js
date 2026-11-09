@@ -30,10 +30,6 @@ const descEn = "Meet our team of certified accountants and consultants. Our dive
     description: descAr,
     alternates: {
       canonical: "/ourTeam",
-      languages: {
-        "ar-SA": "/ourTeam",
-        "en-US": "/ourTeam",
-      },
     },
     openGraph: {
       title: titleEn,

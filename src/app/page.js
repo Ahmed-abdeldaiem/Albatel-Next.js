@@ -20,6 +20,10 @@ async function getBranches() {
   }
 }
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 // Revalidate branches every 5 minutes (ISR)
 export const revalidate = 300;
 
