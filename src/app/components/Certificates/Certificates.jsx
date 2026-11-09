@@ -183,18 +183,18 @@ export default function Certificates() {
   ];
   
 const institutions=[
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/socpa.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/qadaa1.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/acca1.jpg'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/TAQEEM.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/IMA.jpg'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/IIA.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/AAOIFI.webp'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/DAP.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/SCE1.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/TVTC.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/Tegara2.png'},
-  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/HR.png'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/socpa.png', name:'الهيئة السعودية للمراجعين والمحاسبين (SOCPA)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/qadaa1.png', name:'الجمعية العلمية القضائية السعودية (قضاء)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/acca1.jpg', name:'جمعية المحاسبين القانونيين المعتمدين (ACCA)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/TAQEEM.png', name:'الهيئة السعودية للمقيّمين المعتمدين (تقييم)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/IMA.jpg', name:'معهد المحاسبين الإداريين (IMA)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/IIA.png', name:'معهد المدققين الداخليين (IIA)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/AAOIFI.webp', name:'هيئة المحاسبة والمراجعة للمؤسسات المالية الإسلامية (AAOIFI)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/DAP.png', name:'DAP'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/SCE1.png', name:'SCE'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/TVTC.png', name:'المؤسسة العامة للتدريب التقني والمهني (TVTC)'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/Tegara2.png', name:'وزارة التجارة'},
+  {img:'https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/%D9%85%D8%A4%D8%B3%D8%B3%D8%A7%D8%AA%D9%86%D8%A7%20%D8%A7%D9%84%D9%85%D8%B9%D8%AA%D9%85%D8%AF%D8%A9/HR.png', name:'HR'},
 ]
 
   return <>
@@ -218,7 +218,7 @@ const institutions=[
 {institutions.map((inst,index)=>{
   return(
     <div key={index} className='p-2 w-2/12 md:w-1/12 group group overflow-hidden'>
-<img className='w-[95%] transition-all duration-700 group-hover:scale-110' src={inst.img} alt="institutions Images" />
+<img className='w-[95%] transition-all duration-700 group-hover:scale-110' src={inst.img} alt={inst.name} loading="lazy" />
     </div>
   )
 })}

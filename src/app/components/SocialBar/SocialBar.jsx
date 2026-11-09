@@ -84,8 +84,8 @@ export default function SocialBar() {
       </div>
       {/* whatsapp button */} 
       <div className="flex gap-2 items-center justify-center">
-          <a href="https://wa.me/966550554262" className="flex flex-row gap-2 group p-2 hover:bg-white/20 rounded-full transition-all duration-300" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-            <img className="w-5 h-5 group-hover:scale-110 transition-all duration-300" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="WhatsApp" width={20} height={20} decoding="async" />
+          <a href="https://wa.me/966550554262" className="flex flex-row gap-2 group p-2 hover:bg-white/20 rounded-full transition-all duration-300" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+            <img className="w-5 h-5 group-hover:scale-110 transition-all duration-300" src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png" alt="" width={20} height={20} decoding="async" />
             <span className="text-white text-sm  ">966550554262+</span>
           </a>
         </div>
@@ -98,12 +98,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="LinkedIn"
+            title="LinkedIn" aria-label="LinkedIn"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%209.png" 
-              alt="LinkedIn"
+              alt=""
               width={20}
               height={20}
               decoding="async"
@@ -116,12 +116,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="Instagram"
+            title="Instagram" aria-label="Instagram"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%205.png" 
-              alt="Instagram"
+              alt=""
               width={20}
               height={20}
               decoding="async"
@@ -134,12 +134,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="Twitter/X"
+            title="Twitter/X" aria-label="Twitter/X"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%202.png" 
-              alt="Twitter/X"
+              alt=""
               width={20}
               height={20}
               decoding="async"
@@ -152,12 +152,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="Facebook"
+            title="Facebook" aria-label="Facebook"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%204.png" 
-              alt="Facebook"
+              alt=""
               width={20}
               height={20}
               decoding="async"
@@ -170,12 +170,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="YouTube"
+            title="YouTube" aria-label="YouTube"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%207.png" 
-              alt="YouTube"
+              alt=""
               width={20}
               height={20}
               decoding="async"
@@ -188,12 +188,12 @@ export default function SocialBar() {
             className="group p-2 hover:bg-white/20 rounded-full transition-all duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            title="TikTok"
+            title="TikTok" aria-label="TikTok"
           >
             <img 
               className="w-5 h-5 group-hover:scale-110 transition-all duration-300" 
               src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%203.png" 
-              alt="TikTok"
+              alt=""
               width={20}
               height={20}
               decoding="async"

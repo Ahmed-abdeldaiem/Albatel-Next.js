@@ -21,7 +21,7 @@ export default function PDFModal() {
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-600">
           <img
             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png"
-            alt="WhatsApp"
+            alt=""
             className="h-6 w-6"
           />
         </span>
@@ -57,7 +57,7 @@ export default function PDFModal() {
       label: dir === "rtl" ? "الملف التعريفي" : "Profile PDF",
       bg: "bg-blue-900/90",
       external: true,
-      content: <img src="/pdf.webp" alt="PDF Icon" className="h-11 w-11 rounded-full" />,
+      content: <img src="/pdf.webp" alt="" className="h-11 w-11 rounded-full" />,
     },
   ];
 

@@ -441,7 +441,7 @@ export default function Footer() {
                 >
                   <img
                     src={s.src}
-                    alt={s.name}
+                    alt=""
                     className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -465,13 +465,13 @@ export default function Footer() {
             <Link
               href="/TeamMember/42"
               target="_blank"
-              aria-label="Albatel Logo"
+              aria-label={t.developerName}
               className="inline-flex items-center"
             >
               <img
                 src="/BatelLogo1.png"
                 className="w-6 h-6 hover:rotate-180 transition-transform duration-700"
-                alt="Albatel Logo"
+                alt=""
               />
             </Link>
            

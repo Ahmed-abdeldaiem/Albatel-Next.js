@@ -261,7 +261,7 @@ function MobileNavDrawer({
           >
             <img
               src="/BatelLogo1.png"
-              alt="AlBatel & Co"
+              alt="الباتل وشركاؤه للاستشارات المهنية"
               width={503}
               height={496}
               className="h-9 w-auto shrink-0 object-contain"
@@ -646,10 +646,11 @@ function MobileNavDrawer({
                 target="_blank"
                 rel="noopener noreferrer"
                 title={s.title}
+                aria-label={s.title}
               >
                 <img
                   src={s.img}
-                  alt={s.alt}
+                  alt=""
                   className="h-3.5 w-3.5 object-contain"
                 />
               </a>
@@ -778,7 +779,7 @@ export default function NavBar() {
                     width={503}
                     height={496}
                     className="h-10 w-auto shrink-0 px-0.5 sm:h-11 transition-transform duration-500 ease-out group-active:rotate-[-6deg] motion-reduce:transition-none"
-                    alt="Albatel Logo"
+                    alt=""
                   />
                   <div className="flex min-w-0 flex-col items-start justify-center ps-0.5">
                     <span className="text-green-950 truncate text-shadow-blue text-base font-bold sm:text-lg">
@@ -863,7 +864,7 @@ export default function NavBar() {
                     width={503}
                     height={496}
                     className="inline-block w-20 px-3 transition-transform duration-500 ease-out group-hover:rotate-[-6deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
-                    alt="Albatel Logo"
+                    alt=""
                   />
                   <div className="flex flex-col items-start justify-center">
                     <span className="text-green-950 mx-1 text-shadow-blue text-xl font-bold xl:text-2xl transition-colors duration-200 group-hover:text-blue-900">
@@ -1164,7 +1165,7 @@ export default function NavBar() {
                           : "https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/ar.jpg"
                       }
                       className="h-4 w-4 rounded-full ring-1 ring-white/40"
-                      alt={currentLanguage === "en" ? "English" : "Arabic"}
+                      alt=""
                     />
                     {currentLanguage === "en" ? "En (US)" : "Ar"}
                     <svg
@@ -1205,7 +1206,7 @@ export default function NavBar() {
                           <img
                             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/en.png"
                             className="h-4 w-4 rounded-full ring-1 ring-white/30 transition-transform duration-200 group-hover/item:scale-110 motion-reduce:transition-none"
-                            alt="English"
+                            alt=""
                           />
                           En (US)
                           {currentLanguage === "en" && (
@@ -1226,7 +1227,7 @@ export default function NavBar() {
                           <img
                             src="https://raw.githubusercontent.com/Ahmed-abdeldaiem/My-Special-Icons/refs/heads/main/ar.jpg"
                             className="h-4 w-4 rounded-full ring-1 ring-white/30 transition-transform duration-200 group-hover/item:scale-110 motion-reduce:transition-none"
-                            alt="Arabic"
+                            alt=""
                           />
                           Ar
                           {currentLanguage === "ar" && (
