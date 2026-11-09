@@ -616,7 +616,7 @@ export default function AuditSeason({ serverNow, branches = [] }) {
               className="group mt-6 flex items-center gap-4 rounded-2xl border border-slate-200 p-4 transition hover:border-emerald-400 hover:shadow-lg"
             >
               <Image
-                src="/Books/Book2.jfif"
+                src="/Books/internal-audit-cover.jpg"
                 alt={t.bookTitle}
                 width={72}
                 height={100}

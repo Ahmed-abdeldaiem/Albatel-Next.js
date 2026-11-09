@@ -24,6 +24,11 @@ const nextConfig = {
           },
         ],
       },
+      // .jfif is plain JPEG, but hosts serve it as application/octet-stream
+      {
+        source: '/:path*.jfif',
+        headers: [{ key: 'Content-Type', value: 'image/jpeg' }],
+      },
     ];
   },
 };

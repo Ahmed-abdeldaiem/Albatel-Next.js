@@ -972,28 +972,23 @@ export default function NavBar() {
                             <span className="block text-[11px] text-emerald-700">{t.auditSeasonDesc}</span>
                           </span>
                         </Link>
-                        <ul className="grid grid-cols-2 gap-1 p-2">
-                          {SERVICES.map((svc, i) => {
+                        <ul className="grid grid-cols-2 gap-x-2 gap-y-0.5 p-3">
+                          {SERVICES.map((svc) => {
                             const label = dir === "rtl" ? svc.ar : svc.en;
                             return (
                               <li key={svc.id}>
                                 <Link
                                   href={`/service/${encodeURIComponent(svc.id)}`}
                                   onClick={() => setServicesDropdownOpen(false)}
-                                  className="group flex items-start gap-2.5 rounded-xl px-2.5 py-2 transition-colors hover:bg-slate-100"
+                                  className="group flex items-center gap-3 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-sky-50/80"
                                 >
-                                  <span className="relative mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-700 text-white shadow-sm">
-                                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-blue-700 ring-1 ring-inset ring-sky-100 transition-colors duration-200 group-hover:bg-blue-700 group-hover:text-white group-hover:ring-blue-700">
+                                    <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                                       <path d={svc.icon} />
                                     </svg>
-                                    <span className="absolute -top-1 -end-1 inline-flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-emerald-500 px-1 text-[9px] font-bold text-white ring-2 ring-white">
-                                      {String(i + 1).padStart(2, "0")}
-                                    </span>
                                   </span>
-                                  <span className="min-w-0 flex-1">
-                                    <span className="block text-[13px] font-bold leading-tight text-blue-950 group-hover:text-sky-700">
-                                      {label}
-                                    </span>
+                                  <span className="min-w-0 flex-1 text-[13px] font-semibold leading-snug text-slate-700 transition-colors group-hover:text-blue-900">
+                                    {label}
                                   </span>
                                 </Link>
                               </li>
@@ -1057,156 +1052,89 @@ export default function NavBar() {
                         id="pubsDropdownMenu"
                         role="menu"
                         onMouseLeave={() => setPubsDropdownOpen(false)}
-                        className={`absolute start-0 top-[calc(100%+6px)] z-50 w-[320px] overflow-hidden rounded-2xl border border-white/60 bg-white/95 shadow-2xl shadow-blue-950/20 backdrop-blur-xl transition-all duration-200 ease-out ${
+                        className={`absolute end-0 top-[calc(100%+6px)] z-50 w-[380px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-white/60 bg-white/95 shadow-2xl shadow-blue-950/20 backdrop-blur-xl transition-all duration-200 ease-out ${
                           pubsDropdownOpen
                             ? "visible translate-y-0 opacity-100"
                             : "invisible -translate-y-2 opacity-0"
                         }`}
                       >
-                        <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-emerald-900 px-4 py-3.5">
-                          <p className="text-sm font-bold text-white">
-                            {t.publications}
-                          </p>
+                        {/* Header — same pattern as the services menu */}
+                        <div className="flex items-center justify-between gap-3 bg-gradient-to-br from-blue-950 via-blue-900 to-emerald-900 px-4 py-3.5">
+                          <div className="min-w-0">
+                            <p className="text-sm font-bold text-white">
+                              {t.publications}
+                            </p>
+                            <p className="mt-0.5 text-[11px] text-sky-100/80">
+                              {t.publicationsAllDesc}
+                            </p>
+                          </div>
+                          <Link
+                            href="/publications"
+                            onClick={() => setPubsDropdownOpen(false)}
+                            className="inline-flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold text-white ring-1 ring-inset ring-white/25 backdrop-blur-sm transition hover:bg-white/25"
+                          >
+                            {t.publicationsAll}
+                            <svg className="h-3 w-3 rtl:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                              <path fillRule="evenodd" d="M7.05 4.55a.75.75 0 011.06 0l4.9 4.9a.75.75 0 010 1.06l-4.9 4.9a.75.75 0 11-1.06-1.06L11.43 10 7.05 5.61a.75.75 0 010-1.06z" clipRule="evenodd" />
+                            </svg>
+                          </Link>
                         </div>
 
-                        <ul className="p-2">
-                          <li>
-                            <Link
-                              href="/publications"
-                              onClick={() => setPubsDropdownOpen(false)}
-                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
-                            >
-                              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-700 text-white shadow-sm">
-                                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V2H6.5A2.5 2.5 0 004 4.5v15z" />
-                                </svg>
-                              </span>
-                              <span className="min-w-0">
-                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
-                                  {t.publicationsAll}
+                        <ul className="space-y-0.5 p-3">
+                          {[
+                            { href: "/publications/football-economics", cover: "/Books/thumbs/football-economics.jpg", title: t.bookFootball, desc: t.bookFootballDesc },
+                            { href: "/publications/internal-audit", cover: "/Books/thumbs/internal-audit.jpg", title: t.bookAudit, desc: t.bookAuditDesc },
+                            { href: "/publications/sports-corruption-fraud", cover: "/Books/thumbs/sports-corruption-fraud.jpg", title: t.bookSportsCorruption, desc: t.bookSportsCorruptionDesc },
+                          ].map((book) => (
+                            <li key={book.href}>
+                              <Link
+                                href={book.href}
+                                onClick={() => setPubsDropdownOpen(false)}
+                                className="group flex items-center gap-3 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-sky-50/80"
+                              >
+                                {pubsDropdownOpen ? (
+                                  <img
+                                    src={book.cover}
+                                    alt=""
+                                    width={36}
+                                    height={48}
+                                    decoding="async"
+                                    className="h-12 w-9 shrink-0 rounded-md object-cover shadow-sm ring-1 ring-slate-200 transition-transform duration-200 group-hover:-translate-y-0.5"
+                                  />
+                                ) : (
+                                  <span className="h-12 w-9 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200" aria-hidden />
+                                )}
+                                <span className="min-w-0 flex-1">
+                                  <span className="block text-[13px] font-semibold leading-snug text-slate-700 transition-colors group-hover:text-blue-900">
+                                    {book.title}
+                                  </span>
+                                  <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
+                                    {book.desc}
+                                  </span>
                                 </span>
-                                <span className="mt-0.5 block text-xs text-slate-500">
-                                  {t.publicationsAllDesc}
-                                </span>
-                              </span>
-                            </Link>
-                          </li>
+                              </Link>
+                            </li>
+                          ))}
 
-                          <li>
-                            <Link
-                              href="/publications/football-economics"
-                              onClick={() => setPubsDropdownOpen(false)}
-                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
-                            >
-                              {pubsDropdownOpen ? (
-                                <img
-                                  src="/Books/Book1.JPG"
-                                  alt=""
-                                  width={32}
-                                  height={40}
-                                  decoding="async"
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                                />
-                              ) : (
-                                <span
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
-                                  aria-hidden
-                                />
-                              )}
-                              <span className="min-w-0">
-                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
-                                  {t.bookFootball}
-                                </span>
-                                <span className="mt-0.5 block text-xs text-slate-500">
-                                  {t.bookFootballDesc}
-                                </span>
-                              </span>
-                            </Link>
-                          </li>
-
-                          <li>
-                            <Link
-                              href="/publications/internal-audit"
-                              onClick={() => setPubsDropdownOpen(false)}
-                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
-                            >
-                              {pubsDropdownOpen ? (
-                                <img
-                                  src="/Books/Book2.jfif"
-                                  alt=""
-                                  width={32}
-                                  height={40}
-                                  decoding="async"
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                                />
-                              ) : (
-                                <span
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
-                                  aria-hidden
-                                />
-                              )}
-                              <span className="min-w-0">
-                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
-                                  {t.bookAudit}
-                                </span>
-                                <span className="mt-0.5 block text-xs text-slate-500">
-                                  {t.bookAuditDesc}
-                                </span>
-                              </span>
-                            </Link>
-                          </li>
-
-                          <li>
-                            <Link
-                              href="/publications/sports-corruption-fraud"
-                              onClick={() => setPubsDropdownOpen(false)}
-                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
-                            >
-                              {pubsDropdownOpen ? (
-                                <img
-                                  src="/Books/book3.JPG"
-                                  alt=""
-                                  width={32}
-                                  height={40}
-                                  decoding="async"
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md object-cover shadow ring-1 ring-slate-200"
-                                />
-                              ) : (
-                                <span
-                                  className="mt-0.5 h-10 w-8 shrink-0 rounded-md bg-slate-100 ring-1 ring-slate-200"
-                                  aria-hidden
-                                />
-                              )}
-                              <span className="min-w-0">
-                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
-                                  {t.bookSportsCorruption}
-                                </span>
-                                <span className="mt-0.5 block text-xs text-slate-500">
-                                  {t.bookSportsCorruptionDesc}
-                                </span>
-                              </span>
-                            </Link>
-                          </li>
-
-                          <li className="my-1 border-t border-slate-200" />
+                          <li className="!my-2 border-t border-slate-100" aria-hidden />
 
                           <li>
                             <Link
                               href="/blog"
                               onClick={() => setPubsDropdownOpen(false)}
-                              className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100"
+                              className="group flex items-center gap-3 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-sky-50/80"
                             >
-                              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-green-700 text-white shadow-sm">
-                                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" />
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 9h6M7 13h10M7 17h10" />
+                              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-blue-700 ring-1 ring-inset ring-sky-100 transition-colors duration-200 group-hover:bg-blue-700 group-hover:text-white group-hover:ring-blue-700">
+                                <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                                  <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" />
+                                  <path d="M7 9h6M7 13h10M7 17h10" />
                                 </svg>
                               </span>
-                              <span className="min-w-0">
-                                <span className="block text-sm font-bold text-blue-950 group-hover:text-sky-700">
+                              <span className="min-w-0 flex-1">
+                                <span className="block text-[13px] font-semibold leading-snug text-slate-700 transition-colors group-hover:text-blue-900">
                                   {t.blog}
                                 </span>
-                                <span className="mt-0.5 block text-xs text-slate-500">
+                                <span className="mt-0.5 block text-[11px] leading-snug text-slate-500">
                                   {t.blogDesc}
                                 </span>
                               </span>

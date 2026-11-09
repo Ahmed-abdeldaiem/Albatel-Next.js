@@ -189,7 +189,7 @@ export const UPCOMING_EVENTS = [
     },
     books: ["football-economics", "internal-audit", "sports-corruption-fraud"],
     href: "/publications",
-    image: "/Books/Riyad3.jfif",
+    image: "/Books/riyadh-2025-signing.jpg",
     imageCaption: {
       ar: "من حفل توقيع إصداراتنا في معرض الرياض 2025",
       en: "From our book signing at the Riyadh fair 2025",
