@@ -1,32 +1,15 @@
-import axios from 'axios';
 import { notFound } from 'next/navigation';
 import BranchDetails from './BranchDetails';
 
-const BASE_URL = 'https://al-batel-team-data-default-rtdb.firebaseio.com/';
+import { getFirebaseNode, toList, requireList } from '@/lib/firebase';
 
+// Prebuilt at deploy time, refreshed once a day from Firebase.
+export const revalidate = 86400;
 
-async function getBranches( ) {
-  try {
-    const response = await axios.get(`${BASE_URL}/branches.json`);
-    const data = response.data;
-
-    if (!data) {
-      return [];
-    }
-
-    if (Array.isArray(data)) {
-      return data;
-    }
-
-    if (Array.isArray(data.branches)) {
-      return data.branches;
-    }
-
-    return [];
-  } catch (error) {
-    console.error("Failed to fetch branches:", error);
-    return []; 
-  }
+// Firebase errors are thrown (not swallowed), so a failed fetch keeps the last
+// good page instead of caching a 404.
+async function getBranches() {
+  return toList(await getFirebaseNode('branches'));
 }
 
 
@@ -96,7 +79,8 @@ export default async function BranchPage({ params }) {
 
 //  (Static Site Generation - SSG).
 export async function generateStaticParams() {
-  const branches = await getBranches();
+  // Fails the build if the node is unexpectedly empty, so the live pages stay up.
+  const branches = requireList(await getFirebaseNode('branches'), 'branches');
 
   return branches.map((branch) => ({
     id: branch.id.toString(),

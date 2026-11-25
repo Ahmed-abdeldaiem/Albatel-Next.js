@@ -81,7 +81,6 @@ const BLOG_POSTS = [
   },
 ];
 
-export const revalidate = 3600;
 
 export async function generateMetadata() {
   const titleAr = "المدونة | الباتل وشركاؤه للاستشارات المهنية";

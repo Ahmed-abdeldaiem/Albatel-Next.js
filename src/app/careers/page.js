@@ -1,5 +1,5 @@
 import AvailableJobs from "./AvailableJobs";
-import axios from "axios";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
 // Generate metadata for SEO
 export async function generateMetadata() {
@@ -39,20 +39,13 @@ export async function generateMetadata() {
   }
   
 
-export const revalidate = 60;
+// Job posts are time-sensitive: refresh hourly (ISR).
+export const revalidate = 3600;
 
+// Empty node (null) means no open jobs. Firebase errors are thrown, so a
+// failed refresh keeps the last good page.
 async function getJobsServer() {
-  try {
-    const { data } = await axios.get(
-      "https://al-batel-team-data-default-rtdb.firebaseio.com/jobs.json",
-      { withCredentials: false }
-    );
-    if (!data) return [];
-    const list = Array.isArray(data) ? data : Object.values(data);
-    return (list || []).filter(Boolean);
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("jobs"));
 }
 
 export default async function AvailableJobsPage() {

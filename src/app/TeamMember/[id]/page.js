@@ -1,9 +1,20 @@
 import { notFound } from "next/navigation";
 import TeamMember from "./TeamMember";
+import { getFirebaseNode, toList, requireList } from "@/lib/firebase";
 
-const BASE_URL = "https://al-batel-team-data-default-rtdb.firebaseio.com";
+// Prebuilt at deploy time and refreshed once a day. A member added later is
+// still found on first visit (dynamicParams defaults to true), and a Vercel
+// Redeploy refreshes every profile immediately.
+export const revalidate = 86400;
 
-export const revalidate = 3600;
+export async function generateStaticParams() {
+  // requireList fails the build if team.json is unexpectedly empty, so a bad
+  // upload can never replace the live profiles with 404s.
+  const team = requireList(await getFirebaseNode("team"), "team");
+  return team
+    .filter((p) => p.id != null && String(p.id).trim() !== "")
+    .map((p) => ({ id: String(p.id) }));
+}
 
 const LOGO_OG = {
   url: "https://www.albatelcpa.com/BatelLogo1.png",
@@ -13,19 +24,12 @@ const LOGO_OG = {
   type: "image/png",
 };
 
+// Returns null only when the member really is not in team.json. Network or
+// Firebase errors are thrown (see getFirebaseNode), so they never turn a real
+// profile into a cached 404.
 async function getPerson(id) {
-  try {
-    const res = await fetch(`${BASE_URL}/team.json`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return null;
-    const team = await res.json();
-    if (!Array.isArray(team)) return null;
-    return team.find((p) => p && String(p.id) === String(id)) || null;
-  } catch (error) {
-    console.error("Failed to fetch team:", error);
-    return null;
-  }
+  const team = toList(await getFirebaseNode("team"));
+  return team.find((p) => String(p.id) === String(id)) || null;
 }
 
 export async function generateMetadata({ params }) {

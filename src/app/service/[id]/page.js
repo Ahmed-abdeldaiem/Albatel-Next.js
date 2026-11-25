@@ -1,32 +1,15 @@
-import axios from 'axios';
 import { notFound } from 'next/navigation';
 import ServiceDetail from './ServiceDetail';
 
-const BASE_URL = 'https://al-batel-team-data-default-rtdb.firebaseio.com/';
+import { getFirebaseNode, toList, requireList } from '@/lib/firebase';
 
+// Prebuilt at deploy time, refreshed once a day from Firebase.
+export const revalidate = 86400;
 
-async function getServiceDetail( ) {
-  try {
-    const response = await axios.get(`${BASE_URL}/serviceDetail.json`);
-    const data = response.data;
-
-    if (!data) {
-      return [];
-    }
-
-    if (Array.isArray(data)) {
-      return data;
-    }
-
-    if (Array.isArray(data.serviceDetail)) {
-      return data.serviceDetail;
-    }
-
-    return [];
-  } catch (error) {
-    console.error("Failed to fetch serviceDetail:", error);
-    return []; 
-  }
+// Firebase errors are thrown (not swallowed), so a failed fetch keeps the last
+// good page instead of caching a 404.
+async function getServiceDetail() {
+  return toList(await getFirebaseNode('serviceDetail'));
 }
 
 
@@ -107,7 +90,8 @@ export default async function ServiceDetailPage({ params }) {
 
 
 export async function generateStaticParams() {
-  const services = await getServiceDetail();
+  // Fails the build if the node is unexpectedly empty, so the live pages stay up.
+  const services = requireList(await getFirebaseNode('serviceDetail'), 'serviceDetail');
 
   return services.map((service) => ({
     id: service.id.toString(),

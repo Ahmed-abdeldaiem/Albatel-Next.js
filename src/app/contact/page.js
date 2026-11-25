@@ -1,24 +1,14 @@
-import axios from "axios";
 import ContactUs from "./ContactUs";
 
-const BASE_URL = "https://al-batel-team-data-default-rtdb.firebaseio.com";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function getBranches() {
-  try {
-    const response = await axios.get(`${BASE_URL}/branches.json`);
-    const data = response.data;
-
-    if (!data) return [];
-    if (Array.isArray(data)) return data.filter(Boolean);
-    if (Array.isArray(data.branches)) return data.branches.filter(Boolean);
-    return [];
-  } catch (error) {
-    console.error("Failed to fetch branches:", error);
-    return [];
-  }
+  return toList(await getFirebaseNode("branches"));
 }
 
-export const revalidate = 300;
+// Branch contact details rarely change: refresh once a day (ISR).
+export const revalidate = 86400;
 
 export async function generateMetadata() {
   const titleAr = "تواصل معنا | الباتل وشركاؤه للاستشارات المهنية";

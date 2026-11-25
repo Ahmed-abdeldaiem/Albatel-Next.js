@@ -2,18 +2,14 @@
 
 import TeamPage2 from "./TeamPage2";
 
-export const revalidate = 60;
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
+// Team list rarely changes: refresh once a day (ISR).
+export const revalidate = 86400;
+
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function getTeamMembersServer() {
-  const res = await fetch(
-    "https://al-batel-team-data-default-rtdb.firebaseio.com/TeamMember.json",
-    { next: { revalidate: 60 } }
-  );
-  if (!res.ok) return [];
-  const data = await res.json();
-  if (!data) return [];
-  const list = Array.isArray(data) ? data : Object.values(data);
-  return (list || []).filter(Boolean);
+  return toList(await getFirebaseNode("TeamMember"));
 }
 
 

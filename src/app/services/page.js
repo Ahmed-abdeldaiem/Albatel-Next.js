@@ -1,20 +1,14 @@
 import Services from "./Services";
 
+import { getFirebaseNode, toList } from "@/lib/firebase";
+
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function fetchServices() {
-  const res = await fetch("https://al-batel-team-data-default-rtdb.firebaseio.com/service.json", {
-    // Revalidate periodically to keep data fresh
-    next: { revalidate: 300 },
-    // Accept errors gracefully
-    cache: "force-cache",
-  });
-  if (!res.ok) {
-    return null;
-  }
-  const data = await res.json();
-  return data || null;
+  return toList(await getFirebaseNode("service"));
 }
 
-export const revalidate = 300;
+// Services rarely change: refresh once a day (ISR).
+export const revalidate = 86400;
 
 export async function generateMetadata() {
 
@@ -58,7 +52,7 @@ export default async function ServicesPage() {
   const services = await fetchServices();
   // If no data, you could throw notFound() to use 404 page
   // but for now, pass empty array
-  return <Services services={Array.isArray(services) ? services : []} />;
+  return <Services services={services} />;
 }
 
 

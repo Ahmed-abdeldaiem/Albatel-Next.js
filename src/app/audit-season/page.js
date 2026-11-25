@@ -1,27 +1,17 @@
 import AuditSeason from "./AuditSeason";
 import { AUDIT_FAQ } from "./content";
 import { getAuditSeason } from "../data/campaigns";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
 const SITE_URL = "https://www.albatelcpa.com";
 const PAGE_URL = `${SITE_URL}/audit-season`;
-const FIREBASE_BASE = "https://al-batel-team-data-default-rtdb.firebaseio.com";
 
 // Re-render daily so the season year in titles stays current.
 export const revalidate = 86400;
 
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function getBranches() {
-  try {
-    const res = await fetch(`${FIREBASE_BASE}/branches.json`, {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    if (Array.isArray(data)) return data.filter(Boolean);
-    if (Array.isArray(data?.branches)) return data.branches.filter(Boolean);
-    return [];
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("branches"));
 }
 
 export async function generateMetadata() {

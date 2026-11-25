@@ -1,8 +1,9 @@
-import axios from "axios";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 import Partners from "./Partners";
 
 
-export const revalidate = 60;
+// Partners rarely change: refresh once a day (ISR).
+export const revalidate = 86400;
 
 // Generate metadata for SEO
 export async function generateMetadata() {
@@ -41,17 +42,9 @@ export async function generateMetadata() {
   };
 }
 
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function getPartnersServer() {
-  try {
-    const { data } = await axios.get(
-      "https://al-batel-team-data-default-rtdb.firebaseio.com/partners.json"
-     );
-    if (!data) return [];
-    const list = Array.isArray(data) ? data : Object.values(data);
-    return (list || []).filter(Boolean);
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("partners"));
 }
 
 export default async function PartnersPage() {

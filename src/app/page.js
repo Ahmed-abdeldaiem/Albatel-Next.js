@@ -1,31 +1,18 @@
 import HomeContent from "./HomeContent";
 
-const BASE_URL = "https://al-batel-team-data-default-rtdb.firebaseio.com";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
+// Firebase errors are thrown, so a failed refresh keeps the last good page.
 async function getBranches() {
-  try {
-    const response = await fetch(`${BASE_URL}/branches.json`, {
-      next: { revalidate: 300 },
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-
-    if (!data) return [];
-    if (Array.isArray(data)) return data.filter(Boolean);
-    if (Array.isArray(data.branches)) return data.branches.filter(Boolean);
-    return [];
-  } catch (error) {
-    console.error("Failed to fetch branches:", error);
-    return [];
-  }
+  return toList(await getFirebaseNode("branches"));
 }
 
 export const metadata = {
   alternates: { canonical: "/" },
 };
 
-// Revalidate branches every 5 minutes (ISR)
-export const revalidate = 300;
+// Branches rarely change: refresh once a day (ISR).
+export const revalidate = 86400;
 
 export default async function Home() {
   const branches = await getBranches();

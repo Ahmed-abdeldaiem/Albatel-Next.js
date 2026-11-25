@@ -1,46 +1,21 @@
 const BASE_URL = "https://www.albatelcpa.com";
-const FIREBASE_BASE = "https://al-batel-team-data-default-rtdb.firebaseio.com";
+import { getFirebaseNode, toList } from "@/lib/firebase";
 
+// Regenerate the sitemap once a day (it only changes when pages are added).
+export const revalidate = 86400;
+
+// Firebase errors are thrown, so a failed refresh keeps the last good sitemap
+// instead of publishing one with missing URLs.
 async function getServiceDetail() {
-  try {
-    const res = await fetch(`${FIREBASE_BASE}/serviceDetail.json`, {
-      next: { revalidate: 3600 },
-    });
-    const data = await res.json();
-    if (!data) return [];
-    if (Array.isArray(data)) return data;
-    if (Array.isArray(data.serviceDetail)) return data.serviceDetail;
-    return [];
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("serviceDetail"));
 }
 
 async function getTeam() {
-  try {
-    const res = await fetch(`${FIREBASE_BASE}/team.json`, {
-      next: { revalidate: 3600 },
-    });
-    const data = await res.json();
-    return Array.isArray(data) ? data.filter(Boolean) : [];
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("team"));
 }
 
 async function getBranches() {
-  try {
-    const res = await fetch(`${FIREBASE_BASE}/branches.json`, {
-      next: { revalidate: 3600 },
-    });
-    const data = await res.json();
-    if (!data) return [];
-    if (Array.isArray(data)) return data;
-    if (Array.isArray(data.branches)) return data.branches;
-    return [];
-  } catch {
-    return [];
-  }
+  return toList(await getFirebaseNode("branches"));
 }
 
 
