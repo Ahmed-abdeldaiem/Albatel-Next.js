@@ -191,7 +191,7 @@ export const UPCOMING_EVENTS = [
     },
     books: ["football-economics", "internal-audit", "sports-corruption-fraud"],
     href: "/publications",
-    image: "/Books/Cairo4.jfif",
+    image: "/Books/cairo-2026-seminar.jpg",
     imagePosition: "50% 35%", // keep the three authors and the fair logo in frame
     imageCaption: {
       ar: "المؤلفون الثلاثة في الندوة العلمية — معرض القاهرة 2026",
