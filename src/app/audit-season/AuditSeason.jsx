@@ -342,24 +342,24 @@ export default function AuditSeason({ serverNow, branches = [] }) {
 
         <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:px-10 lg:pb-28 lg:pt-40">
           <div>
-            <nav aria-label={isRtl ? "مسار التنقل" : "Breadcrumb"} className="mb-5 text-xs text-white/60">
+            <nav data-aos="fade-down" aria-label={isRtl ? "مسار التنقل" : "Breadcrumb"} className="mb-5 text-xs text-white/60">
               <Link href="/" className="hover:text-white">{isRtl ? "الرئيسية" : "Home"}</Link>
               <span className="mx-2">/</span>
               <Link href="/services" className="hover:text-white">{isRtl ? "خدماتنا" : "Services"}</Link>
               <span className="mx-2">/</span>
               <span className="text-white/90">{t.eyebrow}</span>
             </nav>
-            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-1.5 text-xs font-bold text-white sm:text-sm">
+            <span data-aos="fade-up" className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-1.5 text-xs font-bold text-white sm:text-sm">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
               {t.eyebrow}
             </span>
-            <h1 className="mt-5 text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 data-aos="fade-up" data-aos-delay="100" className="mt-5 text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
               {t.h1}
             </h1>
-            <p className="mt-3 text-2xl font-bold text-emerald-400 sm:text-3xl">{t.tagline}</p>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">{t.sub}</p>
+            <p data-aos="fade-up" data-aos-delay="150" className="mt-3 text-2xl font-bold text-emerald-400 sm:text-3xl">{t.tagline}</p>
+            <p data-aos="fade-up" data-aos-delay="200" className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">{t.sub}</p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div data-aos="fade-up" data-aos-delay="250" className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#audit-form"
                 data-cta="audit-season-hero"
@@ -383,8 +383,8 @@ export default function AuditSeason({ serverNow, branches = [] }) {
             </div>
 
             <ul className="mt-8 grid max-w-xl grid-cols-2 gap-2 text-sm text-white">
-              {t.chips.map((c) => (
-                <li key={c} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 backdrop-blur">
+              {t.chips.map((c, i) => (
+                <li key={c} data-aos="zoom-in" data-aos-delay={300 + i * 60} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 backdrop-blur">
                   <Check />
                   {c}
                 </li>
@@ -392,7 +392,7 @@ export default function AuditSeason({ serverNow, branches = [] }) {
             </ul>
           </div>
 
-          <div className="lg:justify-self-end">
+          <div className="lg:justify-self-end" data-aos={isRtl ? "fade-right" : "fade-left"} data-aos-delay="200">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
               <Countdown
                 days={next.days}

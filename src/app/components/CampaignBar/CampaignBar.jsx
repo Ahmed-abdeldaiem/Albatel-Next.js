@@ -108,7 +108,7 @@ export default function CampaignBar() {
       dir={dir}
       role="region"
       aria-label={isRtl ? "إعلان" : "Announcement"}
-      className="fixed bottom-4 left-[4.25rem] right-[4.5rem] z-[60] mx-auto max-w-2xl sm:bottom-5"
+      className="fixed inset-x-[4.5rem] bottom-4 z-[60] mx-auto max-w-2xl sm:bottom-5"
     >
       <div className="flex items-center gap-2 rounded-2xl border border-white/15 bg-gradient-to-r from-blue-950/95 via-blue-900/95 to-emerald-900/95 p-2 ps-3 text-white shadow-2xl shadow-blue-950/40 backdrop-blur-md sm:gap-3 sm:rounded-full">
         <span

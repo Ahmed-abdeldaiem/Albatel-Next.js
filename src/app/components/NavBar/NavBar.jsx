@@ -6,9 +6,6 @@ import { LanguageContext } from "../../contexts/langContext";
 import { BRANCHES } from "../../data/branches";
 import useScrolledPast from "../../hooks/useScrolledPast";
 
-const WA_URL = "https://wa.me/966550554262";
-const WA_ICON =
-  "https://raw.githubusercontent.com/Ahmed-abdeldaiem/Albatel_API2/refs/heads/main/social%20icons/Asset%2010.png";
 
 const SOCIAL_LINKS = [
   {
@@ -767,51 +764,24 @@ export default function NavBar() {
           className={`fixed ${headerTop} z-40 mx-auto w-full bg-gray-100 bg-opacity-80 shadow-lg shadow-gray-500 backdrop-blur-lg transition-all duration-500 lg:w-[97%] lg:rounded-full lg:bg-white lg:bg-opacity-70`}
         >
           <div className="relative mx-auto h-16 w-full max-w-[100vw] px-3 sm:px-5 lg:px-10">
-            <div className="grid h-full w-full grid-cols-[1fr_auto_1fr] items-center gap-1 lg:hidden">
-              <div className="flex min-w-0 justify-start">
+            <div className="flex h-full w-full items-center justify-between gap-3 lg:hidden">
+              <div className="flex min-w-0 flex-1 justify-start">
                 <Link
-                  className="group flex min-w-0 max-w-full items-center rounded-lg text-gray-950 transition-transform duration-300 ease-out active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 motion-reduce:transition-none"
+                  className="group flex min-w-0 max-w-full items-center rounded-lg transition-transform duration-300 ease-out active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 motion-reduce:transition-none"
                   href="/"
-                  aria-label={dir === "rtl" ? "الباتل - الصفحة الرئيسية" : "AlBatel - Home"}
+                  aria-label={dir === "rtl" ? "الباتل وشركاؤه للاستشارات المهنية - الصفحة الرئيسية" : "AlBatel & Co Professional Services - Home"}
                 >
                   <img
-                    src="/BatelLogo1.png"
-                    width={503}
-                    height={496}
-                    className="h-10 w-auto shrink-0 px-0.5 sm:h-11 transition-transform duration-500 ease-out group-active:rotate-[-6deg] motion-reduce:transition-none"
-                    alt=""
+                    src="/albatel-logo-full.png"
+                    width={838}
+                    height={160}
+                    className="h-10 w-auto max-w-full object-contain min-[400px]:h-11 sm:h-12"
+                    alt="الباتل وشركاؤه للاستشارات المهنية - AlBatel & Co Professional Services"
                   />
-                  <div className="flex min-w-0 flex-col items-start justify-center ps-0.5">
-                    <span className="text-green-950 truncate text-shadow-blue text-base font-bold sm:text-lg">
-                      الباتل
-                    </span>
-                    <span className="text-blue-950 truncate text-shadow-blue text-[10px] font-medium sm:text-xs sm:text-nowrap">
-                      AlBatel & Co
-                    </span>
-                  </div>
                 </Link>
               </div>
 
-              <div className="flex justify-center">
-                <a
-                  href={WA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="WhatsApp"
-                  aria-label="WhatsApp"
-                  className="group relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-emerald-400/90 bg-white shadow-md shadow-emerald-900/10 transition-all duration-200 ease-out hover:scale-110 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/30 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 motion-reduce:transition-none motion-reduce:hover:scale-100"
-                >
-                  <span className="pointer-events-none absolute inset-0 rounded-full bg-emerald-400/0 transition-colors duration-300 group-hover:bg-emerald-400/10" aria-hidden />
-                  <span className="pointer-events-none absolute -inset-1 rounded-full border-2 border-emerald-400/50 opacity-0 group-hover:opacity-100 group-hover:animate-ping motion-reduce:group-hover:animate-none" aria-hidden />
-                  <img
-                    src={WA_ICON}
-                    alt=""
-                    className="relative h-6 w-6 object-contain transition-transform duration-200 group-hover:rotate-[12deg] motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
-                  />
-                </a>
-              </div>
-
-              <div className="flex justify-end">
+              <div className="flex shrink-0 justify-end">
                 <button
                   type="button"
                   onClick={() => setIsOpen((o) => !o)}
