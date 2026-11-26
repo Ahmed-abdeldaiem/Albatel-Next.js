@@ -163,37 +163,39 @@ export function getSeasonMessage(season, isRtl) {
    ========================================================= */
 export const UPCOMING_EVENTS = [
   {
-    key: "riyadh-book-fair-2026",
+    key: "cairo-book-fair-2027",
     type: "book-fair",
-    visibleFrom: "2026-11-01",
-    visibleUntil: "2027-01-01",
+    visibleFrom: "2026-11-26",
+    // Fair dates not announced yet — once they are, fill `dates` and set this
+    // to the day after the fair closes.
+    visibleUntil: "2027-03-01",
     title: {
-      ar: "معرض الرياض الدولي للكتاب 2026",
-      en: "Riyadh International Book Fair 2026",
+      ar: "معرض القاهرة الدولي للكتاب 2027",
+      en: "Cairo International Book Fair 2027",
     },
-    when: { ar: "ديسمبر 2026", en: "December 2026" },
-    dates: null, // e.g. { ar: "11 – 20 ديسمبر 2026", en: "11 – 20 December 2026" }
-    booth: null, // e.g. { ar: "دار فاروس — جناح 9M", en: "Faros House — Booth 9M" }
-    signing: null, // e.g. { ar: "الجمعة 18 ديسمبر، 7 مساءً", en: "Friday 18 Dec, 7 PM" }
+    when: { ar: "الموعد يُعلن قريبًا", en: "Dates to be announced" },
+    dates: null, // e.g. { ar: "22 يناير – 3 فبراير 2027", en: "22 Jan – 3 Feb 2027" }
+    booth: null, // e.g. { ar: "دار فاروس العلمية — جناح C35", en: "Faros Scientific House — Booth C35" }
+    signing: null, // e.g. { ar: "الجمعة 29 يناير، 5 مساءً", en: "Friday 29 Jan, 5 PM" }
     location: {
-      ar: "الرياض، المملكة العربية السعودية",
-      en: "Riyadh, Saudi Arabia",
+      ar: "القاهرة، جمهورية مصر العربية",
+      en: "Cairo, Egypt",
     },
     pending: {
-      ar: "تفاصيل الجناح ومواعيد حفل التوقيع تُعلن قريبًا",
-      en: "Booth details and signing times will be announced soon",
+      ar: "موعد المعرض وتفاصيل الجناح وحفل التوقيع تُعلن فور اعتمادها",
+      en: "Fair dates, booth and signing details will be announced once confirmed",
     },
     description: {
-      ar: "نشارك بإصداراتنا الثلاثة في معرض الرياض الدولي للكتاب، مع لقاء المؤلفين وحفل توقيع.",
-      en: "We take part with all three of our publications, with an author meet-up and book signing.",
+      ar: "بعد ندوة علمية وحفل توقيع لاقيا حضورًا لافتًا في الدورة الماضية، نتطلّع بشغف إلى العودة إلى معرض القاهرة الدولي للكتاب بإصداراتنا الثلاثة، ولقاء القرّاء والمؤلفين من جديد.",
+      en: "After a well-attended seminar and book signing at the last edition, we look forward to returning to the Cairo International Book Fair with all three of our publications — and meeting readers and the authors once again.",
     },
     books: ["football-economics", "internal-audit", "sports-corruption-fraud"],
     href: "/publications",
-    image: "/Books/riyadh-2025-authors.jpg",
-    imagePosition: "50% 30%", // portrait photo — keep the three authors' faces in frame
+    image: "/Books/Cairo4.jfif",
+    imagePosition: "50% 35%", // keep the three authors and the fair logo in frame
     imageCaption: {
-      ar: "المؤلفون الثلاثة على منصة التوقيع — معرض الرياض 2025",
-      en: "The three authors at the signing platform — Riyadh fair 2025",
+      ar: "المؤلفون الثلاثة في الندوة العلمية — معرض القاهرة 2026",
+      en: "The three authors at the seminar — Cairo fair 2026",
     },
   },
 ];
